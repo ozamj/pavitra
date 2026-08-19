@@ -32,14 +32,14 @@ const Hero = () => {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen bg-[#121614] overflow-hidden flex items-center"
+      className="relative min-h-screen bg-[#150F1E] overflow-hidden flex items-center"
       data-testid="hero-section"
     >
       <div
         className="glow-pulse absolute -top-40 -right-40 w-[34rem] h-[34rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(217,119,6,0.22) 0%, rgba(217,119,6,0) 70%)",
+            "radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(212,175,55,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -47,7 +47,7 @@ const Hero = () => {
         className="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(140,50,24,0.25) 0%, rgba(140,50,24,0) 70%)",
+            "radial-gradient(circle, rgba(91,42,134,0.25) 0%, rgba(91,42,134,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -60,7 +60,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="flex items-center gap-4 mb-8"
           >
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#D97706]/40 text-[#D97706] rounded-full">
+            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#D4AF37]/40 text-[#D4AF37] rounded-full">
               01
             </span>
             <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#F4F1EA]/60">
@@ -72,10 +72,10 @@ const Hero = () => {
             <MaskedLine delay={0.35}>This is not just</MaskedLine>
             <MaskedLine delay={0.47}>an organisation.</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#D97706]">This is a sankalp</span>
+              <span className="italic text-[#D4AF37]">This is a sankalp</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#D97706]">for Bharat.</span>
+              <span className="italic text-[#D4AF37]">for Bharat.</span>
             </MaskedLine>
           </h1>
 
@@ -103,10 +103,10 @@ const Hero = () => {
                   .getElementById("thought")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="group flex items-center gap-3 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#F4F1EA]/70 hover:text-[#D97706] transition-colors duration-300"
+              className="group flex items-center gap-3 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#F4F1EA]/70 hover:text-[#D4AF37] transition-colors duration-300"
               data-testid="hero-scroll-indicator"
             >
-              <span className="w-10 h-10 rounded-full border border-[#F4F1EA]/25 flex items-center justify-center group-hover:border-[#D97706] transition-colors duration-300">
+              <span className="w-10 h-10 rounded-full border border-[#F4F1EA]/25 flex items-center justify-center group-hover:border-[#D4AF37] transition-colors duration-300">
                 <ArrowDown size={15} className="animate-bounce" />
               </span>
               Read the manifesto
@@ -125,7 +125,7 @@ const Hero = () => {
         >
           <motion.div
             style={{ y: imgY }}
-            className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#D97706]/25 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
+            className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#D4AF37]/25 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
           >
             <img
               src={HERO_IMG}
@@ -133,7 +133,7 @@ const Hero = () => {
               className="w-full h-[52vh] lg:h-[64vh] object-cover"
               data-testid="hero-image"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#121614]/55 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#150F1E]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
                 Intention · Responsibility · Action
@@ -141,7 +141,7 @@ const Hero = () => {
             </div>
           </motion.div>
           <div
-            className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full border border-[#D97706]/30 pointer-events-none"
+            className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full border border-[#D4AF37]/30 pointer-events-none"
             aria-hidden="true"
           />
         </motion.div>

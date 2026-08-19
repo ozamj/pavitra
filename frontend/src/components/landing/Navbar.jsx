@@ -28,7 +28,7 @@ const Navbar = () => {
       transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-[80] transition-colors duration-500 ${
         scrolled
-          ? "bg-[#121614]/85 backdrop-blur-md border-b border-[#D97706]/15"
+          ? "bg-[#150F1E]/85 backdrop-blur-md border-b border-[#D4AF37]/15"
           : "bg-transparent border-b border-transparent"
       }`}
       data-testid="main-navbar"
@@ -39,7 +39,7 @@ const Navbar = () => {
           className="flex items-center gap-2.5 group"
           data-testid="nav-logo-button"
         >
-          <span className="w-9 h-9 rounded-full bg-[#8C3218] flex items-center justify-center transition-transform duration-500 group-hover:rotate-[25deg]">
+          <span className="w-9 h-9 rounded-full bg-[#5B2A86] flex items-center justify-center transition-transform duration-500 group-hover:rotate-[25deg]">
             <Flower2 className="w-4.5 h-4.5 text-[#FAF7F2]" size={18} />
           </span>
           <span className="font-display text-xl sm:text-2xl font-semibold tracking-wide text-[#F4F1EA]">
@@ -55,10 +55,10 @@ const Navbar = () => {
               className="group flex items-baseline gap-1.5 font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#F4F1EA]/70 hover:text-[#F4F1EA] transition-colors duration-300"
               data-testid={`nav-link-${l.id}`}
             >
-              <span className="text-[#D97706] text-[9px]">{l.n}</span>
+              <span className="text-[#D4AF37] text-[9px]">{l.n}</span>
               <span className="relative">
                 {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D97706] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
               </span>
             </button>
           ))}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
         <button
           onClick={() => go("join")}
-          className="group flex items-center gap-2 bg-[#8C3218] hover:bg-[#D97706] text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400"
+          className="group flex items-center gap-2 bg-[#5B2A86] hover:bg-[#D4AF37] text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400"
           data-testid="nav-join-button"
         >
           Join

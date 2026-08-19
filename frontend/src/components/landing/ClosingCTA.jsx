@@ -4,19 +4,19 @@ import { ArrowUpRight, Flower2 } from "lucide-react";
 const ClosingCTA = () => (
   <section
     id="join"
-    className="relative bg-[#702611] py-24 sm:py-32 lg:py-40 overflow-hidden"
+    className="relative bg-[#3E1A5F] py-24 sm:py-32 lg:py-40 overflow-hidden"
     data-testid="closing-cta-section"
   >
     <div
       className="glow-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[42rem] h-[42rem] rounded-full pointer-events-none"
       style={{
         background:
-          "radial-gradient(circle, rgba(217,119,6,0.28) 0%, rgba(217,119,6,0) 65%)",
+          "radial-gradient(circle, rgba(212,175,55,0.28) 0%, rgba(212,175,55,0) 65%)",
       }}
       aria-hidden="true"
     />
     <div
-      className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D97706]/60 to-transparent"
+      className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"
       aria-hidden="true"
     />
 
@@ -26,9 +26,9 @@ const ClosingCTA = () => (
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto w-16 h-16 rounded-full border border-[#D97706]/50 bg-[#8C3218]/40 flex items-center justify-center"
+        className="mx-auto w-16 h-16 rounded-full border border-[#D4AF37]/50 bg-[#5B2A86]/40 flex items-center justify-center"
       >
-        <Flower2 size={26} className="text-[#D97706]" />
+        <Flower2 size={26} className="text-[#D4AF37]" />
       </motion.div>
 
       <motion.p
@@ -36,7 +36,7 @@ const ClosingCTA = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="mt-8 font-mono-x text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#D97706]"
+        className="mt-8 font-mono-x text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#D4AF37]"
         data-testid="cta-chapter-tag"
       >
         06 · The Calling
@@ -50,7 +50,7 @@ const ClosingCTA = () => (
         className="mt-6 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#FDFBF7]"
       >
         Be a Part of the{" "}
-        <span className="italic text-[#D97706]">Pavitra Sankalp</span>
+        <span className="italic text-[#D4AF37]">Pavitra Sankalp</span>
       </motion.h2>
 
       <motion.p
@@ -75,7 +75,7 @@ const ClosingCTA = () => (
         <motion.button
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
-          className="group inline-flex items-center gap-3 bg-[#FAF7F2] hover:bg-[#D97706] text-[#702611] hover:text-[#FAF7F2] font-mono-x text-xs sm:text-sm tracking-[0.2em] uppercase px-10 py-5 rounded-full shadow-[0_24px_48px_-16px_rgba(0,0,0,0.45)] transition-colors duration-400"
+          className="group inline-flex items-center gap-3 bg-[#FAF7F2] hover:bg-[#D4AF37] text-[#3E1A5F] hover:text-[#FAF7F2] font-mono-x text-xs sm:text-sm tracking-[0.2em] uppercase px-10 py-5 rounded-full shadow-[0_24px_48px_-16px_rgba(0,0,0,0.45)] transition-colors duration-400"
           data-testid="join-movement-button"
         >
           Join The Movement

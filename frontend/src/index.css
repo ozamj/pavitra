@@ -6,16 +6,16 @@
 
 :root {
     --sand: #FAF7F2;
-    --surface: #F2EBE1;
+    --surface: #F3EEF7;
     --ivory: #FDFBF7;
     --ink: #1C1917;
     --muted-warm: #57534E;
-    --terracotta: #8C3218;
-    --terracotta-deep: #702611;
-    --forest: #2D3A2C;
-    --ebony: #121614;
-    --gold: #D97706;
-    --ochre: #B45309;
+    --purple: #5B2A86;
+    --purple-deep: #3E1A5F;
+    --royal: #3E2A5C;
+    --ebony: #150F1E;
+    --gold: #D4AF37;
+    --gold-dark: #8A6D1F;
 }
 
 html {
@@ -53,7 +53,7 @@ body {
 }
 
 ::selection {
-    background: var(--terracotta);
+    background: var(--purple);
     color: var(--ivory);
 }
 
@@ -64,7 +64,7 @@ body {
     background: var(--sand);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--terracotta);
+    background: var(--purple);
     border-radius: 8px;
     border: 2px solid var(--sand);
 }

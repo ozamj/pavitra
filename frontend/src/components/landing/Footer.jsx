@@ -2,20 +2,20 @@ import { Flower2 } from "lucide-react";
 
 const Footer = () => (
   <footer
-    className="bg-[#121614] border-t border-[#D97706]/15 py-14"
+    className="bg-[#150F1E] border-t border-[#D4AF37]/15 py-14"
     data-testid="site-footer"
   >
     <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-3">
-          <span className="w-10 h-10 rounded-full bg-[#8C3218] flex items-center justify-center">
+          <span className="w-10 h-10 rounded-full bg-[#5B2A86] flex items-center justify-center">
             <Flower2 size={18} className="text-[#FAF7F2]" />
           </span>
           <div>
             <p className="font-display text-2xl font-semibold text-[#F4F1EA] leading-none">
               Pavitra
             </p>
-            <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D97706] mt-1.5">
+            <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] mt-1.5">
               A sankalp for Bharat
             </p>
           </div>
@@ -34,7 +34,7 @@ const Footer = () => (
               onClick={() =>
                 document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
               }
-              className="font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#F4F1EA]/55 hover:text-[#D97706] transition-colors duration-300"
+              className="font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#F4F1EA]/55 hover:text-[#D4AF37] transition-colors duration-300"
               data-testid={`footer-link-${id}`}
             >
               {label}

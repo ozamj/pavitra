@@ -32,14 +32,14 @@ const STEPS = [
 const Mission = () => (
   <section
     id="mission"
-    className="relative bg-[#121614] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-[#150F1E] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="mission-section"
   >
     <div
       className="absolute top-0 left-1/3 w-[30rem] h-[30rem] rounded-full pointer-events-none"
       style={{
         background:
-          "radial-gradient(circle, rgba(217,119,6,0.12) 0%, rgba(217,119,6,0) 70%)",
+          "radial-gradient(circle, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0) 70%)",
       }}
       aria-hidden="true"
     />
@@ -61,7 +61,7 @@ const Mission = () => (
         className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#F4F1EA] max-w-3xl"
       >
         From Sankalp to Seva.{" "}
-        <span className="italic text-[#D97706]">From Seva to Nirmaan.</span>
+        <span className="italic text-[#D4AF37]">From Seva to Nirmaan.</span>
       </motion.h2>
 
       <motion.p
@@ -82,7 +82,7 @@ const Mission = () => (
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden lg:block absolute top-0 left-0 right-0 h-px origin-left bg-gradient-to-r from-[#D97706]/60 via-[#D97706]/25 to-[#D97706]/60"
+          className="hidden lg:block absolute top-0 left-0 right-0 h-px origin-left bg-gradient-to-r from-[#D4AF37]/60 via-[#D4AF37]/25 to-[#D4AF37]/60"
           aria-hidden="true"
         />
 
@@ -101,15 +101,15 @@ const Mission = () => (
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 whileHover={{ y: -8 }}
-                className="group relative bg-[#1A221E] border border-[#D97706]/15 hover:border-[#D97706]/45 rounded-2xl p-7 sm:p-8 transition-colors duration-500"
+                className="group relative bg-[#1F1629] border border-[#D4AF37]/15 hover:border-[#D4AF37]/45 rounded-2xl p-7 sm:p-8 transition-colors duration-500"
                 data-testid={`mission-step-${step.name.toLowerCase()}`}
               >
-                <span className="absolute -top-3 left-7 bg-[#121614] border border-[#D97706]/40 text-[#D97706] font-mono-x text-[10px] tracking-[0.25em] px-2.5 py-1 rounded-full">
+                <span className="absolute -top-3 left-7 bg-[#150F1E] border border-[#D4AF37]/40 text-[#D4AF37] font-mono-x text-[10px] tracking-[0.25em] px-2.5 py-1 rounded-full">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
-                <div className="w-12 h-12 rounded-full bg-[#8C3218]/25 border border-[#D97706]/25 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                  <Icon size={20} className="text-[#D97706]" />
+                <div className="w-12 h-12 rounded-full bg-[#5B2A86]/25 border border-[#D4AF37]/25 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <Icon size={20} className="text-[#D4AF37]" />
                 </div>
 
                 <p className="font-mono-x text-[10px] tracking-[0.3em] text-[#F4F1EA]/40 uppercase">
@@ -124,7 +124,7 @@ const Mission = () => (
 
                 {i < STEPS.length - 1 && (
                   <span
-                    className="hidden lg:block absolute top-1/2 -right-6 text-[#D97706]/50 font-display text-2xl"
+                    className="hidden lg:block absolute top-1/2 -right-6 text-[#D4AF37]/50 font-display text-2xl"
                     aria-hidden="true"
                   >
                     →

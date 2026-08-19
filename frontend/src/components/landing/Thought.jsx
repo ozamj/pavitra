@@ -28,7 +28,7 @@ const Thought = () => {
       data-testid="thought-section"
     >
       <span
-        className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#8C3218]/[0.05] select-none pointer-events-none"
+        className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#5B2A86]/[0.05] select-none pointer-events-none"
         aria-hidden="true"
       >
         02
@@ -47,7 +47,7 @@ const Thought = () => {
               className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#1C1917]"
             >
               A Pure Thought{" "}
-              <span className="italic text-[#8C3218]">for Bharat</span>
+              <span className="italic text-[#5B2A86]">for Bharat</span>
             </motion.h2>
 
             <motion.p
@@ -74,10 +74,10 @@ const Thought = () => {
                     delay: i * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="group flex items-baseline gap-5 py-5 border-t border-[#8C3218]/15 last:border-b"
+                  className="group flex items-baseline gap-5 py-5 border-t border-[#5B2A86]/15 last:border-b"
                   data-testid={`thought-line-${i + 1}`}
                 >
-                  <span className="font-mono-x text-[10px] tracking-[0.25em] text-[#B45309]">
+                  <span className="font-mono-x text-[10px] tracking-[0.25em] text-[#8A6D1F]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="font-display text-lg sm:text-2xl text-[#1C1917] leading-snug transition-transform duration-500 group-hover:translate-x-2">
@@ -92,7 +92,7 @@ const Thought = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.9 }}
-              className="mt-10 font-display italic font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#8C3218]"
+              className="mt-10 font-display italic font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#5B2A86]"
               data-testid="thought-closing-line"
             >
               Pavitra is that path.
@@ -105,7 +105,7 @@ const Thought = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-2xl overflow-hidden border border-[#8C3218]/15 shadow-[0_32px_64px_-24px_rgba(140,50,24,0.35)]"
+              className="relative rounded-2xl overflow-hidden border border-[#5B2A86]/15 shadow-[0_32px_64px_-24px_rgba(91,42,134,0.35)]"
             >
               <motion.img
                 style={{ y, scale: 1.18 }}
@@ -114,7 +114,7 @@ const Thought = () => {
                 className="w-full h-[46vh] lg:h-[58vh] object-cover will-change-transform"
                 data-testid="thought-image"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121614]/45 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#150F1E]/45 via-transparent to-transparent" />
               <p className="absolute bottom-5 left-5 font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
                 The path of pure intention
               </p>
