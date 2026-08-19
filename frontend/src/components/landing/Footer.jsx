@@ -1,5 +1,3 @@
-import { Flower2 } from "lucide-react";
-
 const Footer = () => (
   <footer
     className="bg-[#150F1E] border-t border-[#D4AF37]/15 py-14"
@@ -7,18 +5,18 @@ const Footer = () => (
   >
     <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
-        <div className="flex items-center gap-3">
-          <span className="w-10 h-10 rounded-full bg-[#5B2A86] flex items-center justify-center">
-            <Flower2 size={18} className="text-[#FAF7F2]" />
+        <div className="flex items-center gap-4">
+          <span className="inline-flex items-center bg-[#FAF7F2] rounded-full px-4 py-1.5 shadow-[0_6px_20px_-8px_rgba(0,0,0,0.5)]">
+            <img
+              src="/pavitra-logo.webp"
+              alt="Pavitra — A sankalp for Bharat"
+              className="h-9 w-auto"
+              data-testid="footer-logo-image"
+            />
           </span>
-          <div>
-            <p className="font-display text-2xl font-semibold text-[#F4F1EA] leading-none">
-              Pavitra
-            </p>
-            <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37] mt-1.5">
-              A sankalp for Bharat
-            </p>
-          </div>
+          <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">
+            A sankalp for Bharat
+          </p>
         </div>
 
         <nav className="flex flex-wrap justify-center gap-x-7 gap-y-3">

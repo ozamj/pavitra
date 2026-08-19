@@ -25,6 +25,8 @@ Build a standalone, international-standard "Our Sankalp" landing page for Pavitr
 
 ## Implemented (2026-08-19)
 - Full landing page with all 6 chapters, lenis smooth scrolling, framer-motion reveals, parallax hero with arch-clipped heritage imagery, editorial marquee, glass navbar with chapter jump links, footer. Verified via screenshots of every section; no console errors.
+- Re-themed to brand palette: royal purple (#5B2A86 / deep #3E1A5F / ebony plum #150F1E) + gold (#D4AF37), lavender-tinted Belief section.
+- Official Pavitra logo (webp, golden globe + purple wordmark) placed in navbar, hero kicker, closing CTA, footer (on ivory chips for contrast) and as favicon. Logo file: /app/frontend/public/pavitra-logo.webp.
 
 ## Backlog / Next Tasks
 - P1: Wire "Join The Movement" to a pledge/join form (needs backend decision).

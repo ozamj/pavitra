@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Flower2, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const links = [
   { n: "02", label: "Thought", id: "thought" },
@@ -36,14 +36,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
         <button
           onClick={() => go("hero")}
-          className="flex items-center gap-2.5 group"
+          className="group"
           data-testid="nav-logo-button"
         >
-          <span className="w-9 h-9 rounded-full bg-[#5B2A86] flex items-center justify-center transition-transform duration-500 group-hover:rotate-[25deg]">
-            <Flower2 className="w-4.5 h-4.5 text-[#FAF7F2]" size={18} />
-          </span>
-          <span className="font-display text-xl sm:text-2xl font-semibold tracking-wide text-[#F4F1EA]">
-            Pavitra
+          <span className="inline-flex items-center bg-[#FAF7F2] rounded-full px-4 py-1.5 shadow-[0_6px_20px_-8px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.05]">
+            <img
+              src="/pavitra-logo.webp"
+              alt="Pavitra — A sankalp for Bharat"
+              className="h-8 sm:h-9 w-auto"
+              data-testid="nav-logo-image"
+            />
           </span>
         </button>
 
