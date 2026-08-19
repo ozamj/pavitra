@@ -1,0 +1,183 @@
+{
+  "project_name": "Our Sankalp — Pavitra Landing Page",
+  "app_type": "landing_page",
+  "archetype": "ORGANIC & EARTHY / SWISS EDITORIAL",
+  "emotional_tone": "Sacred, Purpose-driven, Empowering, Dignified, Grounded in Bharat's Heritage",
+  "color_palette": {
+    "theme_mode": "Light Editorial Warm Sand (with Dark Mode toggle support)",
+    "primary": "#8C3218",
+    "primary_hover": "#702611",
+    "secondary": "#2D3A2C",
+    "secondary_foreground": "#FDFBF7",
+    "accent_gold": "#D97706",
+    "accent_ochre": "#B45309",
+    "background_light": "#FAF7F2",
+    "surface_light": "#F2EBE1",
+    "surface_card": "#FFFFFF",
+    "foreground_light": "#1C1917",
+    "muted_text": "#57534E",
+    "border_light": "rgba(140, 50, 24, 0.12)",
+    "dark_background": "#121614",
+    "dark_surface": "#1A221E",
+    "dark_foreground": "#F4F1EA",
+    "dark_border": "rgba(217, 119, 6, 0.2)",
+    "rules": " Tint greys with warm brown/sand hues. Never use pure black #000000 or un-tinted greys. Maximum opacity overlay for hero is bg-black/40 with gradient overlay."
+  },
+  "typography": {
+    "font_family_heading": "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    "font_family_body": "'Plus Jakarta Sans', 'Manrope', -apple-system, sans-serif",
+    "font_family_mono": "'JetBrains Mono', monospace",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-[1.1]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight leading-snug",
+      "h3_subsection": "text-xl sm:text-2xl font-serif font-semibold leading-snug",
+      "h4_card": "text-lg sm:text-xl font-sans font-semibold",
+      "body_lead": "text-lg sm:text-xl font-sans text-muted-foreground leading-relaxed",
+      "body": "text-base font-sans leading-relaxed",
+      "caption_mono": "text-xs sm:text-sm font-mono uppercase tracking-[0.25em]"
+    }
+  },
+  "layout_and_spacing": {
+    "container_padding": "px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto",
+    "section_vertical_spacing": "py-20 sm:py-28 lg:py-36",
+    "card_internal_padding": "p-6 sm:p-8 lg:p-10",
+    "bento_grid_protocol": "MODE A: Tetris Editorial Grid with staggered spans (col-span-full md:col-span-8, col-span-4, etc.) and explicit gaps (gap-8 lg:gap-12).",
+    "grid_rule": "Grid children must be direct children. Grid items use align-items: start."
+  },
+  "manifesto_chapters": [
+    {
+      "chapter_number": "01",
+      "title": "The Pure Thought",
+      "section_name": "Page Hero",
+      "content": "Our Sankalp: Pavitra was born from a pure thought — that Bharat's progress can be strengthened through intention, responsibility, participation, and visible action. This is not just an organisation. This is a sankalp for Bharat."
+    },
+    {
+      "chapter_number": "02",
+      "title": "A Pure Thought for Bharat",
+      "section_name": "The Thought Behind the Mission",
+      "poetic_lines": [
+        "When intention is pure, action becomes sacred.",
+        "When responsibility is shared, progress becomes permanent.",
+        "When every citizen participates, Bharat rises from within.",
+        "In quiet dedication and visible service, nation-building takes shape.",
+        "Pavitra is that path."
+      ]
+    },
+    {
+      "chapter_number": "03",
+      "title": "From Sankalp to Seva. From Seva to Nirmaan.",
+      "section_name": "Our Mission",
+      "chain_items": [
+        {
+          "name": "Sankalp",
+          "definition": "Pure commitment for Bharat",
+          "icon": "Compass",
+          "description": "The seed of unshakeable intention and ethical clarity."
+        },
+        {
+          "name": "Seva",
+          "definition": "Purpose-led action for society",
+          "icon": "HeartHandshake",
+          "description": "Ground-level service driven by empathy, responsibility, and devotion."
+        },
+        {
+          "name": "Nirmaan",
+          "definition": "Visible development and progress",
+          "icon": "Building2",
+          "description": "Building sustainable infrastructure, economic independence, and lasting community assets."
+        },
+        {
+          "name": "Swabhimaan",
+          "definition": "Dignity, pride, participation",
+          "icon": "ShieldCheck",
+          "description": "Empowering citizens with honor, self-reliance, and national pride."
+        }
+      ]
+    },
+    {
+      "chapter_number": "04",
+      "title": "Dignity, Not Dependency",
+      "section_name": "Our Belief",
+      "contrasts": [
+        {
+          "from": "Not beneficiaries",
+          "to": "Participants",
+          "icon": "Users"
+        },
+        {
+          "from": "Not charity",
+          "to": "Responsibility",
+          "icon": "Target"
+        },
+        {
+          "from": "Not dependency",
+          "to": "Swabhimaan",
+          "icon": "Sun"
+        }
+      ]
+    },
+    {
+      "chapter_number": "05",
+      "title": "Founder's Sankalp",
+      "section_name": "Founder's Vision",
+      "quote": "Pavitra was created with a pure thought — that Bharat's progress can be strengthened through purpose, trust, and people's participation. We begin with a sankalp, but our destination is a movement where every citizen can feel connected to the upliftment of Bharat.",
+      "founder_name": "Shri Pramod Kaushal",
+      "founder_title": "Founder, Pavitra Movement",
+      "three_ps": [
+        {
+          "title": "People",
+          "subtitle": "The core engine of Bharat's rise — active, dignified citizens."
+        },
+        {
+          "title": "Purpose",
+          "subtitle": "Every initiative backed by unyielding commitment to national growth."
+        },
+        {
+          "title": "Progress",
+          "subtitle": "Measurable, ground-level change that touches every village and city."
+        }
+      ]
+    },
+    {
+      "chapter_number": "06",
+      "title": "Be a Part of the Pavitra Sankalp",
+      "section_name": "Closing Calling & Pledge",
+      "cta_headline": "Be a Part of the Pavitra Sankalp",
+      "cta_subtext": "Pavitra is for everyone who believes that Bharat can rise through pure intention, responsible action, and collective participation.",
+      "cta_button": "Join The Movement"
+    }
+  ],
+  "image_urls": {
+    "hero_background": "https://images.unsplash.com/photo-1519955266818-0231b63402bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85",
+    "thought_architecture": "https://images.unsplash.com/photo-1617338727645-987dddeef332?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85",
+    "people_community_1": "https://images.unsplash.com/photo-1587538018365-2a1f8b544c08?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBwZW9wbGUlMjBwb3J0cmFpdCUyMGRpZ25pdHklMjBob3BlJTIwY29tbXVuaXR5fGVufDB8fHx8MTc4NzE0NDg5MHww&ixlib=rb-4.1.0&q=85",
+    "people_community_2": "https://images.unsplash.com/photo-1567122087721-47b09b61e1d1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBwZW9wbGUlMjBwb3J0cmFpdCUyMGRpZ25pdHklMjBob3BlJTIwY29tbXVuaXR5fGVufDB8fHx8MTc4NzE0NDg5MHww&ixlib=rb-4.1.0&q=85",
+    "people_community_3": "https://images.unsplash.com/photo-1463335361701-e90f4c5045d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBwZW9wbGUlMjBwb3J0cmFpdCUyMGRpZ25pdHklMjBob3BlJTIwY29tbXVuaXR5fGVufDB8fHx8MTc4NzE0NDg5MHww&ixlib=rb-4.1.0&q=85",
+    "founder_portrait": "https://images.pexels.com/photos/5940089/pexels-photo-5940089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "heritage_stepwell": "https://images.pexels.com/photos/30358327/pexels-photo-30358327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "palace_balcony": "https://images.pexels.com/photos/7037817/pexels-photo-7037817.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "interactive_components_and_modals": {
+    "navigation_bar": "Sticky glassmorphic navbar (backdrop-blur-md bg-stone-900/80 text-stone-100 or light mode equivalent) with Pavitra lotus emblem, chapter quick-jump links (01 Hero, 02 Thought, 03 Mission, 04 Belief, 05 Founder, 06 Join), Dark/Light theme toggle, and 'Join Movement' CTA button.",
+    "editorial_marquee": "Slow infinite drifting text ticker with sacred mantra phrases: 'PAVITRA • INTENTION • RESPONSIBILITY • PARTICIPATION • VISIBLE ACTION • BHARAT UPLIFTMENT • SWABHIMAAN • SEVA • NIRMAAN'",
+    "mission_progression_stepper": "Interactive 4-card horizontal/vertical step continuum (Sankalp → Seva → Nirmaan → Swabhimaan) with active tab state, animated SVG connecting lines, icon highlights, and deep dive modal for each phase.",
+    "founder_story_modal": "Full modal pop-up triggered by 'Read Full Founder Story' button displaying Shri Pramod Kaushal's extended message, philosophy, timeline of Pavitra, and founding principles.",
+    "join_movement_modal": "Interactive pledge & volunteer modal triggered by 'Join The Movement' CTA button allowing visitors to select their role (Pavitra Saathi, Volunteer, Advocate, Product Partner), enter their name, state, and generate an interactive personalized 'Pavitra Sankalp Digital Pledge Card'.",
+    "toast_notifications": "Sonner toasts triggered upon pledge submission, link copy, or chapter jump."
+  },
+  "instructions_to_main_agent": {
+    "step_1": "Ensure Google Fonts for Cormorant Garamond, Plus Jakarta Sans, and JetBrains Mono are imported in index.html or index.css.",
+    "step_2": "Build all components cleanly in src/components/ with high fidelity framer-motion animations.",
+    "step_3": "Include all 6 manifesto chapters with clear number badges (01-06), distinct visual styling, rich images from image_urls, and high contrast typography.",
+    "step_4": "Implement the interactive Founder Story modal and Join Movement Pledge generator modal using Radix Dialog / Framer motion popups.",
+    "step_5": "Add data-testid to all interactive elements (buttons, links, inputs, modals, chapter jump tabs).",
+    "step_6": "Ensure responsive layout for mobile (stack grid, max image height 80vh, full touch accessibility)."
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": {
+    "anti_slop_rule": "Avoid generic SaaS look. Use rich warm sand tones, terracotta highlights, serif editorial headlines, delicate borders, and numbered manifesto tags.",
+    "contrast_rule": "Ensure text visibility meets WCAG AA standards. Hover states must explicitly state text colors. Header backdrop must not be purely transparent.",
+    "test_id_rule": "All buttons, links, form inputs, and key sections MUST include data-testid='...' attributes in kebab-case.",
+    "no_backend_rule": "This is a frontend-only static landing page with client-side interactive state, mock pledge generation, and smooth animations."
+  }
+}

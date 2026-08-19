@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --sand: #FAF7F2;
+    --surface: #F2EBE1;
+    --ivory: #FDFBF7;
+    --ink: #1C1917;
+    --muted-warm: #57534E;
+    --terracotta: #8C3218;
+    --terracotta-deep: #702611;
+    --forest: #2D3A2C;
+    --ebony: #121614;
+    --gold: #D97706;
+    --ochre: #B45309;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background-color: var(--sand);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.font-display {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+}
+
+.font-body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+}
+
+.font-mono-x {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+    background: var(--terracotta);
+    color: var(--ivory);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--sand);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--terracotta);
+    border-radius: 8px;
+    border: 2px solid var(--sand);
+}
+
+@keyframes marquee-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    animation: marquee-drift 55s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.08); }
+}
+
+.glow-pulse {
+    animation: pulse-soft 7s ease-in-out infinite;
+}
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.055;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+}
+
+.text-stroke-ivory {
+    -webkit-text-stroke: 1px rgba(253, 251, 247, 0.35);
+    color: transparent;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
