@@ -1,7 +1,6 @@
 import WWHero from "@/components/landing/WWHero";
 import WWAction from "@/components/landing/WWAction";
 import WWAreas from "@/components/landing/WWAreas";
-import WWBharatVikas from "@/components/landing/WWBharatVikas";
 import PageCTA from "@/components/landing/PageCTA";
 
 export default function WhatWeDo() {
@@ -10,7 +9,6 @@ export default function WhatWeDo() {
       <WWHero />
       <WWAction />
       <WWAreas />
-      <WWBharatVikas />
       <PageCTA
         kicker="One Shared Responsibility"
         titleA="Purpose Needs"

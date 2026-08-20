@@ -10,8 +10,6 @@ import {
   Droplets,
   Handshake,
   Store,
-  PiggyBank,
-  ShieldCheck,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
 
@@ -66,16 +64,6 @@ const AREAS = [
     desc: "Building stores and platforms that do not only sell, but also connect people with a larger mission.",
     icon: Store,
   },
-  {
-    title: "Pavitra Kosh",
-    desc: "A future development fund designed to support visible, local, and community-focused initiatives.",
-    icon: PiggyBank,
-  },
-  {
-    title: "Trust-Based Systems",
-    desc: "Creating clear, responsible, and visible ways to show how Pavitra\u2019s initiatives create progress.",
-    icon: ShieldCheck,
-  },
 ];
 
 const WWAreas = () => (
@@ -113,52 +101,40 @@ const WWAreas = () => (
         </motion.p>
       </div>
 
-      <div className="mt-16 flex flex-wrap justify-center items-center gap-3.5 sm:gap-4 max-w-5xl mx-auto">
+      <div className="mt-14 grid lg:grid-cols-2 gap-x-16 border-b border-[#522B6A]/15">
         {AREAS.map((area, i) => {
           const Icon = area.icon;
-          const size =
-            i % 5 === 0
-              ? "px-7 py-4 sm:px-9 sm:py-5"
-              : i % 3 === 0
-                ? "px-6 py-3.5"
-                : "px-5 py-3";
-          const titleSize =
-            i % 5 === 0 ? "text-lg sm:text-xl" : i % 3 === 0 ? "text-base sm:text-lg" : "text-sm sm:text-base";
-          const tilt =
-            i % 3 === 0 ? "sm:-rotate-2" : i % 3 === 1 ? "sm:rotate-1" : "";
-          const lift = i % 4 === 1 ? "sm:translate-y-3" : i % 4 === 3 ? "sm:-translate-y-2" : "";
           return (
             <motion.div
               key={area.title}
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                type: "spring",
-                stiffness: 180,
-                damping: 18,
-                delay: i * 0.05,
+                duration: 0.7,
+                delay: (i % 5) * 0.07,
+                ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ scale: 1.05, rotate: 0 }}
-              className={`group cursor-default rounded-full bg-[#FAF7F2] border border-[#522B6A]/15 hover:border-[#D4AF37] hover:bg-[#522B6A] transition-colors duration-400 ${size} ${tilt} ${lift}`}
-              data-testid={`area-chip-${area.title.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+              className="group flex items-start gap-5 py-7 border-t border-[#522B6A]/15"
+              data-testid={`area-row-${area.title.toLowerCase().replace(/[^a-z]+/g, "-")}`}
             >
-              <span className="flex items-center gap-2.5">
+              <span className="font-mono-x text-[10px] tracking-[0.25em] text-[#775A19] pt-2">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="w-11 h-11 shrink-0 rounded-full bg-[#522B6A]/10 border border-[#522B6A]/15 flex items-center justify-center transition-colors duration-500 group-hover:bg-[#522B6A] group-hover:border-[#522B6A]">
                 <Icon
-                  size={17}
-                  className="shrink-0 text-[#775A19] group-hover:text-[#D4AF37] transition-colors duration-400"
+                  size={18}
+                  className="text-[#775A19] group-hover:text-[#E9C176] transition-colors duration-500"
                 />
-                <span
-                  className={`font-display font-semibold leading-none text-[#1C1917] group-hover:text-[#F4F1EA] transition-colors duration-400 ${titleSize}`}
-                >
+              </span>
+              <div>
+                <h3 className="font-display font-semibold text-xl sm:text-2xl text-[#1C1917] leading-snug transition-transform duration-500 group-hover:translate-x-1.5">
                   {area.title}
-                </span>
-              </span>
-              <span className="block max-h-0 opacity-0 overflow-hidden transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
-                <span className="block pt-2 text-xs sm:text-sm text-[#57534E] group-hover:text-[#F4F1EA]/75 leading-relaxed max-w-56">
+                </h3>
+                <p className="mt-1.5 text-sm sm:text-base text-[#57534E] leading-relaxed">
                   {area.desc}
-                </span>
-              </span>
+                </p>
+              </div>
             </motion.div>
           );
         })}
