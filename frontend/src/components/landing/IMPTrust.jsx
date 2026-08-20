@@ -12,7 +12,7 @@ const PILLARS = [
 const IMPTrust = () => (
   <section
     id="trust"
-    className="relative bg-gradient-to-b from-[#F3EBDD] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-gradient-to-b from-[#ECE4F6] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="impact-trust-section"
   >
 

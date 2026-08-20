@@ -32,14 +32,14 @@ const JNHero = () => {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen bg-[#FAF7F2] overflow-hidden flex items-center"
+      className="relative min-h-screen bg-[#ECE4F6] overflow-hidden flex items-center"
       data-testid="join-hero-section"
     >
       <div
         className="glow-pulse absolute -top-40 -right-40 w-[34rem] h-[34rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.16) 0%, rgba(212,175,55,0) 70%)",
+            "radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -47,7 +47,7 @@ const JNHero = () => {
         className="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(82,43,106,0.14) 0%, rgba(82,43,106,0) 70%)",
+            "radial-gradient(circle, rgba(82,43,106,0.22) 0%, rgba(82,43,106,0) 70%)",
         }}
         aria-hidden="true"
       />
