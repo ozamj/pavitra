@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { Globe, ChevronDown, Check } from "lucide-react";
 
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
 const linkClass =
-  "group relative font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#F4F1EA]/70 hover:text-[#E9C176] transition-colors duration-300";
+  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#F4F1EA]/70 hover:text-[#E9C176] transition-colors duration-300";
 const activeClass =
-  "relative font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#E9C176]";
+  "relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#E9C176]";
+const joinClass =
+  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#D4AF37] hover:text-[#E9C176] transition-colors duration-300";
 
 const ActiveMarks = () => (
   <>
@@ -23,6 +25,7 @@ const HoverMark = () => (
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -48,8 +51,8 @@ const Navbar = () => {
       }`}
       data-testid="main-navbar"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
-        <Link to="/" className="group relative" data-testid="nav-logo-button">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
+        <Link to="/" className="group relative shrink-0" data-testid="nav-logo-button">
           <span
             className="absolute -inset-3.5 rounded-full bg-[#FAF7F2]/85 blur-lg pointer-events-none"
             aria-hidden="true"
@@ -62,11 +65,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8" data-testid="nav-site-links">
-          <a href={HOME_URL} className={linkClass} data-testid="nav-link-home">
-            Home
-            <HoverMark />
-          </a>
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-7" data-testid="nav-site-links">
           <Link
             to="/our-sankalp"
             aria-current={isSankalp ? "page" : undefined}
@@ -94,30 +93,91 @@ const Navbar = () => {
             Impact
             {isImpact ? <ActiveMarks /> : <HoverMark />}
           </Link>
+          <Link
+            to="/join-the-movement"
+            aria-current={isJoin ? "page" : undefined}
+            className={isJoin ? activeClass : joinClass}
+            data-testid="nav-link-join"
+          >
+            Join The Movement
+            {isJoin ? <ActiveMarks /> : <HoverMark />}
+          </Link>
+          <a href={HOME_URL} className={linkClass} data-testid="nav-link-newsroom">
+            Newsroom
+            <HoverMark />
+          </a>
           <a
             href={`${HOME_URL}#products`}
             className={linkClass}
-            data-testid="nav-link-products"
+            data-testid="nav-link-shop"
           >
-            Products
+            Shop
             <HoverMark />
           </a>
+          <a
+            href={`${HOME_URL}account`}
+            className={linkClass}
+            data-testid="nav-link-login"
+          >
+            Login
+            <HoverMark />
+          </a>
+
+          <div className="relative">
+            <button
+              onClick={() => setLangOpen((v) => !v)}
+              className="group flex items-center gap-1.5 font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#F4F1EA]/70 hover:text-[#E9C176] border border-[#F4F1EA]/20 hover:border-[#D4AF37]/50 rounded-full px-3 py-1.5 transition-colors duration-300"
+              data-testid="nav-language-button"
+              aria-expanded={langOpen}
+            >
+              <Globe size={12} />
+              EN
+              <ChevronDown
+                size={11}
+                className={`transition-transform duration-300 ${langOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            {langOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setLangOpen(false)}
+                  aria-hidden="true"
+                />
+                <div
+                  className="absolute right-0 top-9 z-50 w-44 bg-[#241641] border border-[#D4AF37]/25 rounded-xl p-1.5 shadow-[0_20px_44px_-12px_rgba(0,0,0,0.6)]"
+                  data-testid="nav-language-menu"
+                >
+                  <button
+                    onClick={() => setLangOpen(false)}
+                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#E9C176] rounded-lg hover:bg-[#D4AF37]/10 transition-colors duration-200"
+                    data-testid="nav-lang-en"
+                  >
+                    English
+                    <Check size={13} />
+                  </button>
+                  <button
+                    disabled
+                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#F4F1EA]/40 cursor-not-allowed"
+                    data-testid="nav-lang-hi"
+                  >
+                    हिन्दी
+                    <span className="font-mono-x text-[9px] tracking-[0.2em] uppercase">
+                      Soon
+                    </span>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </nav>
 
         <Link
           to="/join-the-movement"
-          className={`group flex items-center gap-2 font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400 ${
-            isJoin
-              ? "bg-[#D4AF37] text-[#180F2C]"
-              : "bg-[#522B6A] hover:bg-[#D4AF37] text-[#E9C176] hover:text-[#180F2C]"
-          }`}
+          className="lg:hidden group flex items-center gap-2 bg-[#522B6A] text-[#E9C176] font-mono-x text-[11px] tracking-[0.18em] uppercase px-4 py-2.5 rounded-full"
           data-testid="nav-join-button"
         >
-          Join The Movement
-          <ArrowUpRight
-            size={14}
-            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
+          Join
         </Link>
       </div>
     </motion.header>
