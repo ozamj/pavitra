@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-const HOME_URL = "https://dazzling-kitsune-eb866a.netlify.app/";
+const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,14 +37,12 @@ const Navbar = () => {
           className="group"
           data-testid="nav-logo-button"
         >
-          <span className="inline-flex items-center bg-[#FAF7F2] rounded-full px-4 py-1.5 shadow-[0_6px_20px_-8px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.05]">
-            <img
-              src="/pavitra-logo.webp"
-              alt="Pavitra — A sankalp for Bharat"
-              className="h-8 sm:h-9 w-auto"
-              data-testid="nav-logo-image"
-            />
-          </span>
+          <img
+            src="/pavitra-logo-light.webp"
+            alt="Pavitra — A sankalp for Bharat"
+            className="h-9 sm:h-10 w-auto transition-transform duration-500 group-hover:scale-[1.05]"
+            data-testid="nav-logo-image"
+          />
         </button>
 
         <nav className="hidden md:flex items-center gap-8" data-testid="nav-site-links">

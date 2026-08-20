@@ -60,16 +60,11 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="flex items-center gap-4 mb-8"
           >
-            <span className="inline-flex items-center bg-[#FAF7F2] rounded-full px-3.5 py-1.5">
-              <img
-                src="/pavitra-logo.webp"
-                alt="Pavitra logo"
-                className="h-7 w-auto"
-                data-testid="hero-logo-image"
-              />
+            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#D4AF37]/40 text-[#D4AF37] rounded-full">
+              01
             </span>
             <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#F4F1EA]/60">
-              Our Sankalp · The Manifesto
+              Our Sankalp · The Pavitra Manifesto
             </span>
           </motion.div>
 

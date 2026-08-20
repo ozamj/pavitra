@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Flower2 } from "lucide-react";
 
 const ClosingCTA = () => (
   <section
@@ -26,14 +26,9 @@ const ClosingCTA = () => (
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto w-fit bg-[#FAF7F2] rounded-full px-8 py-3 shadow-[0_20px_44px_-14px_rgba(0,0,0,0.5)]"
+        className="mx-auto w-16 h-16 rounded-full border border-[#D4AF37]/50 bg-[#522B6A]/40 flex items-center justify-center"
       >
-        <img
-          src="/pavitra-logo.webp"
-          alt="Pavitra — A sankalp for Bharat"
-          className="h-12 sm:h-14 w-auto"
-          data-testid="cta-logo-image"
-        />
+        <Flower2 size={26} className="text-[#D4AF37]" />
       </motion.div>
 
       <motion.p
