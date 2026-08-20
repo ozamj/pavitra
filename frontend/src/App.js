@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import Home from "@/pages/Home";
 import OurSankalp from "@/pages/OurSankalp";
 import WhatWeDo from "@/pages/WhatWeDo";
 import Impact from "@/pages/Impact";
@@ -41,7 +42,7 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            <Route path="/" element={<OurSankalp />} />
+            <Route path="/" element={<Home />} />
             <Route path="/our-sankalp" element={<OurSankalp />} />
             <Route path="/what-we-do" element={<WhatWeDo />} />
             <Route path="/impact" element={<Impact />} />

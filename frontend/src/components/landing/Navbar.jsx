@@ -34,7 +34,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isSankalp = pathname === "/" || pathname === "/our-sankalp";
+  const isSankalp = pathname === "/our-sankalp";
   const isWhatWeDo = pathname === "/what-we-do";
   const isImpact = pathname === "/impact";
   const isJoin = pathname === "/join-the-movement";
