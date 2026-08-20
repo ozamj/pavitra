@@ -6,11 +6,11 @@ import { Globe, ChevronDown, Check } from "lucide-react";
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
 const linkClass =
-  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#F4F1EA]/70 hover:text-[#E9C176] transition-colors duration-300";
+  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#522B6A]/70 hover:text-[#522B6A] transition-colors duration-300";
 const activeClass =
-  "relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#E9C176]";
+  "relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#522B6A]";
 const joinClass =
-  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#D4AF37] hover:text-[#E9C176] transition-colors duration-300";
+  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#775A19] hover:text-[#522B6A] transition-colors duration-300";
 
 const ActiveMarks = () => (
   <>
@@ -46,23 +46,17 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 inset-x-0 z-[80] transition-colors duration-500 ${
-        scrolled
-          ? "bg-[#180F2C]/90 backdrop-blur-md border-b border-[#D4AF37]/15"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed top-0 inset-x-0 z-[80] bg-[#FAF7F2]/90 backdrop-blur-md border-b border-[#522B6A]/10 transition-shadow duration-500 ${
+        scrolled ? "shadow-[0_10px_36px_-20px_rgba(24,15,44,0.4)]" : ""
       }`}
       data-testid="main-navbar"
     >
       <div className="max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
-        <Link to="/" className="group relative shrink-0" data-testid="nav-logo-button">
-          <span
-            className="absolute -inset-3.5 rounded-full bg-[#FAF7F2]/85 blur-lg pointer-events-none"
-            aria-hidden="true"
-          />
+        <Link to="/" className="group shrink-0" data-testid="nav-logo-button">
           <img
             src="/pavitra-logo.webp"
             alt="Pavitra — A sankalp for Bharat"
-            className="relative h-9 sm:h-10 w-auto transition-transform duration-500 group-hover:scale-[1.05]"
+            className="h-9 sm:h-10 w-auto transition-transform duration-500 group-hover:scale-[1.05]"
             data-testid="nav-logo-image"
           />
         </Link>
@@ -134,7 +128,7 @@ const Navbar = () => {
           <div className="relative">
             <button
               onClick={() => setLangOpen((v) => !v)}
-              className="group flex items-center gap-1.5 font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#F4F1EA]/70 hover:text-[#E9C176] border border-[#F4F1EA]/20 hover:border-[#D4AF37]/50 rounded-full px-3 py-1.5 transition-colors duration-300"
+              className="group flex items-center gap-1.5 font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#522B6A]/70 hover:text-[#522B6A] border border-[#522B6A]/25 hover:border-[#775A19]/60 rounded-full px-3 py-1.5 transition-colors duration-300"
               data-testid="nav-language-button"
               aria-expanded={langOpen}
             >
@@ -153,12 +147,12 @@ const Navbar = () => {
                   aria-hidden="true"
                 />
                 <div
-                  className="absolute right-0 top-9 z-50 w-44 bg-[#241641] border border-[#D4AF37]/25 rounded-xl p-1.5 shadow-[0_20px_44px_-12px_rgba(0,0,0,0.6)]"
+                  className="absolute right-0 top-9 z-50 w-44 bg-white border border-[#522B6A]/15 rounded-xl p-1.5 shadow-[0_20px_44px_-12px_rgba(24,15,44,0.25)]"
                   data-testid="nav-language-menu"
                 >
                   <button
                     onClick={() => setLangOpen(false)}
-                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#E9C176] rounded-lg hover:bg-[#D4AF37]/10 transition-colors duration-200"
+                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#775A19] rounded-lg hover:bg-[#F5ECD9] transition-colors duration-200"
                     data-testid="nav-lang-en"
                   >
                     English
@@ -166,7 +160,7 @@ const Navbar = () => {
                   </button>
                   <button
                     disabled
-                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#F4F1EA]/40 cursor-not-allowed"
+                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#1C1917]/35 cursor-not-allowed"
                     data-testid="nav-lang-hi"
                   >
                     हिन्दी

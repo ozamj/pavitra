@@ -75,7 +75,7 @@ const JNWays = () => {
   return (
   <section
     id="ways"
-    className="relative bg-[#180F2C] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="join-ways-section"
   >
     <div
@@ -87,24 +87,24 @@ const JNWays = () => {
       aria-hidden="true"
     />
     <span
-      className="absolute bottom-8 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
+      className="absolute bottom-8 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
       aria-hidden="true"
     >
       04
     </span>
 
     <div className="relative max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="04" label="Ways to Join" dark />
+      <ChapterTag number="04" label="Ways to Join" />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-3xl"
+        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#775A19] max-w-3xl"
       >
         Ways to Join the{" "}
-        <span className="italic text-[#E9C176]">Pavitra Movement</span>
+        <span className="italic">Pavitra Movement</span>
       </motion.h2>
 
       <div className="mt-14">
@@ -122,7 +122,7 @@ const JNWays = () => {
                 delay: i * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="border-t border-[#F4F1EA]/12 last:border-b"
+              className="border-t border-[#522B6A]/15 last:border-b"
               data-testid={`join-way-${way.slug}`}
             >
               <button
@@ -131,24 +131,24 @@ const JNWays = () => {
                 aria-expanded={isOpen}
                 data-testid={`join-way-${way.slug}-toggle`}
               >
-                <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.25em] text-[#D4AF37]/70">
+                <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.25em] text-[#775A19]/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
                   className={`w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-full border flex items-center justify-center transition-colors duration-400 ${
                     isOpen
-                      ? "bg-[#D4AF37] border-[#D4AF37]"
-                      : "bg-[#522B6A]/40 border-[#D4AF37]/25 group-hover:border-[#D4AF37]/60"
+                      ? "bg-[#775A19] border-[#775A19]"
+                      : "bg-[#522B6A]/10 border-[#522B6A]/20 group-hover:border-[#775A19]/50"
                   }`}
                 >
                   <Icon
                     size={19}
-                    className={isOpen ? "text-[#180F2C]" : "text-[#E9C176]"}
+                    className={isOpen ? "text-[#FAF7F2]" : "text-[#775A19]"}
                   />
                 </span>
                 <span
                   className={`flex-1 font-display font-semibold text-xl sm:text-2xl lg:text-3xl leading-snug transition-colors duration-400 ${
-                    isOpen ? "text-[#D4AF37]" : "text-[#F4F1EA] group-hover:text-[#E9C176]"
+                    isOpen ? "text-[#775A19]" : "text-[#1C1917] group-hover:text-[#775A19]"
                   }`}
                 >
                   {way.name}
@@ -158,8 +158,8 @@ const JNWays = () => {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className={`shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-colors duration-400 ${
                     isOpen
-                      ? "border-[#D4AF37] text-[#D4AF37]"
-                      : "border-[#F4F1EA]/25 text-[#F4F1EA]/60 group-hover:border-[#D4AF37]/60"
+                      ? "border-[#775A19] text-[#775A19]"
+                      : "border-[#522B6A]/25 text-[#522B6A]/60 group-hover:border-[#775A19]/50"
                   }`}
                 >
                   <Plus size={16} />
@@ -177,16 +177,16 @@ const JNWays = () => {
                     data-testid={`join-way-${way.slug}-panel`}
                   >
                     <div className="pb-9 pl-16 sm:pl-[7.5rem] pr-2 sm:pr-8 grid lg:grid-cols-2 gap-8">
-                      <p className="text-sm sm:text-base text-[#F4F1EA]/65 leading-relaxed">
+                      <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
                         {way.desc}
                       </p>
                       <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 content-start">
                         {way.points.map((point) => (
                           <li
                             key={point}
-                            className="flex items-baseline gap-3 text-sm text-[#F4F1EA]/70"
+                            className="flex items-baseline gap-3 text-sm text-[#1C1917]/70"
                           >
-                            <span className="text-[#D4AF37]" aria-hidden="true">
+                            <span className="text-[#B08D1E]" aria-hidden="true">
                               —
                             </span>
                             {point}
@@ -195,7 +195,7 @@ const JNWays = () => {
                       </ul>
                       <div className="lg:col-span-2">
                         <button
-                          className="group/btn inline-flex items-center gap-3 border border-[#D4AF37]/40 hover:bg-[#D4AF37] text-[#E9C176] hover:text-[#180F2C] font-mono-x text-[10px] sm:text-[11px] tracking-[0.18em] uppercase px-6 py-3.5 rounded-full transition-colors duration-400"
+                          className="group/btn inline-flex items-center gap-3 border border-[#522B6A]/40 hover:bg-[#522B6A] text-[#522B6A] hover:text-[#FAF7F2] font-mono-x text-[10px] sm:text-[11px] tracking-[0.18em] uppercase px-6 py-3.5 rounded-full transition-colors duration-400"
                           data-testid={`join-way-${way.slug}-button`}
                         >
                           {way.cta}

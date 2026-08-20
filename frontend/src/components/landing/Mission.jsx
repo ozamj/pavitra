@@ -41,26 +41,26 @@ const Mission = () => {
   return (
     <section
       id="mission"
-      className="relative bg-[#180F2C] py-20 sm:py-28 lg:py-36 overflow-hidden"
+      className="relative bg-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
       data-testid="mission-section"
     >
       <div
         className="absolute top-0 left-1/3 w-[30rem] h-[30rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0) 70%)",
+            "radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(212,175,55,0) 70%)",
         }}
         aria-hidden="true"
       />
       <span
-        className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
+        className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
         aria-hidden="true"
       >
         03
       </span>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-        <ChapterTag number="03" label="Our Mission" dark />
+        <ChapterTag number="03" label="Our Mission" />
 
         <div className="mt-12 lg:flex lg:items-end lg:justify-between lg:gap-16">
           <motion.h2
@@ -68,10 +68,10 @@ const Mission = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-2xl"
+            className="font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#775A19] max-w-2xl"
           >
             From Sankalp to Seva.{" "}
-            <span className="italic text-[#E9C176]">From Seva to Nirmaan.</span>
+            <span className="italic">From Seva to Nirmaan.</span>
           </motion.h2>
 
           <motion.p
@@ -79,7 +79,7 @@ const Mission = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="mt-6 lg:mt-0 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-md lg:text-right"
+            className="mt-6 lg:mt-0 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-md lg:text-right"
             data-testid="mission-lead"
           >
             Pavitra&rsquo;s mission is to convert pure intention into
@@ -89,12 +89,12 @@ const Mission = () => {
 
         <div ref={pathRef} className="relative mt-20 lg:mt-28">
           <div
-            className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px lg:-translate-x-1/2 bg-[#F4F1EA]/10"
+            className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px lg:-translate-x-1/2 bg-[#522B6A]/10"
             aria-hidden="true"
           >
             <motion.div
               style={{ scaleY: draw }}
-              className="w-full h-full origin-top bg-gradient-to-b from-[#E9C176] via-[#D4AF37] to-[#775A19]"
+              className="w-full h-full origin-top bg-gradient-to-b from-[#B08D1E] via-[#D4AF37] to-[#775A19]"
             />
           </div>
 
@@ -121,9 +121,9 @@ const Mission = () => {
                     damping: 16,
                     delay: 0.15,
                   }}
-                  className="absolute left-6 lg:left-1/2 -translate-x-1/2 top-1 z-10 w-11 h-11 rounded-full bg-[#241641] border border-[#D4AF37]/60 shadow-[0_0_26px_rgba(212,175,55,0.35)] flex items-center justify-center"
+                  className="absolute left-6 lg:left-1/2 -translate-x-1/2 top-1 z-10 w-11 h-11 rounded-full bg-white border border-[#D4AF37]/70 shadow-[0_0_26px_rgba(212,175,55,0.3)] flex items-center justify-center"
                 >
-                  <Icon size={18} className="text-[#E9C176]" />
+                  <Icon size={18} className="text-[#775A19]" />
                 </motion.span>
 
                 <div
@@ -131,17 +131,17 @@ const Mission = () => {
                     rightSide ? "lg:ml-auto" : "lg:text-right"
                   }`}
                 >
-                  <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">
+                  <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#775A19]">
                     Phase {String(i + 1).padStart(2, "0")} ·{" "}
-                    <span className="font-display text-base normal-case tracking-normal text-[#E9C176]">
+                    <span className="font-display text-base normal-case tracking-normal text-[#B08D1E]">
                       {step.devanagari}
                     </span>
                   </p>
-                  <h3 className="mt-2 font-display font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#F4F1EA] leading-none">
+                  <h3 className="mt-2 font-display font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#1C1917] leading-none">
                     {step.name}
                   </h3>
                   <p
-                    className={`mt-3 text-sm sm:text-base text-[#F4F1EA]/60 leading-relaxed max-w-sm ${
+                    className={`mt-3 text-sm sm:text-base text-[#57534E] leading-relaxed max-w-sm ${
                       rightSide ? "" : "lg:ml-auto"
                     }`}
                   >
@@ -158,7 +158,7 @@ const Mission = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
-          className="mt-16 text-center font-mono-x text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#D4AF37]/80"
+          className="mt-16 text-center font-mono-x text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#775A19]/80"
           data-testid="mission-chain"
         >
           Sankalp → Seva → Nirmaan → Swabhimaan
