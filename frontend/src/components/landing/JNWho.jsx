@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Handshake, Heart, Sprout, Store, Flower2 } from "lucide-react";
+import { Users, Handshake, Heart, Sprout, Store, Flower2, ArrowUpRight } from "lucide-react";
 import ChapterTag from "./ChapterTag";
 
 const ROLES = [
@@ -78,18 +78,28 @@ const JNWho = () => (
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -5 }}
-              className="group bg-[#FAF7F2] border border-[#522B6A]/10 hover:border-[#D4AF37]/50 rounded-2xl p-6 transition-colors duration-500"
+              className="group relative overflow-hidden bg-white border border-[#522B6A]/10 hover:border-[#522B6A] rounded-2xl p-6 cursor-default transition-colors duration-500"
               data-testid={`join-role-${role.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}
             >
-              <div className="w-11 h-11 rounded-full bg-[#522B6A]/10 border border-[#522B6A]/15 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                <Icon size={18} className="text-[#775A19]" />
+              <span
+                className="absolute inset-0 bg-[#522B6A] translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div className="w-11 h-11 rounded-full bg-[#522B6A]/10 border border-[#522B6A]/15 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] flex items-center justify-center transition-colors duration-500">
+                  <Icon size={18} className="text-[#775A19] group-hover:text-[#180F2C] transition-colors duration-500" />
+                </div>
+                <h3 className="mt-4 font-display font-semibold text-lg text-[#1C1917] group-hover:text-[#F4F1EA] leading-snug transition-colors duration-500">
+                  {role.name}
+                </h3>
+                <p className="mt-2 text-sm text-[#57534E] group-hover:text-[#F4F1EA]/75 leading-relaxed transition-colors duration-500">
+                  {role.desc}
+                </p>
+                <p className="mt-4 flex items-center gap-2 font-mono-x text-[10px] tracking-[0.22em] uppercase text-[#D4AF37] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                  Join as
+                  <ArrowUpRight size={12} />
+                </p>
               </div>
-              <h3 className="mt-4 font-display font-semibold text-lg text-[#1C1917] leading-snug">
-                {role.name}
-              </h3>
-              <p className="mt-2 text-sm text-[#57534E] leading-relaxed">
-                {role.desc}
-              </p>
             </motion.div>
           );
         })}

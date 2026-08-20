@@ -60,16 +60,16 @@ const JNWhy = () => (
                 delay: i * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group flex items-baseline gap-4 sm:gap-6 py-4 sm:py-5 border-t border-[#522B6A]/15 last:border-b"
+              className="group grid grid-cols-[1fr_auto_1fr] items-baseline gap-x-4 sm:gap-x-8 py-4 sm:py-5 border-t border-[#522B6A]/15 last:border-b"
               data-testid={`join-belief-${i + 1}`}
             >
-              <span className="font-display text-xl sm:text-2xl text-[#1C1917] transition-transform duration-500 group-hover:translate-x-2">
+              <span className="text-right font-display text-xl sm:text-2xl text-[#1C1917] transition-transform duration-500 group-hover:translate-x-1.5">
                 {first}
               </span>
-              <span className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#775A19]/70 shrink-0">
+              <span className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#775A19]/70">
                 before
               </span>
-              <span className="font-display italic font-semibold text-xl sm:text-2xl text-[#775A19]">
+              <span className="text-left font-display italic font-semibold text-xl sm:text-2xl text-[#775A19] transition-transform duration-500 group-hover:-translate-x-1.5">
                 {second}
               </span>
             </motion.div>
