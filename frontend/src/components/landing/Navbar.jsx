@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Globe, ChevronDown, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Globe, ChevronDown, Check, Menu, X } from "lucide-react";
 
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
@@ -11,6 +11,15 @@ const activeClass =
   "relative font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#180F2C]";
 const joinClass =
   "group relative font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#775A19] hover:text-[#180F2C] transition-colors duration-300";
+
+const MENU_LINKS = [
+  { label: "Our Sankalp", to: "/our-sankalp", testid: "our-sankalp" },
+  { label: "What We Do", to: "/what-we-do", testid: "what-we-do" },
+  { label: "Impact", to: "/impact", testid: "impact" },
+  { label: "Join The Movement", to: "/join-the-movement", testid: "join" },
+  { label: "Newsroom", to: "/newsroom", testid: "newsroom" },
+  { label: "Shop", to: "/shop", testid: "shop" },
+];
 
 const ActiveMarks = () => (
   <>
@@ -26,6 +35,7 @@ const HoverMark = () => (
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -34,12 +44,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isSankalp = pathname === "/our-sankalp";
-  const isWhatWeDo = pathname === "/what-we-do";
-  const isImpact = pathname === "/impact";
+  useEffect(() => {
+    setMenuOpen(false);
+    setLangOpen(false);
+  }, [pathname]);
+
+  const isActive = (to) => pathname === to;
   const isJoin = pathname === "/join-the-movement";
-  const isNewsroom = pathname === "/newsroom";
-  const isShop = pathname === "/shop";
 
   return (
     <motion.header
@@ -62,60 +73,24 @@ const Navbar = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 xl:gap-7" data-testid="nav-site-links">
-          <Link
-            to="/our-sankalp"
-            aria-current={isSankalp ? "page" : undefined}
-            className={isSankalp ? activeClass : linkClass}
-            data-testid="nav-link-our-sankalp"
-          >
-            Our Sankalp
-            {isSankalp ? <ActiveMarks /> : <HoverMark />}
-          </Link>
-          <Link
-            to="/what-we-do"
-            aria-current={isWhatWeDo ? "page" : undefined}
-            className={isWhatWeDo ? activeClass : linkClass}
-            data-testid="nav-link-what-we-do"
-          >
-            What We Do
-            {isWhatWeDo ? <ActiveMarks /> : <HoverMark />}
-          </Link>
-          <Link
-            to="/impact"
-            aria-current={isImpact ? "page" : undefined}
-            className={isImpact ? activeClass : linkClass}
-            data-testid="nav-link-impact"
-          >
-            Impact
-            {isImpact ? <ActiveMarks /> : <HoverMark />}
-          </Link>
-          <Link
-            to="/join-the-movement"
-            aria-current={isJoin ? "page" : undefined}
-            className={isJoin ? activeClass : joinClass}
-            data-testid="nav-link-join"
-          >
-            Join The Movement
-            {isJoin ? <ActiveMarks /> : <HoverMark />}
-          </Link>
-          <Link
-            to="/newsroom"
-            aria-current={isNewsroom ? "page" : undefined}
-            className={isNewsroom ? activeClass : linkClass}
-            data-testid="nav-link-newsroom"
-          >
-            Newsroom
-            {isNewsroom ? <ActiveMarks /> : <HoverMark />}
-          </Link>
-          <Link
-            to="/shop"
-            aria-current={isShop ? "page" : undefined}
-            className={isShop ? activeClass : linkClass}
-            data-testid="nav-link-shop"
-          >
-            Shop
-            {isShop ? <ActiveMarks /> : <HoverMark />}
-          </Link>
+          {MENU_LINKS.map((link) => {
+            const active = isActive(link.to);
+            const isJoinLink = link.to === "/join-the-movement";
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                aria-current={active ? "page" : undefined}
+                className={
+                  active ? activeClass : isJoinLink ? joinClass : linkClass
+                }
+                data-testid={`nav-link-${link.testid}`}
+              >
+                {link.label}
+                {active ? <ActiveMarks /> : <HoverMark />}
+              </Link>
+            );
+          })}
           <a
             href={`${HOME_URL}account`}
             className={linkClass}
@@ -174,14 +149,86 @@ const Navbar = () => {
           </div>
         </nav>
 
-        <Link
-          to="/join-the-movement"
-          className="lg:hidden group flex items-center gap-2 bg-[#522B6A] text-[#E9C176] font-mono-x text-[11px] tracking-[0.18em] uppercase px-4 py-2.5 rounded-full"
-          data-testid="nav-join-button"
-        >
-          Join
-        </Link>
+        <div className="flex lg:hidden items-center gap-3">
+          <Link
+            to="/join-the-movement"
+            className={`font-mono-x text-[11px] tracking-[0.18em] uppercase px-4 py-2.5 rounded-full transition-colors duration-300 ${
+              isJoin ? "bg-[#775A19] text-[#FAF7F2]" : "bg-[#522B6A] text-[#E9C176]"
+            }`}
+            data-testid="nav-join-button"
+          >
+            Join
+          </Link>
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="w-10 h-10 rounded-full border border-[#261242]/25 text-[#261242] flex items-center justify-center"
+            aria-expanded={menuOpen}
+            aria-label="Toggle menu"
+            data-testid="nav-menu-toggle"
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden overflow-hidden bg-[#FAF7F2] border-b border-[#522B6A]/10"
+            data-testid="mobile-menu"
+          >
+            <div className="px-6 py-6 space-y-1">
+              {MENU_LINKS.map((link, i) => {
+                const active = isActive(link.to);
+                return (
+                  <motion.div
+                    key={link.to}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35, delay: 0.05 + i * 0.05 }}
+                  >
+                    <Link
+                      to={link.to}
+                      aria-current={active ? "page" : undefined}
+                      className={`flex items-center justify-between py-3.5 border-b border-[#522B6A]/10 font-mono-x text-sm tracking-[0.15em] uppercase transition-colors duration-300 ${
+                        active ? "text-[#775A19]" : "text-[#261242]/80"
+                      }`}
+                      data-testid={`mobile-link-${link.testid}`}
+                    >
+                      {link.label}
+                      {active && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" aria-hidden="true" />
+                      )}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.35, delay: 0.4 }}
+                className="flex items-center justify-between pt-4"
+              >
+                <a
+                  href={`${HOME_URL}account`}
+                  className="font-mono-x text-sm tracking-[0.15em] uppercase text-[#261242]/80"
+                  data-testid="mobile-link-login"
+                >
+                  Login
+                </a>
+                <span className="flex items-center gap-1.5 font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#261242]/60 border border-[#261242]/20 rounded-full px-3 py-1.5">
+                  <Globe size={11} />
+                  EN
+                </span>
+              </motion.div>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
