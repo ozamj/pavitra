@@ -8,7 +8,7 @@ const COLUMNS = [
     links: [
       { label: "Our Sankalp", to: "/our-sankalp" },
       { label: "What We Do", to: "/what-we-do" },
-      { label: "Impact", href: HOME_URL },
+      { label: "Impact", to: "/impact" },
       { label: "Newsroom", href: HOME_URL },
     ],
   },

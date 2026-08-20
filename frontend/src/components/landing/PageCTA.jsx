@@ -6,6 +6,7 @@ const PageCTA = ({
   titleA = "Be a Part of the",
   titleB = "Pavitra Sankalp",
   text = "If you believe Bharat can rise through pure intention, responsible action, and collective participation, Pavitra is your movement too.",
+  buttonLabel = "Join The Movement",
   testid = "closing-cta-section",
 }) => (
   <section
@@ -82,7 +83,7 @@ const PageCTA = ({
           className="group inline-flex items-center gap-3 bg-[#FAF7F2] hover:bg-[#D4AF37] text-[#261242] hover:text-[#FAF7F2] font-mono-x text-xs sm:text-sm tracking-[0.2em] uppercase px-10 py-5 rounded-full shadow-[0_24px_48px_-16px_rgba(0,0,0,0.45)] transition-colors duration-400"
           data-testid="join-movement-button"
         >
-          Join The Movement
+          {buttonLabel}
           <ArrowUpRight
             size={17}
             className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"

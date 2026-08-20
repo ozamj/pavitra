@@ -36,6 +36,7 @@ Build a standalone, international-standard "Our Sankalp" landing page for Pavitr
 - All section titles now gold: antique gold #775A19 on light sections, bright gold #D4AF37 (italic #E9C176) on dark sections, hero H1 included.
 - Multi-page routing added (react-router-dom): "/" and "/our-sankalp" → Our Sankalp page; "/what-we-do" → What We Do page. Shared Navbar/Footer with route-aware active states. Lenis + ScrollToTop at app level.
 - What We Do page (2026-08-20): hero (Our work begins with Bharat / Our vision reaches every community), Pavitra in Action (Think Pure / Act Responsible / Build Visible), Areas of Work (12 area cards), Pavitra Bharat Vikas (Gram Vikas / Nagar Vikas / Kosh cards with bullet lists + decorative Explore buttons), shared PageCTA (Purpose Needs Participation). Old ClosingCTA replaced by parametrized PageCTA.
+- Impact page (2026-08-20) at /impact: hero (Trust must be visible / Progress must belong to people), Trust Must Be Visible (5 approach pillars as editorial rows), Impact Areas (9 cards), Impact Philosophy (rising staircase of 6 small actions + gold trust cascade), Future Impact Vision (6-item network grid, final item highlighted), PageCTA with buttonLabel prop (Be Part of the Impact). Navbar + Footer updated with Impact link and active states.
 - Official Pavitra logo (webp, golden globe + purple wordmark) placed in navbar, hero kicker, closing CTA, footer (on ivory chips for contrast) and as favicon. Logo file: /app/frontend/public/pavitra-logo.webp.
 
 ## Backlog / Next Tasks

@@ -36,6 +36,7 @@ const Navbar = () => {
 
   const isSankalp = pathname === "/" || pathname === "/our-sankalp";
   const isWhatWeDo = pathname === "/what-we-do";
+  const isImpact = pathname === "/impact";
 
   return (
     <motion.header
@@ -85,6 +86,15 @@ const Navbar = () => {
           >
             What We Do
             {isWhatWeDo ? <ActiveMarks /> : <HoverMark />}
+          </Link>
+          <Link
+            to="/impact"
+            aria-current={isImpact ? "page" : undefined}
+            className={isImpact ? activeClass : linkClass}
+            data-testid="nav-link-impact"
+          >
+            Impact
+            {isImpact ? <ActiveMarks /> : <HoverMark />}
           </Link>
           <a
             href={`${HOME_URL}#products`}

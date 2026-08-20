@@ -5,6 +5,7 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import OurSankalp from "@/pages/OurSankalp";
 import WhatWeDo from "@/pages/WhatWeDo";
+import Impact from "@/pages/Impact";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -40,6 +41,7 @@ function App() {
             <Route path="/" element={<OurSankalp />} />
             <Route path="/our-sankalp" element={<OurSankalp />} />
             <Route path="/what-we-do" element={<WhatWeDo />} />
+            <Route path="/impact" element={<Impact />} />
           </Routes>
         </main>
         <Footer />
