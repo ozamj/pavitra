@@ -6,6 +6,7 @@ import Footer from "@/components/landing/Footer";
 import OurSankalp from "@/pages/OurSankalp";
 import WhatWeDo from "@/pages/WhatWeDo";
 import Impact from "@/pages/Impact";
+import JoinMovement from "@/pages/JoinMovement";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -42,6 +43,7 @@ function App() {
             <Route path="/our-sankalp" element={<OurSankalp />} />
             <Route path="/what-we-do" element={<WhatWeDo />} />
             <Route path="/impact" element={<Impact />} />
+            <Route path="/join-the-movement" element={<JoinMovement />} />
           </Routes>
         </main>
         <Footer />

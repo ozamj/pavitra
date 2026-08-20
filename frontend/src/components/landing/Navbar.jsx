@@ -31,12 +31,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const go = (id) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
   const isSankalp = pathname === "/" || pathname === "/our-sankalp";
   const isWhatWeDo = pathname === "/what-we-do";
   const isImpact = pathname === "/impact";
+  const isJoin = pathname === "/join-the-movement";
 
   return (
     <motion.header
@@ -106,9 +104,13 @@ const Navbar = () => {
           </a>
         </nav>
 
-        <button
-          onClick={() => go("join")}
-          className="group flex items-center gap-2 bg-[#522B6A] hover:bg-[#D4AF37] text-[#E9C176] hover:text-[#180F2C] font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400"
+        <Link
+          to="/join-the-movement"
+          className={`group flex items-center gap-2 font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400 ${
+            isJoin
+              ? "bg-[#D4AF37] text-[#180F2C]"
+              : "bg-[#522B6A] hover:bg-[#D4AF37] text-[#E9C176] hover:text-[#180F2C]"
+          }`}
           data-testid="nav-join-button"
         >
           Join The Movement
@@ -116,7 +118,7 @@ const Navbar = () => {
             size={14}
             className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />
-        </button>
+        </Link>
       </div>
     </motion.header>
   );

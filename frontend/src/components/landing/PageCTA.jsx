@@ -6,6 +6,7 @@ const PageCTA = ({
   titleA = "Be a Part of the",
   titleB = "Pavitra Sankalp",
   text = "If you believe Bharat can rise through pure intention, responsible action, and collective participation, Pavitra is your movement too.",
+  tagline = null,
   buttonLabel = "Join The Movement",
   testid = "closing-cta-section",
 }) => (
@@ -69,6 +70,19 @@ const PageCTA = ({
       >
         {text}
       </motion.p>
+
+      {tagline && (
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, delay: 0.36 }}
+          className="mt-6 font-display italic font-semibold text-xl sm:text-2xl text-[#E9C176]"
+          data-testid="cta-tagline"
+        >
+          {tagline}
+        </motion.p>
+      )}
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}

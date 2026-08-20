@@ -15,7 +15,7 @@ const COLUMNS = [
   {
     title: "Participate",
     links: [
-      { label: "Join", action: "join" },
+      { label: "Join", to: "/join-the-movement" },
       { label: "Volunteer", href: HOME_URL },
       { label: "Partner", href: HOME_URL },
       { label: "Donate", href: HOME_URL },
