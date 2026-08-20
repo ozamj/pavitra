@@ -24,7 +24,7 @@ const COLUMNS = [
   {
     title: "Shop",
     links: [
-      { label: "All Products", href: HOME_URL },
+      { label: "All Products", to: "/shop" },
       { label: "Ayurveda", href: HOME_URL },
       { label: "Tea & Beverages", href: HOME_URL },
       { label: "Fragrance", href: HOME_URL },
