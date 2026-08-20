@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 const ClosingCTA = () => (
   <section
     id="join"
-    className="relative bg-[#3E1A5F] py-24 sm:py-32 lg:py-40 overflow-hidden"
+    className="relative bg-[#261242] py-24 sm:py-32 lg:py-40 overflow-hidden"
     data-testid="closing-cta-section"
   >
     <div
@@ -80,7 +80,7 @@ const ClosingCTA = () => (
         <motion.button
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
-          className="group inline-flex items-center gap-3 bg-[#FAF7F2] hover:bg-[#D4AF37] text-[#3E1A5F] hover:text-[#FAF7F2] font-mono-x text-xs sm:text-sm tracking-[0.2em] uppercase px-10 py-5 rounded-full shadow-[0_24px_48px_-16px_rgba(0,0,0,0.45)] transition-colors duration-400"
+          className="group inline-flex items-center gap-3 bg-[#FAF7F2] hover:bg-[#D4AF37] text-[#261242] hover:text-[#FAF7F2] font-mono-x text-xs sm:text-sm tracking-[0.2em] uppercase px-10 py-5 rounded-full shadow-[0_24px_48px_-16px_rgba(0,0,0,0.45)] transition-colors duration-400"
           data-testid="join-movement-button"
         >
           Join The Movement

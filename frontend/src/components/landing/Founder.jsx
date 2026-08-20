@@ -30,7 +30,7 @@ const Founder = () => (
     data-testid="founder-section"
   >
     <span
-      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#5B2A86]/[0.05] select-none pointer-events-none"
+      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
       aria-hidden="true"
     >
       05
@@ -47,14 +47,14 @@ const Founder = () => (
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-4 order-2 lg:order-1"
         >
-          <div className="relative rounded-t-[9rem] rounded-b-2xl overflow-hidden border border-[#5B2A86]/15 shadow-[0_32px_64px_-24px_rgba(91,42,134,0.35)]">
+          <div className="relative rounded-t-[9rem] rounded-b-2xl overflow-hidden border border-[#522B6A]/15 shadow-[0_32px_64px_-24px_rgba(82,43,106,0.35)]">
             <img
               src={FOUNDER_IMG}
               alt="Shri Pramod Kaushal, Founder of Pavitra"
               className="w-full h-[44vh] lg:h-[52vh] object-cover"
               data-testid="founder-portrait"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#150F1E]/55 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5">
               <p className="font-display text-lg text-[#F4F1EA]">
                 Shri Pramod Kaushal
@@ -75,7 +75,7 @@ const Founder = () => (
             className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#1C1917]"
           >
             A Message from{" "}
-            <span className="italic text-[#5B2A86]">the Founder</span>
+            <span className="italic text-[#522B6A]">the Founder</span>
           </motion.h2>
 
           <motion.blockquote
@@ -83,7 +83,7 @@ const Founder = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, delay: 0.12 }}
-            className="relative mt-10 pl-8 sm:pl-12 border-l-2 border-[#8A6D1F]/50"
+            className="relative mt-10 pl-8 sm:pl-12 border-l-2 border-[#775A19]/50"
             data-testid="founder-quote"
           >
             <Quote
@@ -107,7 +107,7 @@ const Founder = () => (
             className="mt-8"
           >
             <button
-              className="group inline-flex items-center gap-3 border border-[#5B2A86]/40 hover:bg-[#5B2A86] text-[#5B2A86] hover:text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-6 py-3.5 rounded-full transition-colors duration-400"
+              className="group inline-flex items-center gap-3 border border-[#522B6A]/40 hover:bg-[#522B6A] text-[#522B6A] hover:text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-6 py-3.5 rounded-full transition-colors duration-400"
               data-testid="founder-story-button"
             >
               Read Full Founder Story
@@ -126,7 +126,7 @@ const Founder = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8 }}
-          className="font-mono-x text-xs sm:text-sm tracking-[0.3em] uppercase text-[#5B2A86] text-center"
+          className="font-mono-x text-xs sm:text-sm tracking-[0.3em] uppercase text-[#522B6A] text-center"
           data-testid="three-ps-heading"
         >
           Pavitra Stands on 3 P&rsquo;s
@@ -147,11 +147,11 @@ const Founder = () => (
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 whileHover={{ y: -6 }}
-                className="group bg-white border border-[#5B2A86]/12 hover:border-[#5B2A86]/35 rounded-2xl p-7 sm:p-8 text-center shadow-[0_16px_40px_-24px_rgba(91,42,134,0.3)] transition-colors duration-500"
+                className="group bg-white border border-[#522B6A]/12 hover:border-[#522B6A]/35 rounded-2xl p-7 sm:p-8 text-center shadow-[0_16px_40px_-24px_rgba(82,43,106,0.3)] transition-colors duration-500"
                 data-testid={`three-p-${p.title.toLowerCase()}`}
               >
-                <div className="mx-auto w-14 h-14 rounded-full bg-[#5B2A86]/10 border border-[#5B2A86]/20 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                  <Icon size={22} className="text-[#5B2A86]" />
+                <div className="mx-auto w-14 h-14 rounded-full bg-[#522B6A]/10 border border-[#522B6A]/20 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                  <Icon size={22} className="text-[#522B6A]" />
                 </div>
                 <h3 className="mt-5 font-display font-semibold text-xl sm:text-2xl text-[#1C1917]">
                   {p.title}

@@ -27,7 +27,7 @@ const Row = () => (
 
 const Marquee = () => (
   <div
-    className="relative bg-[#5B2A86] border-y border-[#D4AF37]/30 py-5 overflow-hidden"
+    className="relative bg-[#522B6A] border-y border-[#D4AF37]/30 py-5 overflow-hidden"
     data-testid="editorial-marquee"
   >
     <div className="marquee-track flex w-max">

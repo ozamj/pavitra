@@ -6,16 +6,16 @@
 
 :root {
     --sand: #FAF7F2;
-    --surface: #F3EEF7;
+    --surface: #F5ECD9;
     --ivory: #FDFBF7;
     --ink: #1C1917;
     --muted-warm: #57534E;
-    --purple: #5B2A86;
-    --purple-deep: #3E1A5F;
-    --royal: #3E2A5C;
-    --ebony: #150F1E;
+    --purple: #522B6A;
+    --purple-deep: #261242;
+    --royal: #241641;
+    --ebony: #180F2C;
     --gold: #D4AF37;
-    --gold-dark: #8A6D1F;
+    --gold-dark: #775A19;
 }
 
 html {

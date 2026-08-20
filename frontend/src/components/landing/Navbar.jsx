@@ -2,12 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-const links = [
-  { n: "02", label: "Thought", id: "thought" },
-  { n: "03", label: "Mission", id: "mission" },
-  { n: "04", label: "Belief", id: "belief" },
-  { n: "05", label: "Founder", id: "founder" },
-];
+const HOME_URL = "https://dazzling-kitsune-eb866a.netlify.app/";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,6 +16,9 @@ const Navbar = () => {
   const go = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
+  const linkClass =
+    "group relative font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#F4F1EA]/70 hover:text-[#E9C176] transition-colors duration-300";
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -28,7 +26,7 @@ const Navbar = () => {
       transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-[80] transition-colors duration-500 ${
         scrolled
-          ? "bg-[#150F1E]/85 backdrop-blur-md border-b border-[#D4AF37]/15"
+          ? "bg-[#180F2C]/90 backdrop-blur-md border-b border-[#D4AF37]/15"
           : "bg-transparent border-b border-transparent"
       }`}
       data-testid="main-navbar"
@@ -49,29 +47,37 @@ const Navbar = () => {
           </span>
         </button>
 
-        <nav className="hidden md:flex items-center gap-7" data-testid="nav-chapter-links">
-          {links.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => go(l.id)}
-              className="group flex items-baseline gap-1.5 font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#F4F1EA]/70 hover:text-[#F4F1EA] transition-colors duration-300"
-              data-testid={`nav-link-${l.id}`}
-            >
-              <span className="text-[#D4AF37] text-[9px]">{l.n}</span>
-              <span className="relative">
-                {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
-              </span>
-            </button>
-          ))}
+        <nav className="hidden md:flex items-center gap-8" data-testid="nav-site-links">
+          <a href={HOME_URL} className={linkClass} data-testid="nav-link-home">
+            Home
+            <span className="absolute -bottom-1.5 left-0 w-0 h-px bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+          </a>
+          <button
+            onClick={() => go("hero")}
+            aria-current="page"
+            className="relative font-mono-x text-[11px] tracking-[0.2em] uppercase text-[#E9C176]"
+            data-testid="nav-link-our-sankalp"
+          >
+            Our Sankalp
+            <span className="absolute -bottom-1.5 left-0 w-full h-px bg-[#D4AF37]" />
+            <span className="absolute -bottom-[7px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#D4AF37]" />
+          </button>
+          <a
+            href={`${HOME_URL}#products`}
+            className={linkClass}
+            data-testid="nav-link-products"
+          >
+            Products
+            <span className="absolute -bottom-1.5 left-0 w-0 h-px bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+          </a>
         </nav>
 
         <button
           onClick={() => go("join")}
-          className="group flex items-center gap-2 bg-[#5B2A86] hover:bg-[#D4AF37] text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400"
+          className="group flex items-center gap-2 bg-[#522B6A] hover:bg-[#D4AF37] text-[#E9C176] hover:text-[#180F2C] font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-4 sm:px-5 py-2.5 rounded-full transition-colors duration-400"
           data-testid="nav-join-button"
         >
-          Join
+          Join The Movement
           <ArrowUpRight
             size={14}
             className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

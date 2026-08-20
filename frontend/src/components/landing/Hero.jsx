@@ -32,7 +32,7 @@ const Hero = () => {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen bg-[#150F1E] overflow-hidden flex items-center"
+      className="relative min-h-screen bg-[#180F2C] overflow-hidden flex items-center"
       data-testid="hero-section"
     >
       <div
@@ -47,7 +47,7 @@ const Hero = () => {
         className="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(91,42,134,0.25) 0%, rgba(91,42,134,0) 70%)",
+            "radial-gradient(circle, rgba(82,43,106,0.25) 0%, rgba(82,43,106,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -138,7 +138,7 @@ const Hero = () => {
               className="w-full h-[52vh] lg:h-[64vh] object-cover"
               data-testid="hero-image"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#150F1E]/55 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
                 Intention · Responsibility · Action
