@@ -30,7 +30,7 @@ Build a standalone, international-standard "Our Sankalp" landing page for Pavitr
 - Mission section redesigned (v2): scroll-drawn golden vertical path with glowing icon nodes, alternating editorial phases, Devanagari labels in serif, closing chain line.
 - Navbar rebuilt as site-level subpage menu: Home / Our Sankalp (active) / Products link to reference home site, Join The Movement CTA scrolls to #join.
 - Footer rebuilt as site footer: brand column, Navigate column (Home, Our Sankalp, Products, Join), Manifesto chapter index 02–06, copyright bar.
-- Logo placed patch-free (light ivory variant generated via PIL: pavitra-logo-light.webp) in header and footer only; removed from hero and closing CTA (2026-08-20).
+- Logo placed in header and footer only, original colours preserved; readability on dark purple achieved via a soft blurred ivory "moonlight halo" behind the logo (no hard patch, no recolour). Removed from hero and closing CTA (2026-08-20).
 - Footer rebuilt to mirror Shopify home (99vcjpt3hxku5gpy...shopifypreview.com): Movement / Participate / Shop / Reach columns, Where We Sit address (Rishikesh), "© 2026 Pavitra Swarojgar Kendra · Built for Bharat". Home/Products links now point to the Shopify preview URL.
 - OPEN QUESTION: Shopify home names founder "Shri Jay Ukani"; this page says "Shri Pramod Kaushal" (from the Netlify reference). Awaiting user confirmation on correct founder name.
 - Official Pavitra logo (webp, golden globe + purple wordmark) placed in navbar, hero kicker, closing CTA, footer (on ivory chips for contrast) and as favicon. Logo file: /app/frontend/public/pavitra-logo.webp.

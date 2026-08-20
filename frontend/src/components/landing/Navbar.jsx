@@ -34,13 +34,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
         <button
           onClick={() => go("hero")}
-          className="group"
+          className="group relative"
           data-testid="nav-logo-button"
         >
+          <span
+            className="absolute -inset-3.5 rounded-full bg-[#FAF7F2]/85 blur-lg pointer-events-none"
+            aria-hidden="true"
+          />
           <img
-            src="/pavitra-logo-light.webp"
+            src="/pavitra-logo.webp"
             alt="Pavitra — A sankalp for Bharat"
-            className="h-9 sm:h-10 w-auto transition-transform duration-500 group-hover:scale-[1.05]"
+            className="relative h-9 sm:h-10 w-auto transition-transform duration-500 group-hover:scale-[1.05]"
             data-testid="nav-logo-image"
           />
         </button>

@@ -51,12 +51,18 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <img
-              src="/pavitra-logo-light.webp"
-              alt="Pavitra — A sankalp for Bharat"
-              className="h-11 w-auto"
-              data-testid="footer-logo-image"
-            />
+            <span className="relative inline-block">
+              <span
+                className="absolute -inset-4 rounded-full bg-[#FAF7F2]/85 blur-xl pointer-events-none"
+                aria-hidden="true"
+              />
+              <img
+                src="/pavitra-logo.webp"
+                alt="Pavitra — A sankalp for Bharat"
+                className="relative h-11 w-auto"
+                data-testid="footer-logo-image"
+              />
+            </span>
             <p className="mt-6 text-sm sm:text-base text-[#F4F1EA]/60 leading-relaxed max-w-xs">
               A people-powered movement for Bharat&rsquo;s upliftment — built
               on pure intention, responsible action, and visible progress.
