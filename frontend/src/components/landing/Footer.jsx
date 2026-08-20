@@ -1,11 +1,13 @@
+import { Link, useLocation } from "react-router-dom";
+
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
 const COLUMNS = [
   {
     title: "Movement",
     links: [
-      { label: "Our Sankalp", action: "hero" },
-      { label: "What We Do", href: HOME_URL },
+      { label: "Our Sankalp", to: "/our-sankalp" },
+      { label: "What We Do", to: "/what-we-do" },
       { label: "Impact", href: HOME_URL },
       { label: "Newsroom", href: HOME_URL },
     ],
@@ -40,8 +42,14 @@ const COLUMNS = [
 ];
 
 const Footer = () => {
+  const { pathname } = useLocation();
   const go = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+  const isActive = (to) =>
+    to === "/our-sankalp"
+      ? pathname === "/" || pathname === "/our-sankalp"
+      : pathname === to;
 
   return (
     <footer
@@ -89,14 +97,22 @@ const Footer = () => {
               <ul className="mt-6 space-y-3.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    {link.action ? (
-                      <button
-                        onClick={() => go(link.action)}
+                    {link.to ? (
+                      <Link
+                        to={link.to}
                         className={`text-sm transition-colors duration-300 ${
-                          link.action === "hero"
+                          isActive(link.to)
                             ? "text-[#E9C176]"
                             : "text-[#F4F1EA]/60 hover:text-[#E9C176]"
                         }`}
+                        data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : link.action ? (
+                      <button
+                        onClick={() => go(link.action)}
+                        className="text-sm text-[#F4F1EA]/60 hover:text-[#E9C176] transition-colors duration-300"
                         data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {link.label}

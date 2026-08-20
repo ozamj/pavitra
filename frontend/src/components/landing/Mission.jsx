@@ -68,10 +68,10 @@ const Mission = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#F4F1EA] max-w-2xl"
+            className="font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-2xl"
           >
             From Sankalp to Seva.{" "}
-            <span className="italic text-[#D4AF37]">From Seva to Nirmaan.</span>
+            <span className="italic text-[#E9C176]">From Seva to Nirmaan.</span>
           </motion.h2>
 
           <motion.p

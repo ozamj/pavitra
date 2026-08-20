@@ -1,14 +1,18 @@
 import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import Navbar from "@/components/landing/Navbar";
-import Hero from "@/components/landing/Hero";
-import Marquee from "@/components/landing/Marquee";
-import Thought from "@/components/landing/Thought";
-import Mission from "@/components/landing/Mission";
-import Belief from "@/components/landing/Belief";
-import Founder from "@/components/landing/Founder";
-import ClosingCTA from "@/components/landing/ClosingCTA";
 import Footer from "@/components/landing/Footer";
+import OurSankalp from "@/pages/OurSankalp";
+import WhatWeDo from "@/pages/WhatWeDo";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 function App() {
   useEffect(() => {
@@ -26,20 +30,21 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#FAF7F2] text-[#1C1917] font-body antialiased">
-      <div className="grain-overlay" aria-hidden="true" />
-      <Navbar />
-      <main>
-        <Hero />
-        <Marquee />
-        <Thought />
-        <Mission />
-        <Belief />
-        <Founder />
-        <ClosingCTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="bg-[#FAF7F2] text-[#1C1917] font-body antialiased">
+        <div className="grain-overlay" aria-hidden="true" />
+        <ScrollToTop />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<OurSankalp />} />
+            <Route path="/our-sankalp" element={<OurSankalp />} />
+            <Route path="/what-we-do" element={<WhatWeDo />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

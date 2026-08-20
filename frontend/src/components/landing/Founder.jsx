@@ -50,14 +50,14 @@ const Founder = () => (
           <div className="relative rounded-t-[9rem] rounded-b-2xl overflow-hidden border border-[#522B6A]/15 shadow-[0_32px_64px_-24px_rgba(82,43,106,0.35)]">
             <img
               src={FOUNDER_IMG}
-              alt="Shri Pramod Kaushal, Founder of Pavitra"
+              alt="Shri Jay Ukani, Founder of Pavitra"
               className="w-full h-[44vh] lg:h-[52vh] object-cover"
               data-testid="founder-portrait"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5">
               <p className="font-display text-lg text-[#F4F1EA]">
-                Shri Pramod Kaushal
+                Shri Jay Ukani
               </p>
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/70 mt-1">
                 Founder, Pavitra

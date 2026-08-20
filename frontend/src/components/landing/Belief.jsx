@@ -31,10 +31,10 @@ const Belief = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#1C1917]"
+            className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#775A19]"
           >
             Dignity,{" "}
-            <span className="italic text-[#522B6A]">Not Dependency</span>
+            <span className="italic">Not Dependency</span>
           </motion.h2>
 
           <motion.div

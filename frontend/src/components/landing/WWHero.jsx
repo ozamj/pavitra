@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1519955266818-0231b63402bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
+const WW_IMG =
+  "https://images.unsplash.com/photo-1617338727645-987dddeef332?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
 
 const MaskedLine = ({ children, delay = 0, className = "" }) => (
   <span className={`block overflow-hidden ${className}`}>
@@ -18,7 +18,7 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
   </span>
 );
 
-const Hero = () => {
+const WWHero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -33,7 +33,7 @@ const Hero = () => {
       id="hero"
       ref={ref}
       className="relative min-h-screen bg-[#180F2C] overflow-hidden flex items-center"
-      data-testid="hero-section"
+      data-testid="ww-hero-section"
     >
       <div
         className="glow-pulse absolute -top-40 -right-40 w-[34rem] h-[34rem] rounded-full pointer-events-none"
@@ -47,7 +47,7 @@ const Hero = () => {
         className="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(82,43,106,0.25) 0%, rgba(82,43,106,0) 70%)",
+            "radial-gradient(circle, rgba(82,43,106,0.4) 0%, rgba(82,43,106,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -64,18 +64,18 @@ const Hero = () => {
               01
             </span>
             <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#F4F1EA]/60">
-              Our Sankalp · The Pavitra Manifesto
+              What We Do · The Work of Pavitra
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl text-[#D4AF37]">
-            <MaskedLine delay={0.35}>This is not just</MaskedLine>
-            <MaskedLine delay={0.47}>an organisation.</MaskedLine>
+            <MaskedLine delay={0.35}>Our work begins</MaskedLine>
+            <MaskedLine delay={0.47}>with Bharat.</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#E9C176]">This is a sankalp</span>
+              <span className="italic text-[#E9C176]">Our vision reaches</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#E9C176]">for Bharat.</span>
+              <span className="italic text-[#E9C176]">every community.</span>
             </MaskedLine>
           </h1>
 
@@ -84,11 +84,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.0 }}
             className="mt-8 max-w-xl text-base sm:text-lg text-[#F4F1EA]/70 leading-relaxed"
-            data-testid="hero-lead-paragraph"
+            data-testid="ww-hero-lead"
           >
-            Pavitra was born from a pure thought — that Bharat&rsquo;s progress
-            can be strengthened through intention, responsibility,
-            participation, and visible action.
+            Pavitra works to transform pure intention into meaningful action
+            for Bharat — through national support, community initiatives,
+            dignity-led opportunities, and purpose-led products.
           </motion.p>
 
           <motion.div
@@ -100,19 +100,19 @@ const Hero = () => {
             <button
               onClick={() =>
                 document
-                  .getElementById("thought")
+                  .getElementById("action")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="group flex items-center gap-3 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#F4F1EA]/70 hover:text-[#D4AF37] transition-colors duration-300"
-              data-testid="hero-scroll-indicator"
+              data-testid="ww-hero-scroll-indicator"
             >
               <span className="w-10 h-10 rounded-full border border-[#F4F1EA]/25 flex items-center justify-center group-hover:border-[#D4AF37] transition-colors duration-300">
                 <ArrowDown size={15} className="animate-bounce" />
               </span>
-              Read the manifesto
+              See Pavitra in action
             </button>
             <span className="hidden sm:block font-mono-x text-[11px] tracking-[0.25em] text-[#F4F1EA]/35">
-              01 / 06
+              01 / 05
             </span>
           </motion.div>
         </motion.div>
@@ -128,15 +128,15 @@ const Hero = () => {
             className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#D4AF37]/25 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
           >
             <img
-              src={HERO_IMG}
-              alt="Indian heritage architecture bathed in golden sunlight"
+              src={WW_IMG}
+              alt="Sunlit carved arches of Indian heritage architecture"
               className="w-full h-[52vh] lg:h-[64vh] object-cover"
-              data-testid="hero-image"
+              data-testid="ww-hero-image"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                Intention · Responsibility · Action
+                Intention · Action · Progress
               </p>
             </div>
           </motion.div>
@@ -150,4 +150,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default WWHero;

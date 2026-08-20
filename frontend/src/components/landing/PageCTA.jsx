@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Flower2 } from "lucide-react";
 
-const ClosingCTA = () => (
+const PageCTA = ({
+  kicker = "06 · The Calling",
+  titleA = "Be a Part of the",
+  titleB = "Pavitra Sankalp",
+  text = "If you believe Bharat can rise through pure intention, responsible action, and collective participation, Pavitra is your movement too.",
+  testid = "closing-cta-section",
+}) => (
   <section
     id="join"
     className="relative bg-[#261242] py-24 sm:py-32 lg:py-40 overflow-hidden"
-    data-testid="closing-cta-section"
+    data-testid={testid}
   >
     <div
       className="glow-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[42rem] h-[42rem] rounded-full pointer-events-none"
@@ -39,7 +45,7 @@ const ClosingCTA = () => (
         className="mt-8 font-mono-x text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#D4AF37]"
         data-testid="cta-chapter-tag"
       >
-        06 · The Calling
+        {kicker}
       </motion.p>
 
       <motion.h2
@@ -47,10 +53,9 @@ const ClosingCTA = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-6 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#FDFBF7]"
+        className="mt-6 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37]"
       >
-        Be a Part of the{" "}
-        <span className="italic text-[#D4AF37]">Pavitra Sankalp</span>
+        {titleA} <span className="italic text-[#E9C176]">{titleB}</span>
       </motion.h2>
 
       <motion.p
@@ -61,8 +66,7 @@ const ClosingCTA = () => (
         className="mt-6 text-base sm:text-lg text-[#FDFBF7]/75 leading-relaxed max-w-2xl mx-auto"
         data-testid="cta-subtext"
       >
-        If you believe Bharat can rise through pure intention, responsible
-        action, and collective participation, Pavitra is your movement too.
+        {text}
       </motion.p>
 
       <motion.div
@@ -89,4 +93,4 @@ const ClosingCTA = () => (
   </section>
 );
 
-export default ClosingCTA;
+export default PageCTA;
