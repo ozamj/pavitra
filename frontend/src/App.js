@@ -7,6 +7,7 @@ import OurSankalp from "@/pages/OurSankalp";
 import WhatWeDo from "@/pages/WhatWeDo";
 import Impact from "@/pages/Impact";
 import JoinMovement from "@/pages/JoinMovement";
+import Newsroom from "@/pages/Newsroom";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,6 +45,7 @@ function App() {
             <Route path="/what-we-do" element={<WhatWeDo />} />
             <Route path="/impact" element={<Impact />} />
             <Route path="/join-the-movement" element={<JoinMovement />} />
+            <Route path="/newsroom" element={<Newsroom />} />
           </Routes>
         </main>
         <Footer />

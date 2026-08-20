@@ -38,6 +38,7 @@ const Navbar = () => {
   const isWhatWeDo = pathname === "/what-we-do";
   const isImpact = pathname === "/impact";
   const isJoin = pathname === "/join-the-movement";
+  const isNewsroom = pathname === "/newsroom";
 
   return (
     <motion.header
@@ -102,10 +103,15 @@ const Navbar = () => {
             Join The Movement
             {isJoin ? <ActiveMarks /> : <HoverMark />}
           </Link>
-          <a href={HOME_URL} className={linkClass} data-testid="nav-link-newsroom">
+          <Link
+            to="/newsroom"
+            aria-current={isNewsroom ? "page" : undefined}
+            className={isNewsroom ? activeClass : linkClass}
+            data-testid="nav-link-newsroom"
+          >
             Newsroom
-            <HoverMark />
-          </a>
+            {isNewsroom ? <ActiveMarks /> : <HoverMark />}
+          </Link>
           <a
             href={`${HOME_URL}#products`}
             className={linkClass}

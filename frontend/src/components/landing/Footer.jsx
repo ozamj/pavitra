@@ -9,7 +9,7 @@ const COLUMNS = [
       { label: "Our Sankalp", to: "/our-sankalp" },
       { label: "What We Do", to: "/what-we-do" },
       { label: "Impact", to: "/impact" },
-      { label: "Newsroom", href: HOME_URL },
+      { label: "Newsroom", to: "/newsroom" },
     ],
   },
   {
