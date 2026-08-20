@@ -52,9 +52,11 @@ const PILLARS = [
 const WWBharatVikas = () => (
   <section
     id="bharat-vikas"
-    className="relative bg-gradient-to-b from-[#F5ECD9] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="ww-bharat-vikas-section"
   >
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#F5ECD9] to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#F5ECD9] pointer-events-none" aria-hidden="true" />
     <div
       className="absolute top-0 right-1/4 w-[30rem] h-[30rem] rounded-full pointer-events-none"
       style={{
@@ -64,23 +66,23 @@ const WWBharatVikas = () => (
       aria-hidden="true"
     />
     <span
-      className="absolute bottom-8 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
+      className="absolute bottom-8 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
       aria-hidden="true"
     >
       04
     </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="04" label="The Larger Identity" />
+      <ChapterTag number="04" label="The Larger Identity" dark />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#775A19] max-w-3xl"
+        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-3xl"
       >
-        Pavitra <span className="italic">Bharat Vikas</span>
+        Pavitra <span className="italic text-[#E9C176]">Bharat Vikas</span>
       </motion.h2>
 
       <motion.p
@@ -88,7 +90,7 @@ const WWBharatVikas = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, delay: 0.1 }}
-        className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl"
+        className="mt-6 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-2xl"
         data-testid="ww-bharat-vikas-lead"
       >
         Pavitra Bharat Vikas is the larger national identity of the movement —

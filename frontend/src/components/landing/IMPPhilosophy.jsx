@@ -19,9 +19,11 @@ const CASCADE = [
 const IMPPhilosophy = () => (
   <section
     id="philosophy"
-    className="relative bg-gradient-to-b from-[#F5ECD9] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="impact-philosophy-section"
   >
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#F5ECD9] to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#FAF7F2] pointer-events-none" aria-hidden="true" />
     <div
       className="absolute top-0 left-1/3 w-[30rem] h-[30rem] rounded-full pointer-events-none"
       style={{
@@ -31,24 +33,24 @@ const IMPPhilosophy = () => (
       aria-hidden="true"
     />
     <span
-      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
+      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
       aria-hidden="true"
     >
       04
     </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="04" label="Impact Philosophy" />
+      <ChapterTag number="04" label="Impact Philosophy" dark />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#775A19] max-w-3xl"
+        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-3xl"
       >
         Small Actions. Visible Progress.{" "}
-        <span className="italic">Shared Pride.</span>
+        <span className="italic text-[#E9C176]">Shared Pride.</span>
       </motion.h2>
 
       <motion.div
@@ -56,7 +58,7 @@ const IMPPhilosophy = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, delay: 0.1 }}
-        className="mt-6 space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl"
+        className="mt-6 space-y-4 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-2xl"
         data-testid="impact-philosophy-lead"
       >
         <p>Pavitra believes impact does not always begin with big promises.</p>
@@ -78,12 +80,12 @@ const IMPPhilosophy = () => (
               delay: i * 0.06,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className={`font-display text-2xl sm:text-3xl lg:text-4xl text-[#1C1917] leading-tight py-2 ${
+            className={`font-display text-2xl sm:text-3xl lg:text-4xl text-[#F4F1EA] leading-tight py-2 ${
               [0, "sm:ml-0", "sm:ml-10", "sm:ml-20", "sm:ml-32", "sm:ml-44", "sm:ml-56"][i + 1]
             }`}
             data-testid={`philosophy-example-${i + 1}`}
           >
-            <span className="text-[#B08D1E] mr-3" aria-hidden="true">
+            <span className="text-[#D4AF37] mr-3" aria-hidden="true">
               ·
             </span>
             {line}
@@ -101,8 +103,8 @@ const IMPPhilosophy = () => (
             transition={{ duration: 0.85, delay: i * 0.15 }}
             className={
               i === CASCADE.length - 1
-                ? "font-display italic font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#775A19]"
-                : "font-display text-xl sm:text-2xl text-[#1C1917]/70"
+                ? "font-display italic font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37]"
+                : "font-display text-xl sm:text-2xl text-[#F4F1EA]/75"
             }
             data-testid={`philosophy-cascade-${i + 1}`}
           >
