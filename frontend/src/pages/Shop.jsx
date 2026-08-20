@@ -14,7 +14,7 @@ export default function Shop() {
       <SHPhilosophy />
       <SHFeatured />
       <PageCTA
-        kicker="06 · Shop with Purpose"
+        kicker="Shop with Purpose"
         titleA="Choose Products That"
         titleB="Carry Purpose"
         text="When you choose Pavitra, you choose more than a product. You choose a pure thought for Bharat."

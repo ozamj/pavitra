@@ -44,8 +44,8 @@ const Mission = () => {
       className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
       data-testid="mission-section"
     >
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#FAF7F2] to-transparent pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#F5ECD9] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2]/40 to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-[#F5ECD9]/40 to-[#F5ECD9] pointer-events-none" aria-hidden="true" />
       <div
         className="absolute top-0 left-1/3 w-[30rem] h-[30rem] rounded-full pointer-events-none"
         style={{
@@ -54,23 +54,17 @@ const Mission = () => {
         }}
         aria-hidden="true"
       />
-      <span
-        className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
-        aria-hidden="true"
-      >
-        03
-      </span>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <ChapterTag number="03" label="Our Mission" dark />
 
-        <div className="mt-12 lg:flex lg:items-end lg:justify-between lg:gap-16">
+        <div className="mt-12">
           <motion.h2
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-2xl"
+            className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37] max-w-4xl"
           >
             From Sankalp to Seva.{" "}
             <span className="italic text-[#E9C176]">From Seva to Nirmaan.</span>
@@ -81,7 +75,7 @@ const Mission = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="mt-6 lg:mt-0 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-md lg:text-right"
+            className="mt-6 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-2xl"
             data-testid="mission-lead"
           >
             Pavitra&rsquo;s mission is to convert pure intention into

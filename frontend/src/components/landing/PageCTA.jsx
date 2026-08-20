@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Flower2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const PageCTA = ({
-  kicker = "06 · The Calling",
+  kicker = "The Calling",
   titleA = "Be a Part of the",
   titleB = "Pavitra Sankalp",
   text = "If you believe Bharat can rise through pure intention, responsible action, and collective participation, Pavitra is your movement too.",
@@ -34,9 +34,14 @@ const PageCTA = ({
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto w-16 h-16 rounded-full border border-[#775A19]/50 bg-[#522B6A]/10 flex items-center justify-center"
+        className="mx-auto w-16 h-16 rounded-full border border-[#775A19]/50 bg-white flex items-center justify-center p-3.5"
       >
-        <Flower2 size={26} className="text-[#775A19]" />
+        <img
+          src="/pavitra-globe.webp"
+          alt="Pavitra globe emblem"
+          className="w-full h-full object-contain"
+          data-testid="cta-globe-image"
+        />
       </motion.div>
 
       <motion.p
@@ -55,7 +60,7 @@ const PageCTA = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-6 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
+        className="mt-6 font-display font-bold tracking-tight leading-[1.08] text-4xl sm:text-5xl lg:text-6xl text-[#775A19]"
       >
         {titleA} <span className="italic text-[#B08D1E]">{titleB}</span>
       </motion.h2>

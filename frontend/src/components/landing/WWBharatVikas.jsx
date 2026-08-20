@@ -55,8 +55,8 @@ const WWBharatVikas = () => (
     className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="ww-bharat-vikas-section"
   >
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#F5ECD9] to-transparent pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#F5ECD9] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#F5ECD9] via-[#F5ECD9]/40 to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-[#F5ECD9]/40 to-[#F5ECD9] pointer-events-none" aria-hidden="true" />
     <div
       className="absolute top-0 right-1/4 w-[30rem] h-[30rem] rounded-full pointer-events-none"
       style={{
@@ -65,12 +65,6 @@ const WWBharatVikas = () => (
       }}
       aria-hidden="true"
     />
-    <span
-      className="absolute bottom-8 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
-      aria-hidden="true"
-    >
-      04
-    </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <ChapterTag number="04" label="The Larger Identity" dark />
@@ -80,7 +74,7 @@ const WWBharatVikas = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37] max-w-3xl"
+        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37] max-w-3xl"
       >
         Pavitra <span className="italic text-[#E9C176]">Bharat Vikas</span>
       </motion.h2>

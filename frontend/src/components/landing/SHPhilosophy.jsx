@@ -12,8 +12,8 @@ const SHPhilosophy = () => (
     className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="shop-philosophy-section"
   >
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#F5ECD9] to-transparent pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#FAF7F2] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#F5ECD9] via-[#F5ECD9]/40 to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-[#FAF7F2]/40 to-[#FAF7F2] pointer-events-none" aria-hidden="true" />
     <div
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full pointer-events-none"
       style={{
@@ -22,12 +22,6 @@ const SHPhilosophy = () => (
       }}
       aria-hidden="true"
     />
-    <span
-      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-stroke-ivory opacity-40 select-none pointer-events-none"
-      aria-hidden="true"
-    >
-      04
-    </span>
 
     <div className="relative max-w-4xl mx-auto px-4 sm:px-8 text-center">
       <div className="flex justify-center">
@@ -39,7 +33,7 @@ const SHPhilosophy = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#D4AF37]"
+        className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37]"
       >
         Purity in Thought. Trust in Product.{" "}
         <span className="italic text-[#E9C176]">Purpose in Action.</span>
@@ -53,7 +47,7 @@ const SHPhilosophy = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.9, delay: i * 0.18 }}
-            className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#F4F1EA] leading-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#F4F1EA] leading-tight"
             data-testid={`shop-philosophy-line-${i + 1}`}
           >
             {line}

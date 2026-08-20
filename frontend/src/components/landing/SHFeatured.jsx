@@ -61,23 +61,17 @@ const SHFeatured = () => (
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="shop-featured-section"
   >
-    <span
-      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
-      aria-hidden="true"
-    >
-      05
-    </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <ChapterTag number="05" label="Featured Products" />
 
-      <div className="mt-12 lg:flex lg:items-end lg:justify-between lg:gap-16">
+      <div className="mt-12">
         <motion.h2
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#775A19]"
+          className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
         >
           Featured <span className="italic">Pavitra Products</span>
         </motion.h2>
@@ -87,7 +81,7 @@ const SHFeatured = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="mt-6 lg:mt-0 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#57534E]"
+          className="mt-6 font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]"
           data-testid="featured-note"
         >
           Launch collection · more arriving soon

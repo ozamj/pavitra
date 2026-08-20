@@ -12,7 +12,7 @@ export default function JoinMovement() {
       <JNWho />
       <JNWays />
       <PageCTA
-        kicker="05 · The Calling"
+        kicker="The Calling"
         titleA="Your Role Can"
         titleB="Build Bharat"
         text="Every movement begins when people decide to participate. Pavitra is inviting every responsible citizen, organisation, and community to become part of Bharat's upliftment."

@@ -60,15 +60,12 @@ const IMPHero = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="flex items-center gap-4 mb-8"
           >
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#775A19]/40 text-[#775A19] rounded-full">
-              01
-            </span>
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#1C1917]/55">
+            <span className="font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]">
               Impact · Seen, Felt, Remembered
             </span>
           </motion.div>
 
-          <h1 className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl text-[#775A19]">
+          <h1 className="font-display font-bold tracking-tight leading-[1.04] text-5xl sm:text-6xl lg:text-7xl text-[#775A19]">
             <MaskedLine delay={0.35}>Trust must</MaskedLine>
             <MaskedLine delay={0.47}>be visible.</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
@@ -111,9 +108,6 @@ const IMPHero = () => {
               </span>
               See how impact works
             </button>
-            <span className="hidden sm:block font-mono-x text-[11px] tracking-[0.25em] text-[#1C1917]/35">
-              01 / 06
-            </span>
           </motion.div>
         </motion.div>
 

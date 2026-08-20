@@ -26,12 +26,6 @@ const WWAction = () => (
     className="relative bg-gradient-to-b from-[#F3EBDD] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="ww-action-section"
   >
-    <span
-      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
-      aria-hidden="true"
-    >
-      02
-    </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <ChapterTag number="02" label="Pavitra in Action" />
@@ -41,7 +35,7 @@ const WWAction = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#775A19] max-w-3xl"
+        className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19] max-w-3xl"
       >
         Think Pure. Act Responsible.{" "}
         <span className="italic">Build Visible.</span>

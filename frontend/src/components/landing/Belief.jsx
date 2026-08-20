@@ -14,59 +14,38 @@ const Belief = () => (
     className="relative bg-gradient-to-b from-[#F5ECD9] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="belief-section"
   >
-    <span
-      className="absolute top-10 left-4 sm:left-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
-      aria-hidden="true"
-    >
-      04
-    </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <ChapterTag number="04" label="Our Belief" />
 
-      <div className="mt-12 grid lg:grid-cols-12 gap-14 lg:gap-16 items-center">
-        <div className="lg:col-span-5">
-          <motion.h2
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#775A19]"
-          >
-            Dignity,{" "}
-            <span className="italic">Not Dependency</span>
-          </motion.h2>
+      <div className="mt-12 max-w-3xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
+        >
+          Dignity, <span className="italic">Not Dependency</span>
+        </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, delay: 0.12 }}
-            className="mt-6 space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed"
-            data-testid="belief-lead"
-          >
-            <p>Pavitra does not believe in creating dependency.</p>
-            <p>
-              The mission is to build systems where people participate, earn,
-              contribute, and rise with self-respect.
-            </p>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, delay: 0.12 }}
+          className="mt-6 space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed"
+          data-testid="belief-lead"
+        >
+          <p>Pavitra does not believe in creating dependency.</p>
+          <p>
+            The mission is to build systems where people participate, earn,
+            contribute, and rise with self-respect.
+          </p>
+        </motion.div>
+      </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mt-10 w-24 h-24 rounded-full border border-[#522B6A]/25 flex items-center justify-center"
-            aria-hidden="true"
-          >
-            <div className="w-16 h-16 rounded-full border border-[#775A19]/35 flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full bg-[#522B6A]/15" />
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="lg:col-span-7">
+      <div className="mt-14">
           {CONTRASTS.map((c, i) => {
             const Icon = c.icon;
             return (
@@ -101,7 +80,6 @@ const Belief = () => (
           })}
         </div>
       </div>
-    </div>
   </section>
 );
 

@@ -29,15 +29,21 @@ const Founder = () => (
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="founder-section"
   >
-    <span
-      className="absolute top-10 right-4 sm:right-10 font-display text-[9rem] sm:text-[13rem] leading-none text-[#522B6A]/[0.05] select-none pointer-events-none"
-      aria-hidden="true"
-    >
-      05
-    </span>
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
       <ChapterTag number="05" label={"Founder’s Sankalp"} />
+
+      <div className="mt-12 max-w-3xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
+        >
+          A Message from <span className="italic">the Founder</span>
+        </motion.h2>
+      </div>
 
       <div className="mt-12 grid lg:grid-cols-12 gap-14 lg:gap-16 items-center">
         <motion.div
@@ -45,7 +51,7 @@ const Founder = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-4 order-2 lg:order-1"
+          className="lg:col-span-4"
         >
           <div className="relative rounded-t-[9rem] rounded-b-2xl overflow-hidden border border-[#522B6A]/15 shadow-[0_32px_64px_-24px_rgba(82,43,106,0.35)]">
             <img
@@ -66,18 +72,7 @@ const Founder = () => (
           </div>
         </motion.div>
 
-        <div className="lg:col-span-8 order-1 lg:order-2">
-          <motion.h2
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold tracking-tight leading-[1.08] text-2xl sm:text-3xl lg:text-4xl text-[#1C1917]"
-          >
-            A Message from{" "}
-            <span className="italic text-[#522B6A]">the Founder</span>
-          </motion.h2>
-
+        <div className="lg:col-span-8">
           <motion.blockquote
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}

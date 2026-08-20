@@ -12,7 +12,7 @@ export default function Newsroom() {
       <NWStories />
       <NWMedia />
       <PageCTA
-        kicker="05 · The Journey Continues"
+        kicker="The Journey Continues"
         titleA="Stay Connected with"
         titleB="the Movement"
         text="Pavitra is a journey of pure intention, responsible action, and visible progress. Follow the movement as it grows across Bharat."
