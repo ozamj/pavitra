@@ -24,7 +24,7 @@ const Thought = () => {
   return (
     <section
       id="thought"
-      className="relative bg-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#EFE7D8] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
       data-testid="thought-section"
     >
       <span

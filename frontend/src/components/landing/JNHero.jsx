@@ -32,14 +32,14 @@ const JNHero = () => {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen bg-[#180F2C] overflow-hidden flex items-center"
+      className="relative min-h-screen bg-[#FAF7F2] overflow-hidden flex items-center"
       data-testid="join-hero-section"
     >
       <div
         className="glow-pulse absolute -top-40 -right-40 w-[34rem] h-[34rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(212,175,55,0) 70%)",
+            "radial-gradient(circle, rgba(212,175,55,0.16) 0%, rgba(212,175,55,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -47,7 +47,7 @@ const JNHero = () => {
         className="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(82,43,106,0.4) 0%, rgba(82,43,106,0) 70%)",
+            "radial-gradient(circle, rgba(82,43,106,0.14) 0%, rgba(82,43,106,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -60,22 +60,22 @@ const JNHero = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="flex items-center gap-4 mb-8"
           >
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#D4AF37]/40 text-[#D4AF37] rounded-full">
+            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#775A19]/40 text-[#775A19] rounded-full">
               01
             </span>
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#F4F1EA]/60">
+            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#1C1917]/55">
               Join The Movement · Every Hand Matters
             </span>
           </motion.div>
 
-          <h1 className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl text-[#D4AF37]">
+          <h1 className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl text-[#775A19]">
             <MaskedLine delay={0.35}>This is not just</MaskedLine>
             <MaskedLine delay={0.47}>our sankalp.</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#E9C176]">It can be</span>
+              <span className="italic text-[#B08D1E]">It can be</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#E9C176]">yours too.</span>
+              <span className="italic text-[#B08D1E]">yours too.</span>
             </MaskedLine>
           </h1>
 
@@ -83,7 +83,7 @@ const JNHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.0 }}
-            className="mt-8 max-w-xl text-base sm:text-lg text-[#F4F1EA]/70 leading-relaxed"
+            className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="join-hero-lead"
           >
             Pavitra is for everyone who believes Bharat can rise through pure
@@ -94,7 +94,7 @@ const JNHero = () => {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.15 }}
-            className="mt-6 font-display italic font-semibold text-xl sm:text-2xl text-[#E9C176]"
+            className="mt-6 font-display italic font-semibold text-xl sm:text-2xl text-[#B08D1E]"
             data-testid="join-hero-tagline"
           >
             Haath Badhayein, Bharat Banayein
@@ -112,13 +112,13 @@ const JNHero = () => {
                   .getElementById("ways")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="group flex items-center gap-3 bg-[#D4AF37] hover:bg-[#E9C176] text-[#180F2C] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-400"
+              className="group flex items-center gap-3 bg-[#522B6A] hover:bg-[#775A19] text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-400"
               data-testid="join-hero-cta-button"
             >
               I Want to Join
               <ArrowDown size={15} />
             </button>
-            <span className="hidden sm:block font-mono-x text-[11px] tracking-[0.25em] text-[#F4F1EA]/35">
+            <span className="hidden sm:block font-mono-x text-[11px] tracking-[0.25em] text-[#1C1917]/35">
               01 / 05
             </span>
           </motion.div>
@@ -132,7 +132,7 @@ const JNHero = () => {
         >
           <motion.div
             style={{ y: imgY }}
-            className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#D4AF37]/25 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
+            className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#775A19]/30 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
           >
             <img
               src={JN_IMG}
@@ -148,7 +148,7 @@ const JNHero = () => {
             </div>
           </motion.div>
           <div
-            className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full border border-[#D4AF37]/30 pointer-events-none"
+            className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full border border-[#775A19]/30 pointer-events-none"
             aria-hidden="true"
           />
         </motion.div>

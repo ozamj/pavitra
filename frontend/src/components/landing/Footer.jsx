@@ -53,27 +53,37 @@ const Footer = () => {
 
   return (
     <footer
-      className="bg-[#F5ECD9] border-t border-[#D4AF37]/40 pt-16 pb-10"
+      className="bg-[#180F2C] pb-10"
       data-testid="site-footer"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+      <div
+        className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent"
+        aria-hidden="true"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 pt-16">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <img
-              src="/pavitra-logo.webp"
-              alt="Pavitra — A sankalp for Bharat"
-              className="h-11 w-auto"
-              data-testid="footer-logo-image"
-            />
-            <p className="mt-6 text-sm sm:text-base text-[#57534E] leading-relaxed max-w-xs">
+            <span className="relative inline-block">
+              <span
+                className="absolute -inset-4 rounded-full bg-[#FAF7F2]/85 blur-xl pointer-events-none"
+                aria-hidden="true"
+              />
+              <img
+                src="/pavitra-logo.webp"
+                alt="Pavitra — A sankalp for Bharat"
+                className="relative h-11 w-auto"
+                data-testid="footer-logo-image"
+              />
+            </span>
+            <p className="mt-6 text-sm sm:text-base text-[#F4F1EA]/60 leading-relaxed max-w-xs">
               A people-powered movement for Bharat&rsquo;s upliftment — built
               on pure intention, responsible action, and visible progress.
             </p>
             <div className="mt-8">
-              <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#775A19]">
+              <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">
                 Where We Sit
               </p>
-              <p className="mt-3 text-sm text-[#1C1917]/60 leading-relaxed">
+              <p className="mt-3 text-sm text-[#F4F1EA]/55 leading-relaxed">
                 Pavitra Foundation — Nirmaan Bhavan
                 <br />
                 Kailashpur Road, Rishikesh,
@@ -85,7 +95,7 @@ const Footer = () => {
 
           {COLUMNS.map((col) => (
             <div key={col.title} className="md:col-span-2">
-              <p className="font-mono-x text-xs tracking-[0.3em] uppercase text-[#775A19]">
+              <p className="font-mono-x text-xs tracking-[0.3em] uppercase text-[#D4AF37]">
                 {col.title}
               </p>
               <ul className="mt-6 space-y-3.5">
@@ -96,8 +106,8 @@ const Footer = () => {
                         to={link.to}
                         className={`text-sm transition-colors duration-300 ${
                           isActive(link.to)
-                            ? "text-[#775A19] font-medium"
-                            : "text-[#1C1917]/60 hover:text-[#775A19]"
+                            ? "text-[#E9C176]"
+                            : "text-[#F4F1EA]/60 hover:text-[#E9C176]"
                         }`}
                         data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                       >
@@ -106,7 +116,7 @@ const Footer = () => {
                     ) : link.action ? (
                       <button
                         onClick={() => go(link.action)}
-                        className="text-sm text-[#1C1917]/60 hover:text-[#775A19] transition-colors duration-300"
+                        className="text-sm text-[#F4F1EA]/60 hover:text-[#E9C176] transition-colors duration-300"
                         data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {link.label}
@@ -114,7 +124,7 @@ const Footer = () => {
                     ) : (
                       <a
                         href={link.href}
-                        className="text-sm text-[#1C1917]/60 hover:text-[#775A19] transition-colors duration-300"
+                        className="text-sm text-[#F4F1EA]/60 hover:text-[#E9C176] transition-colors duration-300"
                         data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {link.label}
@@ -127,11 +137,11 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="mt-14 pt-8 border-t border-[#522B6A]/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#1C1917]/45">
+        <div className="mt-14 pt-8 border-t border-[#F4F1EA]/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#F4F1EA]/40">
             © 2026 Pavitra Swarojgar Kendra · Built for Bharat
           </p>
-          <p className="font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#1C1917]/45">
+          <p className="font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#F4F1EA]/40">
             Sankalp → Seva → Nirmaan → Swabhimaan
           </p>
         </div>

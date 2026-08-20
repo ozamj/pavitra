@@ -6,11 +6,11 @@ import { Globe, ChevronDown, Check } from "lucide-react";
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
 const linkClass =
-  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#522B6A]/70 hover:text-[#522B6A] transition-colors duration-300";
+  "group relative font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#261242]/75 hover:text-[#180F2C] transition-colors duration-300";
 const activeClass =
-  "relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#522B6A]";
+  "relative font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#180F2C]";
 const joinClass =
-  "group relative font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#775A19] hover:text-[#522B6A] transition-colors duration-300";
+  "group relative font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#775A19] hover:text-[#180F2C] transition-colors duration-300";
 
 const ActiveMarks = () => (
   <>
@@ -128,7 +128,7 @@ const Navbar = () => {
           <div className="relative">
             <button
               onClick={() => setLangOpen((v) => !v)}
-              className="group flex items-center gap-1.5 font-mono-x text-[10px] tracking-[0.18em] uppercase text-[#522B6A]/70 hover:text-[#522B6A] border border-[#522B6A]/25 hover:border-[#775A19]/60 rounded-full px-3 py-1.5 transition-colors duration-300"
+              className="group flex items-center gap-1.5 font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#261242]/75 hover:text-[#180F2C] border border-[#261242]/25 hover:border-[#775A19]/60 rounded-full px-3.5 py-2 transition-colors duration-300"
               data-testid="nav-language-button"
               aria-expanded={langOpen}
             >

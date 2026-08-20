@@ -81,7 +81,7 @@ const AREAS = [
 const WWAreas = () => (
   <section
     id="areas"
-    className="relative bg-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="ww-areas-section"
   >
     <span

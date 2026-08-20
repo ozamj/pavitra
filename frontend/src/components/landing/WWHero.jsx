@@ -32,14 +32,14 @@ const WWHero = () => {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen bg-[#180F2C] overflow-hidden flex items-center"
+      className="relative min-h-screen bg-[#FAF7F2] overflow-hidden flex items-center"
       data-testid="ww-hero-section"
     >
       <div
         className="glow-pulse absolute -top-40 -right-40 w-[34rem] h-[34rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(212,175,55,0) 70%)",
+            "radial-gradient(circle, rgba(212,175,55,0.16) 0%, rgba(212,175,55,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -47,7 +47,7 @@ const WWHero = () => {
         className="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(82,43,106,0.4) 0%, rgba(82,43,106,0) 70%)",
+            "radial-gradient(circle, rgba(82,43,106,0.14) 0%, rgba(82,43,106,0) 70%)",
         }}
         aria-hidden="true"
       />
@@ -60,22 +60,22 @@ const WWHero = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="flex items-center gap-4 mb-8"
           >
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#D4AF37]/40 text-[#D4AF37] rounded-full">
+            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase px-3 py-1.5 border border-[#775A19]/40 text-[#775A19] rounded-full">
               01
             </span>
-            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#F4F1EA]/60">
+            <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#1C1917]/55">
               What We Do · The Work of Pavitra
             </span>
           </motion.div>
 
-          <h1 className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl text-[#D4AF37]">
+          <h1 className="font-display font-bold tracking-tight leading-[1.04] text-4xl sm:text-5xl lg:text-6xl text-[#775A19]">
             <MaskedLine delay={0.35}>Our work begins</MaskedLine>
             <MaskedLine delay={0.47}>with Bharat.</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#E9C176]">Our vision reaches</span>
+              <span className="italic text-[#B08D1E]">Our vision reaches</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#E9C176]">every community.</span>
+              <span className="italic text-[#B08D1E]">every community.</span>
             </MaskedLine>
           </h1>
 
@@ -83,7 +83,7 @@ const WWHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.0 }}
-            className="mt-8 max-w-xl text-base sm:text-lg text-[#F4F1EA]/70 leading-relaxed"
+            className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="ww-hero-lead"
           >
             Pavitra works to transform pure intention into meaningful action
@@ -103,15 +103,15 @@ const WWHero = () => {
                   .getElementById("action")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="group flex items-center gap-3 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#F4F1EA]/70 hover:text-[#D4AF37] transition-colors duration-300"
+              className="group flex items-center gap-3 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#1C1917]/60 hover:text-[#775A19] transition-colors duration-300"
               data-testid="ww-hero-scroll-indicator"
             >
-              <span className="w-10 h-10 rounded-full border border-[#F4F1EA]/25 flex items-center justify-center group-hover:border-[#D4AF37] transition-colors duration-300">
+              <span className="w-10 h-10 rounded-full border border-[#522B6A]/25 flex items-center justify-center group-hover:border-[#775A19] transition-colors duration-300">
                 <ArrowDown size={15} className="animate-bounce" />
               </span>
               See Pavitra in action
             </button>
-            <span className="hidden sm:block font-mono-x text-[11px] tracking-[0.25em] text-[#F4F1EA]/35">
+            <span className="hidden sm:block font-mono-x text-[11px] tracking-[0.25em] text-[#1C1917]/35">
               01 / 05
             </span>
           </motion.div>
@@ -125,7 +125,7 @@ const WWHero = () => {
         >
           <motion.div
             style={{ y: imgY }}
-            className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#D4AF37]/25 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
+            className="relative rounded-t-[10rem] rounded-b-2xl overflow-hidden border border-[#775A19]/30 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]"
           >
             <img
               src={WW_IMG}
@@ -141,7 +141,7 @@ const WWHero = () => {
             </div>
           </motion.div>
           <div
-            className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full border border-[#D4AF37]/30 pointer-events-none"
+            className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full border border-[#775A19]/30 pointer-events-none"
             aria-hidden="true"
           />
         </motion.div>

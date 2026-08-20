@@ -52,7 +52,7 @@ const PILLARS = [
 const WWBharatVikas = () => (
   <section
     id="bharat-vikas"
-    className="relative bg-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-gradient-to-b from-[#F5ECD9] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="ww-bharat-vikas-section"
   >
     <div

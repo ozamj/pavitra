@@ -75,7 +75,7 @@ const JNWays = () => {
   return (
   <section
     id="ways"
-    className="relative bg-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
+    className="relative bg-gradient-to-b from-[#F5ECD9] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
     data-testid="join-ways-section"
   >
     <div
