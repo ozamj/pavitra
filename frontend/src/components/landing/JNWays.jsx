@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, Handshake, Sprout, Store, ArrowUpRight, Plus } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import JoinFormModal from "./JoinFormModal";
 
 const WAYS = [
   {
@@ -71,8 +72,10 @@ const WAYS = [
 
 const JNWays = () => {
   const [open, setOpen] = useState(0);
+  const [selected, setSelected] = useState(null);
 
   return (
+    <>
   <section
     id="ways"
     className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -191,6 +194,7 @@ const JNWays = () => {
                       </ul>
                       <div className="lg:col-span-2">
                         <button
+                          onClick={() => setSelected(way)}
                           className="group/btn inline-flex items-center gap-3 border border-[#D4AF37]/40 hover:bg-[#D4AF37] text-[#E9C176] hover:text-[#180F2C] font-mono-x text-[10px] sm:text-[11px] tracking-[0.18em] uppercase px-6 py-3.5 rounded-full transition-colors duration-400"
                           data-testid={`join-way-${way.slug}-button`}
                         >
@@ -211,6 +215,8 @@ const JNWays = () => {
       </div>
     </div>
   </section>
+      <JoinFormModal way={selected} onClose={() => setSelected(null)} />
+    </>
   );
 };
 

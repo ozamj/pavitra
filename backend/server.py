@@ -37,6 +37,26 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class InterestSubmissionCreate(BaseModel):
+    name: str = Field(min_length=2, max_length=80)
+    email: str = Field(pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    phone: str = ""
+    city: str = ""
+    role: str
+    message: str = ""
+
+class InterestSubmission(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: str
+    phone: str = ""
+    city: str = ""
+    role: str
+    message: str = ""
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
@@ -65,6 +85,23 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+
+@api_router.post("/interest", response_model=InterestSubmission)
+async def create_interest(input: InterestSubmissionCreate):
+    obj = InterestSubmission(**input.model_dump())
+    doc = obj.model_dump()
+    doc['timestamp'] = doc['timestamp'].isoformat()
+    await db.interest_submissions.insert_one(doc)
+    return obj
+
+@api_router.get("/interest", response_model=List[InterestSubmission])
+async def list_interest():
+    docs = await db.interest_submissions.find({}, {"_id": 0}).sort("timestamp", -1).to_list(200)
+    for d in docs:
+        if isinstance(d['timestamp'], str):
+            d['timestamp'] = datetime.fromisoformat(d['timestamp'])
+    return docs
 
 # Include the router in the main app
 app.include_router(api_router)
