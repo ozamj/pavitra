@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useT } from "@/i18n";
 
 const JN_IMG =
   "https://images.unsplash.com/photo-1519955266818-0231b63402bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
@@ -19,6 +20,7 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
 );
 
 const JNHero = () => {
+  const t = useT();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,18 +63,18 @@ const JNHero = () => {
             className="flex items-center gap-4 mb-8"
           >
             <span className="font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]">
-              Join The Movement · Every Hand Matters
+              {t("jn.hero.kicker")}
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold tracking-tight leading-[1.04] text-5xl sm:text-6xl lg:text-7xl text-[#775A19]">
-            <MaskedLine delay={0.35}>This is not just</MaskedLine>
-            <MaskedLine delay={0.47}>our sankalp.</MaskedLine>
+            <MaskedLine delay={0.35}>{t("jn.hero.l1")}</MaskedLine>
+            <MaskedLine delay={0.47}>{t("jn.hero.l2")}</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#B08D1E]">It can be</span>
+              <span className="italic text-[#B08D1E]">{t("jn.hero.l3")}</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#B08D1E]">yours too.</span>
+              <span className="italic text-[#B08D1E]">{t("jn.hero.l4")}</span>
             </MaskedLine>
           </h1>
 
@@ -83,8 +85,7 @@ const JNHero = () => {
             className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="join-hero-lead"
           >
-            Pavitra is for everyone who believes Bharat can rise through pure
-            intention, responsible action, and collective participation.
+            {t("jn.hero.lead")}
           </motion.p>
 
           <motion.p
@@ -94,7 +95,7 @@ const JNHero = () => {
             className="mt-6 font-display italic font-semibold text-xl sm:text-2xl text-[#B08D1E]"
             data-testid="join-hero-tagline"
           >
-            Haath Badhayein, Bharat Banayein
+            {t("jn.hero.tagline")}
           </motion.p>
 
           <motion.div
@@ -112,7 +113,7 @@ const JNHero = () => {
               className="group flex items-center gap-3 bg-[#522B6A] hover:bg-[#775A19] text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-400"
               data-testid="join-hero-cta-button"
             >
-              I Want to Join
+              {t("jn.hero.button")}
               <ArrowDown size={15} />
             </button>
           </motion.div>
@@ -137,7 +138,7 @@ const JNHero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                Haath Badhayein · Bharat Banayein
+                {t("jn.hero.tagline")}
               </p>
             </div>
           </motion.div>

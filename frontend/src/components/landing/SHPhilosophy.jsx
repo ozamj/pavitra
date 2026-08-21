@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const LINES = [
-  "Pavitra products are not created only to occupy shelves.",
-  "They are created to carry a thought.",
-];
+const SHPhilosophy = () => {
+  const t = useT();
+  const LINES = t("sh.philosophy.lines");
 
-const SHPhilosophy = () => (
+  return (
   <section
     id="product-philosophy"
     className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -25,7 +25,7 @@ const SHPhilosophy = () => (
 
     <div className="relative max-w-4xl mx-auto px-4 sm:px-8 text-center">
       <div className="flex justify-center">
-        <ChapterTag number="04" label="Product Philosophy" dark />
+        <ChapterTag number="04" label={t("sh.philosophy.tag")} dark />
       </div>
 
       <motion.h2
@@ -35,14 +35,14 @@ const SHPhilosophy = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37]"
       >
-        Purity in Thought. Trust in Product.{" "}
-        <span className="italic text-[#E9C176]">Purpose in Action.</span>
+        {t("sh.philosophy.title1")}{" "}
+        <span className="italic text-[#E9C176]">{t("sh.philosophy.title2")}</span>
       </motion.h2>
 
       <div className="mt-14 space-y-4">
         {LINES.map((line, i) => (
           <motion.p
-            key={line}
+            key={i}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -63,8 +63,7 @@ const SHPhilosophy = () => (
         className="mt-10 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-2xl mx-auto"
         data-testid="shop-philosophy-closing"
       >
-        A thought that daily-use products can also represent trust,
-        responsibility, and participation in a larger mission.
+        {t("sh.philosophy.closing")}
       </motion.p>
 
       <motion.div
@@ -77,6 +76,7 @@ const SHPhilosophy = () => (
       />
     </div>
   </section>
-);
+  );
+};
 
 export default SHPhilosophy;

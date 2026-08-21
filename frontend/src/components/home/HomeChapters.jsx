@@ -1,34 +1,12 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { useT } from "@/i18n";
 
-const CHAPTERS = [
-  {
-    title: "Sankalp",
-    sub: "It begins in silence — a promise made to Bharat, in the presence of one\u2019s own conscience.",
-    img: "/assets/s1.jpg",
-    chip: "Chapter 01",
-  },
-  {
-    title: "Seva",
-    sub: "Hours given, skills shared, presence brought — the sankalp finds its hands.",
-    img: "/assets/s2.jpg",
-    chip: "Chapter 02",
-  },
-  {
-    title: "Nirmaan",
-    sub: "Villages restored. Wells revived. Schools rebuilt. Progress becomes something you can touch.",
-    img: "/assets/s4.jpg",
-    chip: "Chapter 03",
-  },
-  {
-    title: "Swabhimaan",
-    sub: "What returns to the people is not aid — it is their own strength, made visible.",
-    img: "/assets/s7.jpg",
-    chip: "Chapter 04",
-  },
-];
+const IMGS = ["/assets/s1.jpg", "/assets/s2.jpg", "/assets/s4.jpg", "/assets/s7.jpg"];
 
 const HomeChapters = () => {
+  const t = useT();
+  const CHAPTERS = t("home.chapters.items");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -46,17 +24,14 @@ const HomeChapters = () => {
           <div>
             <p className="flex items-center gap-4 font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#E9C176]">
               <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-              From Sankalp to Swabhimaan
+              {t("home.chapters.eyebrow")}
             </p>
             <h2 className="mt-6 font-caslon font-bold tracking-tight leading-[1.1] text-2xl sm:text-3xl lg:text-4xl text-[#FDFBF7]">
-              The journey of a{" "}
-              <span className="italic text-[#D4AF37]">single promise.</span>
+              {t("home.chapters.title1")}{" "}
+              <span className="italic text-[#D4AF37]">{t("home.chapters.title2")}</span>
             </h2>
             <p className="mt-5 text-sm sm:text-base text-[#FDFBF7]/65 leading-relaxed max-w-lg">
-              Pavitra works to convert pure intention into meaningful action —
-              supporting national causes today and building the foundation for
-              future community development, local opportunities, and Pavitra
-              Kosh.
+              {t("home.chapters.body")}
             </p>
 
             <div className="mt-8 min-h-[7.5rem]">
@@ -82,7 +57,7 @@ const HomeChapters = () => {
             <div className="mt-8 flex items-center gap-2.5">
               {CHAPTERS.map((c, i) => (
                 <span
-                  key={c.title}
+                  key={i}
                   className={`h-1 rounded-full transition-all duration-500 ${
                     i === active ? "w-10 bg-[#D4AF37]" : "w-4 bg-[#FDFBF7]/20"
                   }`}
@@ -98,7 +73,7 @@ const HomeChapters = () => {
           <div className="relative h-[38vh] lg:h-[62vh] rounded-2xl overflow-hidden border border-[#D4AF37]/25 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]">
             {CHAPTERS.map((c, i) => (
               <motion.div
-                key={c.title}
+                key={i}
                 className="absolute inset-0"
                 initial={false}
                 animate={{
@@ -108,7 +83,7 @@ const HomeChapters = () => {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               >
                 <img
-                  src={c.img}
+                  src={IMGS[i]}
                   alt={c.title}
                   className="w-full h-full object-cover"
                   loading={i === 0 ? "eager" : "lazy"}

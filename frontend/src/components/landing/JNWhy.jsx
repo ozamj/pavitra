@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const BELIEFS = [
-  ["Purpose", "profit"],
-  ["Dignity", "dependency"],
-  ["Action", "promises"],
-  ["Trust", "publicity"],
-  ["Bharat", "everything"],
-];
+const JNWhy = () => {
+  const t = useT();
+  const BELIEFS = t("jn.why.beliefs");
 
-const JNWhy = () => (
+  return (
   <section
     id="why"
     className="relative bg-gradient-to-b from-[#ECE4F6] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -17,7 +14,7 @@ const JNWhy = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="02" label="Why Join Pavitra" />
+      <ChapterTag number="02" label={t("jn.why.tag")} />
 
       <div className="mt-12 grid lg:grid-cols-12 gap-14 lg:gap-16 items-start">
         <div className="lg:col-span-6">
@@ -28,8 +25,8 @@ const JNWhy = () => (
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
           >
-            Because Bharat&rsquo;s Upliftment{" "}
-            <span className="italic">Needs Participation</span>
+            {t("jn.why.title1")}{" "}
+            <span className="italic">{t("jn.why.title2")}</span>
           </motion.h2>
 
           <motion.div
@@ -40,18 +37,15 @@ const JNWhy = () => (
             className="mt-6 space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-xl"
             data-testid="join-why-lead"
           >
-            <p>
-              Pavitra is not only looking for people to work, sell, support,
-              or partner.
-            </p>
-            <p>Pavitra is looking for people who believe in:</p>
+            <p>{t("jn.why.p1")}</p>
+            <p>{t("jn.why.p2")}</p>
           </motion.div>
         </div>
 
         <div className="lg:col-span-6">
-          {BELIEFS.map(([first, second], i) => (
+          {BELIEFS.map((b, i) => (
             <motion.div
-              key={first}
+              key={i}
               initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -64,13 +58,13 @@ const JNWhy = () => (
               data-testid={`join-belief-${i + 1}`}
             >
               <span className="text-right font-display text-xl sm:text-2xl text-[#1C1917] transition-transform duration-500 group-hover:translate-x-1.5">
-                {first}
+                {b.first}
               </span>
               <span className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#775A19]/70">
-                before
+                {t("jn.why.before")}
               </span>
               <span className="text-left font-display italic font-semibold text-xl sm:text-2xl text-[#775A19] transition-transform duration-500 group-hover:-translate-x-1.5">
-                {second}
+                {b.second}
               </span>
             </motion.div>
           ))}
@@ -86,16 +80,15 @@ const JNWhy = () => (
         data-testid="join-why-closing"
       >
         <p className="font-display text-xl sm:text-2xl leading-relaxed text-[#522B6A]">
-          If you believe your work should mean more than income, your role
-          should mean more than position, and your contribution should mean
-          more than words —{" "}
+          {t("jn.why.closing")}{" "}
           <span className="italic font-semibold text-[#775A19]">
-            Pavitra is a movement you can belong to.
+            {t("jn.why.closingAccent")}
           </span>
         </p>
       </motion.blockquote>
     </div>
   </section>
-);
+  );
+};
 
 export default JNWhy;

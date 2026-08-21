@@ -8,41 +8,15 @@ import {
   Leaf,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const CATEGORIES = [
-  {
-    title: "Personal Care",
-    desc: "Products for daily hygiene, freshness, and self-care.",
-    icon: Droplets,
-  },
-  {
-    title: "Home Care",
-    desc: "Essentials for clean, healthy, and responsible homes.",
-    icon: Home,
-  },
-  {
-    title: "Fragrance & Spiritual Essentials",
-    desc: "Products inspired by purity, peace, and Indian cultural emotion.",
-    icon: Flower2,
-  },
-  {
-    title: "Tea & Beverages",
-    desc: "Everyday products that connect with Indian homes and routines.",
-    icon: Coffee,
-  },
-  {
-    title: "Stationery",
-    desc: "Products connected with learning, education, and progress.",
-    icon: BookOpen,
-  },
-  {
-    title: "Wellness & Ayurveda",
-    desc: "Products rooted in traditional trust and modern responsibility.",
-    icon: Leaf,
-  },
-];
+const ICONS = [Droplets, Home, Flower2, Coffee, BookOpen, Leaf];
 
-const SHCategories = () => (
+const SHCategories = () => {
+  const t = useT();
+  const CATEGORIES = t("sh.categories.items");
+
+  return (
   <section
     id="categories"
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -50,7 +24,7 @@ const SHCategories = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="03" label="Product Categories" />
+      <ChapterTag number="03" label={t("sh.categories.tag")} />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -59,15 +33,15 @@ const SHCategories = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19] max-w-3xl"
       >
-        Explore <span className="italic">Pavitra Products</span>
+        {t("sh.categories.title1")} <span className="italic">{t("sh.categories.title2")}</span>
       </motion.h2>
 
       <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {CATEGORIES.map((cat, i) => {
-          const Icon = cat.icon;
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={cat.title}
+              key={i}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -78,16 +52,16 @@ const SHCategories = () => (
               }}
               whileHover={{ y: -5 }}
               className="group bg-[#FAF7F2] border border-[#522B6A]/10 hover:border-[#D4AF37]/50 rounded-2xl p-6 transition-colors duration-500"
-              data-testid={`category-card-${cat.title.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+              data-testid={`category-card-${i + 1}`}
             >
               <div className="w-11 h-11 rounded-full bg-[#522B6A]/10 border border-[#522B6A]/15 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                 <Icon size={18} className="text-[#775A19]" />
               </div>
               <h3 className="mt-4 font-display font-semibold text-lg text-[#1C1917] leading-snug">
-                {cat.title}
+                {cat.t}
               </h3>
               <p className="mt-2 text-sm text-[#57534E] leading-relaxed">
-                {cat.desc}
+                {cat.d}
               </p>
             </motion.div>
           );
@@ -95,6 +69,7 @@ const SHCategories = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default SHCategories;

@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
-
-const FIELDS = [
-  { key: "name", label: "Full Name", type: "text", required: true, placeholder: "Your name" },
-  { key: "email", label: "Email", type: "email", required: true, placeholder: "you@example.com" },
-  { key: "phone", label: "Phone", type: "tel", required: false, placeholder: "+91" },
-  { key: "city", label: "City / Town", type: "text", required: false, placeholder: "Where you are based" },
-];
+import { useT } from "@/i18n";
 
 const JoinFormModal = ({ way, onClose }) => {
+  const t = useT();
   const [form, setForm] = useState({ name: "", email: "", phone: "", city: "", message: "" });
   const [status, setStatus] = useState("idle");
+
+  const FIELDS = [
+    { key: "name", label: t("jn.modal.name"), type: "text", required: true, placeholder: t("jn.modal.namePh") },
+    { key: "email", label: t("jn.modal.email"), type: "email", required: true, placeholder: t("jn.modal.emailPh") },
+    { key: "phone", label: t("jn.modal.phone"), type: "tel", required: false, placeholder: t("jn.modal.phonePh") },
+    { key: "city", label: t("jn.modal.city"), type: "text", required: false, placeholder: t("jn.modal.cityPh") },
+  ];
 
   const submit = async (e) => {
     e.preventDefault();
@@ -64,34 +66,43 @@ const JoinFormModal = ({ way, onClose }) => {
                   <img src="/pavitra-globe.webp" alt="Pavitra globe emblem" className="w-full h-full object-contain" />
                 </span>
                 <h3 className="mt-6 font-display font-bold text-2xl sm:text-3xl text-[#775A19]">
-                  Shukriya, {form.name.split(" ")[0]}.
+                  {t("jn.modal.successPrefix")} {form.name.split(" ")[0]}.
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-[#57534E] leading-relaxed">
-                  Your interest as{" "}
-                  <span className="font-semibold text-[#522B6A]">{way.name}</span>{" "}
-                  has been received. The Pavitra team will reach out to you soon.
+                  {t("jn.modal.successTemplate")
+                    .split("{role}")
+                    .reduce((acc, part, i, arr) => {
+                      acc.push(part);
+                      if (i < arr.length - 1)
+                        acc.push(
+                          <span key={i} className="font-semibold text-[#522B6A]">
+                            {way.name}
+                          </span>
+                        );
+                      return acc;
+                    }, [])}
                 </p>
                 <p className="mt-5 font-display italic text-lg text-[#B08D1E]">
-                  Haath Badhayein, Bharat Banayein
+                  {t("jn.modal.tagline")}
                 </p>
                 <button
                   onClick={onClose}
                   className="mt-8 font-mono-x text-[11px] tracking-[0.2em] uppercase bg-[#522B6A] hover:bg-[#775A19] text-[#FAF7F2] px-8 py-3.5 rounded-full transition-colors duration-300"
                   data-testid="join-form-done"
                 >
-                  Done
+                  {t("jn.modal.done")}
                 </button>
               </div>
             ) : (
               <div className="p-7 sm:p-9">
                 <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#775A19]">
-                  Join The Movement
+                  {t("jn.modal.kicker")}
                 </p>
                 <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl text-[#1C1917] leading-tight" data-testid="join-form-title">
                   {way.cta}
                 </h3>
                 <p className="mt-2 text-sm text-[#57534E] leading-relaxed">
-                  Share your details and the Pavitra team will connect with you.
+                  {t("jn.modal.sub")}
                 </p>
 
                 <form onSubmit={submit} className="mt-7 space-y-4" data-testid="join-interest-form">
@@ -114,13 +125,13 @@ const JoinFormModal = ({ way, onClose }) => {
                   ))}
                   <div>
                     <label className="block font-mono-x text-[10px] tracking-[0.22em] uppercase text-[#522B6A]/80 mb-1.5">
-                      Message
+                      {t("jn.modal.message")}
                     </label>
                     <textarea
                       rows={3}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder="Anything you'd like us to know"
+                      placeholder={t("jn.modal.messagePh")}
                       className="w-full bg-white border border-[#522B6A]/20 focus:border-[#B08D1E] rounded-xl px-4 py-3 text-sm text-[#1C1917] placeholder-[#1C1917]/35 outline-none transition-colors duration-300 resize-none"
                       data-testid="join-form-message"
                     />
@@ -128,7 +139,7 @@ const JoinFormModal = ({ way, onClose }) => {
 
                   {status === "error" && (
                     <p className="text-sm text-[#9F1239]" data-testid="join-form-error">
-                      Something went wrong. Please try again.
+                      {t("jn.modal.error")}
                     </p>
                   )}
 
@@ -138,7 +149,7 @@ const JoinFormModal = ({ way, onClose }) => {
                     className="group w-full inline-flex items-center justify-center gap-3 bg-[#522B6A] hover:bg-[#775A19] disabled:opacity-60 text-[#FAF7F2] font-mono-x text-[11px] tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-300"
                     data-testid="join-form-submit"
                   >
-                    {status === "submitting" ? "Sending…" : "Submit Interest"}
+                    {status === "submitting" ? t("jn.modal.sending") : t("jn.modal.submit")}
                     <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
                 </form>

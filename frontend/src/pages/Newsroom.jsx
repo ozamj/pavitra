@@ -11,14 +11,7 @@ export default function Newsroom() {
       <NWUpdates />
       <NWStories />
       <NWMedia />
-      <PageCTA
-        kicker="The Journey Continues"
-        titleA="Stay Connected with"
-        titleB="the Movement"
-        text="Pavitra is a journey of pure intention, responsible action, and visible progress. Follow the movement as it grows across Bharat."
-        buttonLabel="Follow Pavitra Updates"
-        testid="newsroom-cta-section"
-      />
+      <PageCTA dict="nw.cta" testid="newsroom-cta-section" />
     </>
   );
 }

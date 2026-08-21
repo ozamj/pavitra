@@ -10,18 +10,15 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const UPDATES = [
-  { title: "Launch updates", icon: Megaphone },
-  { title: "Founder announcements", icon: Mic },
-  { title: "New initiatives", icon: Sparkles },
-  { title: "Partnership news", icon: Handshake },
-  { title: "Store updates", icon: Store },
-  { title: "Community activity updates", icon: Users },
-  { title: "Media coverage", icon: Newspaper },
-];
+const ICONS = [Megaphone, Mic, Sparkles, Handshake, Store, Users, Newspaper];
 
-const NWUpdates = () => (
+const NWUpdates = () => {
+  const t = useT();
+  const UPDATES = t("nw.updates.rows");
+
+  return (
   <section
     id="updates"
     className="relative bg-gradient-to-b from-[#ECE4F6] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -29,7 +26,7 @@ const NWUpdates = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="02" label="Latest Updates" />
+      <ChapterTag number="02" label={t("nw.updates.tag")} />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -38,15 +35,15 @@ const NWUpdates = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
       >
-        Latest from <span className="italic">Pavitra</span>
+        {t("nw.updates.title1")} <span className="italic">{t("nw.updates.title2")}</span>
       </motion.h2>
 
       <div className="mt-12">
-        {UPDATES.map((update, i) => {
-          const Icon = update.icon;
+        {UPDATES.map((title, i) => {
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={update.title}
+              key={i}
               initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -65,10 +62,10 @@ const NWUpdates = () => (
                 <Icon size={18} className="text-[#775A19]" />
               </span>
               <p className="flex-1 font-display text-lg sm:text-2xl text-[#1C1917] leading-snug transition-transform duration-500 group-hover:translate-x-2">
-                {update.title}
+                {title}
               </p>
               <span className="font-mono-x text-[9px] tracking-[0.25em] uppercase text-[#775A19]/70 border border-[#D4AF37]/40 rounded-full px-3 py-1">
-                Soon
+                {t("nw.updates.soon")}
               </span>
               <ArrowUpRight
                 size={18}
@@ -87,10 +84,11 @@ const NWUpdates = () => (
         className="mt-10 font-mono-x text-[11px] tracking-[0.25em] uppercase text-[#57534E]"
         data-testid="updates-note"
       >
-        Fresh updates will appear here as the movement grows.
+        {t("nw.updates.note")}
       </motion.p>
     </div>
   </section>
-);
+  );
+};
 
 export default NWUpdates;

@@ -13,14 +13,7 @@ export default function Shop() {
       <SHCategories />
       <SHPhilosophy />
       <SHFeatured />
-      <PageCTA
-        kicker="Shop with Purpose"
-        titleA="Choose Products That"
-        titleB="Carry Purpose"
-        text="When you choose Pavitra, you choose more than a product. You choose a pure thought for Bharat."
-        buttonLabel="Shop Pavitra"
-        testid="shop-cta-section"
-      />
+      <PageCTA dict="sh.cta" testid="shop-cta-section" />
     </>
   );
 }

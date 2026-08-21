@@ -1,22 +1,13 @@
 import { motion } from "framer-motion";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const EXAMPLES = [
-  "A school kit.",
-  "A cleanliness drive.",
-  "A youth earning opportunity.",
-  "A village-level initiative.",
-  "A national cause supported.",
-  "A community brought together.",
-];
+const IMPPhilosophy = () => {
+  const t = useT();
+  const EXAMPLES = t("imp.philosophy.examples");
+  const CASCADE = t("imp.philosophy.cascade");
 
-const CASCADE = [
-  "When people see progress, trust grows.",
-  "When trust grows, participation grows.",
-  "When participation grows, Bharat rises.",
-];
-
-const IMPPhilosophy = () => (
+  return (
   <section
     id="philosophy"
     className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -34,7 +25,7 @@ const IMPPhilosophy = () => (
     />
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="04" label="Impact Philosophy" dark />
+      <ChapterTag number="04" label={t("imp.philosophy.tag")} dark />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -43,8 +34,8 @@ const IMPPhilosophy = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37] max-w-3xl"
       >
-        Small Actions. Visible Progress.{" "}
-        <span className="italic text-[#E9C176]">Shared Pride.</span>
+        {t("imp.philosophy.title1")}{" "}
+        <span className="italic text-[#E9C176]">{t("imp.philosophy.title2")}</span>
       </motion.h2>
 
       <motion.div
@@ -55,17 +46,14 @@ const IMPPhilosophy = () => (
         className="mt-6 space-y-4 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-2xl"
         data-testid="impact-philosophy-lead"
       >
-        <p>Pavitra believes impact does not always begin with big promises.</p>
-        <p>
-          It begins with small actions done with pure intention and repeated
-          with responsibility.
-        </p>
+        <p>{t("imp.philosophy.p1")}</p>
+        <p>{t("imp.philosophy.p2")}</p>
       </motion.div>
 
       <div className="mt-16">
         {EXAMPLES.map((line, i) => (
           <motion.p
-            key={line}
+            key={i}
             initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -90,7 +78,7 @@ const IMPPhilosophy = () => (
       <div className="mt-20 text-center space-y-3">
         {CASCADE.map((line, i) => (
           <motion.p
-            key={line}
+            key={i}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -108,6 +96,7 @@ const IMPPhilosophy = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default IMPPhilosophy;

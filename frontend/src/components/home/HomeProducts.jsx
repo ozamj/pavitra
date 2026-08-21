@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useT } from "@/i18n";
 
 const SHOPIFY = "https://nheb3m412gm42p5e-73384231102.shopifypreview.com/";
 
-const FILTERS = ["All", "Personal Care", "Home Care", "Tea & Beverages", "Wellness"];
+const FILTER_KEYS = ["all", "personal-care", "home-care", "tea-beverages", "wellness"];
+const FILTER_CATS = [null, "Personal Care", "Home Care", "Tea & Beverages", "Wellness"];
 
 const PRODUCTS = [
   {
@@ -75,9 +77,11 @@ const PRODUCTS = [
 ];
 
 const HomeProducts = () => {
-  const [filter, setFilter] = useState("All");
+  const t = useT();
+  const FILTERS = t("home.products.filters");
+  const [filterIdx, setFilterIdx] = useState(0);
   const visible =
-    filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.cat === filter);
+    filterIdx === 0 ? PRODUCTS : PRODUCTS.filter((p) => p.cat === FILTER_CATS[filterIdx]);
 
   return (
     <section
@@ -93,11 +97,11 @@ const HomeProducts = () => {
         >
           <p className="flex items-center gap-4 font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#775A19]">
             <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-            Products With Purpose
+            {t("home.products.eyebrow")}
           </p>
           <h2 className="mt-6 font-caslon font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#1C1917] max-w-3xl">
-            What you bring home,{" "}
-            <span className="italic text-[#775A19]">builds someone&rsquo;s.</span>
+            {t("home.products.title1")}{" "}
+            <span className="italic text-[#775A19]">{t("home.products.title2")}</span>
           </h2>
         </motion.div>
 
@@ -109,18 +113,18 @@ const HomeProducts = () => {
           className="mt-10 flex flex-wrap gap-3"
           data-testid="product-filters"
         >
-          {FILTERS.map((f) => (
+          {FILTER_KEYS.map((key, i) => (
             <button
-              key={f}
-              onClick={() => setFilter(f)}
+              key={key}
+              onClick={() => setFilterIdx(i)}
               className={`font-mono-x text-[10px] sm:text-[11px] tracking-[0.18em] uppercase px-5 py-2.5 rounded-full border transition-colors duration-300 ${
-                filter === f
+                filterIdx === i
                   ? "bg-[#522B6A] border-[#522B6A] text-[#FAF7F2]"
                   : "border-[#522B6A]/25 text-[#522B6A]/70 hover:border-[#775A19] hover:text-[#775A19]"
               }`}
-              data-testid={`filter-${f.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+              data-testid={`filter-${key}`}
             >
-              {f}
+              {FILTERS[i]}
             </button>
           ))}
         </motion.div>
@@ -163,7 +167,7 @@ const HomeProducts = () => {
                       className="font-mono-x text-[9px] tracking-[0.18em] uppercase text-[#1C1917]/40 border border-[#1C1917]/15 px-4 py-2 rounded-full"
                       data-testid="sold-out-badge"
                     >
-                      Sold out
+                      {t("home.products.soldOut")}
                     </span>
                   ) : (
                     <a
@@ -173,7 +177,7 @@ const HomeProducts = () => {
                       className="font-mono-x text-[9px] tracking-[0.18em] uppercase bg-[#522B6A] hover:bg-[#775A19] text-[#FAF7F2] px-4 py-2 rounded-full transition-colors duration-300"
                       data-testid="add-to-basket-button"
                     >
-                      Add to basket
+                      {t("home.products.addToBasket")}
                     </a>
                   )}
                 </div>
@@ -184,7 +188,7 @@ const HomeProducts = () => {
 
         {visible.length === 0 && (
           <p className="mt-12 text-center font-caslon italic text-xl text-[#775A19]" data-testid="products-empty">
-            Coming soon in this category — the sankalp is still taking shape.
+            {t("home.products.empty")}
           </p>
         )}
       </div>

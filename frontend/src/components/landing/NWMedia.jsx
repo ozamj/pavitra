@@ -8,41 +8,15 @@ import {
   Megaphone,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const MEDIA = [
-  {
-    title: "Press releases",
-    desc: "Official statements and releases from the Pavitra movement.",
-    icon: FileText,
-  },
-  {
-    title: "Media mentions",
-    desc: "Where the movement has been seen, quoted, and covered.",
-    icon: Newspaper,
-  },
-  {
-    title: "Brand assets",
-    desc: "Logos, colours, and identity resources for responsible use.",
-    icon: Image,
-  },
-  {
-    title: "Founder interviews",
-    desc: "Conversations with Shri Jay Ukani on the sankalp behind Pavitra.",
-    icon: Mic,
-  },
-  {
-    title: "Event coverage",
-    desc: "Moments and milestones from gatherings across Bharat.",
-    icon: CalendarDays,
-  },
-  {
-    title: "Official announcements",
-    desc: "Every announcement, straight from the movement.",
-    icon: Megaphone,
-  },
-];
+const ICONS = [FileText, Newspaper, Image, Mic, CalendarDays, Megaphone];
 
-const NWMedia = () => (
+const NWMedia = () => {
+  const t = useT();
+  const MEDIA = t("nw.media.items");
+
+  return (
   <section
     id="media"
     className="relative bg-[#3E2A5C] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -60,7 +34,7 @@ const NWMedia = () => (
     />
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="04" label="Media & Press" dark />
+      <ChapterTag number="04" label={t("nw.media.tag")} dark />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -69,15 +43,15 @@ const NWMedia = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37] max-w-3xl"
       >
-        Media & <span className="italic text-[#E9C176]">Press</span>
+        {t("nw.media.title1")} <span className="italic text-[#E9C176]">{t("nw.media.title2")}</span>
       </motion.h2>
 
       <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
         {MEDIA.map((item, i) => {
-          const Icon = item.icon;
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={item.title}
+              key={i}
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -94,10 +68,10 @@ const NWMedia = () => (
                 <Icon size={18} className="text-[#775A19]" />
               </div>
               <h3 className="mt-4 font-display font-semibold text-lg sm:text-xl text-[#1C1917] leading-snug">
-                {item.title}
+                {item.t}
               </h3>
               <p className="mt-2 text-sm text-[#57534E] leading-relaxed">
-                {item.desc}
+                {item.d}
               </p>
             </motion.div>
           );
@@ -105,6 +79,7 @@ const NWMedia = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default NWMedia;

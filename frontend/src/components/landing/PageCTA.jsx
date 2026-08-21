@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useT } from "@/i18n";
 
-const PageCTA = ({
-  kicker = "The Calling",
-  titleA = "Be a Part of the",
-  titleB = "Pavitra Sankalp",
-  text = "If you believe Bharat can rise through pure intention, responsible action, and collective participation, Pavitra is your movement too.",
-  tagline = null,
-  buttonLabel = "Join The Movement",
-  testid = "closing-cta-section",
-}) => (
+const PageCTA = ({ dict = "os.cta", testid = "closing-cta-section" }) => {
+  const t = useT();
+  const kicker = t(`${dict}.kicker`);
+  const titleA = t(`${dict}.titleA`);
+  const titleB = t(`${dict}.titleB`);
+  const text = t(`${dict}.text`);
+  const tagline = t(`${dict}.tagline`);
+  const buttonLabel = t(`${dict}.button`);
+
+  return (
   <section
     id="join"
     className="relative bg-[#F5ECD9] py-24 sm:py-32 lg:py-40 overflow-hidden"
@@ -111,6 +113,7 @@ const PageCTA = ({
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default PageCTA;

@@ -2,13 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-
-const STEPS = [
-  { title: "Join as Pavitra Saathi" },
-  { title: "Partner with Pavitra" },
-  { title: "Support the Mission" },
-  { title: "Follow the Journey" },
-];
+import { useT } from "@/i18n";
 
 const NODES = [
   { x: 392, y: 522 },
@@ -18,6 +12,8 @@ const NODES = [
 ];
 
 const HomeJoin = () => {
+  const t = useT();
+  const STEPS = t("home.join.steps");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -30,9 +26,9 @@ const HomeJoin = () => {
 
   const stepCards = (
     <>
-      {STEPS.map((step, i) => (
+      {STEPS.map((title, i) => (
         <div
-          key={step.title}
+          key={i}
           className={`flex items-center gap-4 rounded-2xl border p-5 transition-colors duration-500 ${
             i === active
               ? "border-[#D4AF37]/60 bg-[#D4AF37]/10"
@@ -50,7 +46,7 @@ const HomeJoin = () => {
             {String(i + 1).padStart(2, "0")}
           </span>
           <span className="font-caslon font-bold text-lg sm:text-xl text-[#FDFBF7]">
-            {step.title}
+            {title}
           </span>
         </div>
       ))}
@@ -64,15 +60,14 @@ const HomeJoin = () => {
           <div>
             <p className="flex items-center gap-4 font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#E9C176]">
               <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-              Join the Movement
+              {t("home.join.eyebrow")}
             </p>
             <h2 className="mt-6 font-caslon font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#FDFBF7]">
-              Be a Part of{" "}
-              <span className="italic text-[#D4AF37]">Pavitra Sankalp</span>
+              {t("home.join.title1")}{" "}
+              <span className="italic text-[#D4AF37]">{t("home.join.title2")}</span>
             </h2>
             <p className="mt-5 text-sm sm:text-base text-[#FDFBF7]/65 leading-relaxed max-w-lg">
-              Pavitra is for everyone who believes that Bharat can rise through
-              pure intention, responsible action, and collective participation.
+              {t("home.join.body")}
             </p>
 
             <div className="relative mt-10 hidden lg:block w-[26rem] h-[26rem]">
@@ -144,7 +139,7 @@ const HomeJoin = () => {
                   {String(active + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 font-caslon font-bold text-2xl sm:text-3xl text-[#FDFBF7]">
-                  {STEPS[active].title}
+                  {STEPS[active]}
                 </h3>
                 <span className="block mt-5 w-12 h-px bg-[#D4AF37]" aria-hidden="true" />
                 <Link
@@ -152,7 +147,7 @@ const HomeJoin = () => {
                   className="group mt-7 inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#E9C176] text-[#180F2C] font-mono-x text-[11px] tracking-[0.2em] uppercase px-7 py-3.5 rounded-full transition-colors duration-400"
                   data-testid="join-active-cta"
                 >
-                  Join the Movement
+                  {t("home.join.cta")}
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </motion.div>

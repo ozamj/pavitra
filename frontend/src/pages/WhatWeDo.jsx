@@ -9,13 +9,7 @@ export default function WhatWeDo() {
       <WWHero />
       <WWAction />
       <WWAreas />
-      <PageCTA
-        kicker="One Shared Responsibility"
-        titleA="Purpose Needs"
-        titleB="Participation"
-        text="A movement becomes powerful when people come together with one pure intention and one shared responsibility. Pavitra invites every citizen, institution, and community to join hands in building a stronger, more responsible, and more uplifted Bharat."
-        testid="ww-cta-section"
-      />
+      <PageCTA dict="ww.cta" testid="ww-cta-section" />
     </>
   );
 }

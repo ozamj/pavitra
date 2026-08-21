@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useT } from "@/i18n";
 
 const MaskedLine = ({ children, delay = 0, className = "" }) => (
   <span className={`block overflow-hidden ${className}`}>
@@ -15,7 +16,10 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
   </span>
 );
 
-const HomeHero = () => (
+const HomeHero = () => {
+  const t = useT();
+
+  return (
   <section
     className="relative min-h-screen flex items-center overflow-hidden bg-[#180F2C]"
     data-testid="home-hero-section"
@@ -46,15 +50,15 @@ const HomeHero = () => (
         data-testid="home-hero-eyebrow"
       >
         <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-        Bharat Ke Nirmaan Ka
+        {t("home.hero.eyebrow")}
       </motion.p>
 
       <h1 className="mt-8 font-caslon font-bold tracking-tight leading-[1.02] text-5xl sm:text-6xl lg:text-7xl">
         <MaskedLine delay={0.45}>
-          <span className="text-[#FDFBF7]">Pavitra</span>
+          <span className="text-[#FDFBF7]">{t("home.hero.l1")}</span>
         </MaskedLine>
         <MaskedLine delay={0.6}>
-          <span className="italic text-[#D4AF37]">Sankalp</span>
+          <span className="italic text-[#D4AF37]">{t("home.hero.l2")}</span>
         </MaskedLine>
       </h1>
 
@@ -66,11 +70,10 @@ const HomeHero = () => (
         data-testid="home-hero-subtext"
       >
         <p className="text-base sm:text-lg text-[#FDFBF7]/85 leading-relaxed">
-          Pavitra is a people-powered movement for Bharat&rsquo;s upliftment,
-          built on pure intention, responsible action, and visible progress.
+          {t("home.hero.sub1")}
         </p>
         <p className="font-caslon italic text-lg sm:text-xl text-[#E9C176]">
-          Not just a brand. Not just a store. A Pavitra Sankalp for Bharat.
+          {t("home.hero.sub2")}
         </p>
       </motion.div>
 
@@ -86,7 +89,7 @@ const HomeHero = () => (
           className="group inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#E9C176] text-[#180F2C] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-400"
           data-testid="home-hero-join-button"
         >
-          Join the Movement
+          {t("home.hero.join")}
           <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
         <Link
@@ -94,12 +97,13 @@ const HomeHero = () => (
           className="group inline-flex items-center gap-3 border border-[#FDFBF7]/40 hover:border-[#D4AF37] text-[#FDFBF7] hover:text-[#D4AF37] font-mono-x text-[11px] sm:text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-400"
           data-testid="home-hero-explore-button"
         >
-          Explore Products
+          {t("home.hero.explore")}
           <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default HomeHero;

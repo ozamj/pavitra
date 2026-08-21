@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useT } from "@/i18n";
 
 const NW_IMG =
   "https://images.unsplash.com/photo-1617338727645-987dddeef332?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
@@ -19,6 +20,7 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
 );
 
 const NWHero = () => {
+  const t = useT();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,15 +63,15 @@ const NWHero = () => {
             className="flex items-center gap-4 mb-8"
           >
             <span className="font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]">
-              Newsroom · The Journey in Words
+              {t("nw.hero.kicker")}
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold tracking-tight leading-[1.04] text-5xl sm:text-6xl lg:text-7xl text-[#775A19]">
-            <MaskedLine delay={0.35}>A sankalp growing</MaskedLine>
-            <MaskedLine delay={0.47}>from thought</MaskedLine>
+            <MaskedLine delay={0.35}>{t("nw.hero.l1")}</MaskedLine>
+            <MaskedLine delay={0.47}>{t("nw.hero.l2")}</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#B08D1E]">to action.</span>
+              <span className="italic text-[#B08D1E]">{t("nw.hero.l3")}</span>
             </MaskedLine>
           </h1>
 
@@ -80,8 +82,7 @@ const NWHero = () => {
             className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="newsroom-hero-lead"
           >
-            Stories, updates, announcements, and milestones from the Pavitra
-            movement.
+            {t("nw.hero.lead")}
           </motion.p>
 
           <motion.div
@@ -102,7 +103,7 @@ const NWHero = () => {
               <span className="w-10 h-10 rounded-full border border-[#522B6A]/25 flex items-center justify-center group-hover:border-[#775A19] transition-colors duration-300">
                 <ArrowDown size={15} className="animate-bounce" />
               </span>
-              Read the latest
+              {t("nw.hero.scroll")}
             </button>
           </motion.div>
         </motion.div>
@@ -126,7 +127,7 @@ const NWHero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                Thought · Action · Progress
+                {t("nw.hero.caption")}
               </p>
             </div>
           </motion.div>

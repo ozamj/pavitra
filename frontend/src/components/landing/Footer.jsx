@@ -1,50 +1,52 @@
 import { Link, useLocation } from "react-router-dom";
+import { useT } from "@/i18n";
 
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
-const COLUMNS = [
-  {
-    title: "Movement",
-    links: [
-      { label: "Our Sankalp", to: "/our-sankalp" },
-      { label: "What We Do", to: "/what-we-do" },
-      { label: "Impact", to: "/impact" },
-      { label: "Newsroom", to: "/newsroom" },
-    ],
-  },
-  {
-    title: "Participate",
-    links: [
-      { label: "Join", to: "/join-the-movement" },
-      { label: "Volunteer", href: HOME_URL },
-      { label: "Partner", href: HOME_URL },
-      { label: "Donate", href: HOME_URL },
-    ],
-  },
-  {
-    title: "Shop",
-    links: [
-      { label: "All Products", to: "/shop" },
-      { label: "Ayurveda", href: HOME_URL },
-      { label: "Tea & Beverages", href: HOME_URL },
-      { label: "Fragrance", href: HOME_URL },
-    ],
-  },
-  {
-    title: "Reach",
-    links: [
-      { label: "Contact", href: HOME_URL },
-      { label: "Gallery", href: HOME_URL },
-      { label: "Privacy", href: HOME_URL },
-      { label: "Terms", href: HOME_URL },
-    ],
-  },
-];
-
 const Footer = () => {
   const { pathname } = useLocation();
+  const t = useT();
   const go = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+  const COLUMNS = [
+    {
+      title: t("common.footer.columns.movement"),
+      links: [
+        { label: t("common.footer.links.ourSankalp"), to: "/our-sankalp", testid: "our-sankalp" },
+        { label: t("common.footer.links.whatWeDo"), to: "/what-we-do", testid: "what-we-do" },
+        { label: t("common.footer.links.impact"), to: "/impact", testid: "impact" },
+        { label: t("common.footer.links.newsroom"), to: "/newsroom", testid: "newsroom" },
+      ],
+    },
+    {
+      title: t("common.footer.columns.participate"),
+      links: [
+        { label: t("common.footer.links.join"), to: "/join-the-movement", testid: "join" },
+        { label: t("common.footer.links.volunteer"), href: HOME_URL, testid: "volunteer" },
+        { label: t("common.footer.links.partner"), href: HOME_URL, testid: "partner" },
+        { label: t("common.footer.links.donate"), href: HOME_URL, testid: "donate" },
+      ],
+    },
+    {
+      title: t("common.footer.columns.shop"),
+      links: [
+        { label: t("common.footer.links.allProducts"), to: "/shop", testid: "all-products" },
+        { label: t("common.footer.links.ayurveda"), href: HOME_URL, testid: "ayurveda" },
+        { label: t("common.footer.links.tea"), href: HOME_URL, testid: "tea-beverages" },
+        { label: t("common.footer.links.fragrance"), href: HOME_URL, testid: "fragrance" },
+      ],
+    },
+    {
+      title: t("common.footer.columns.reach"),
+      links: [
+        { label: t("common.footer.links.contact"), href: HOME_URL, testid: "contact" },
+        { label: t("common.footer.links.gallery"), href: HOME_URL, testid: "gallery" },
+        { label: t("common.footer.links.privacy"), href: HOME_URL, testid: "privacy" },
+        { label: t("common.footer.links.terms"), href: HOME_URL, testid: "terms" },
+      ],
+    },
+  ];
 
   const isActive = (to) =>
     to === "/our-sankalp"
@@ -76,31 +78,30 @@ const Footer = () => {
               />
             </span>
             <p className="mt-6 text-sm sm:text-base text-[#F4F1EA]/60 leading-relaxed max-w-xs">
-              A people-powered movement for Bharat&rsquo;s upliftment — built
-              on pure intention, responsible action, and visible progress.
+              {t("common.footer.tagline")}
             </p>
             <div className="mt-8">
               <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">
-                Where We Sit
+                {t("common.footer.whereWeSit")}
               </p>
               <p className="mt-3 text-sm text-[#F4F1EA]/55 leading-relaxed">
-                Pavitra Foundation — Nirmaan Bhavan
+                {t("common.footer.addr1")}
                 <br />
-                Kailashpur Road, Rishikesh,
+                {t("common.footer.addr2")}
                 <br />
-                Uttarakhand — 249201, Bharat
+                {t("common.footer.addr3")}
               </p>
             </div>
           </div>
 
-          {COLUMNS.map((col) => (
-            <div key={col.title} className="md:col-span-2">
+          {COLUMNS.map((col, ci) => (
+            <div key={ci} className="md:col-span-2">
               <p className="font-mono-x text-xs tracking-[0.3em] uppercase text-[#D4AF37]">
                 {col.title}
               </p>
               <ul className="mt-6 space-y-3.5">
                 {col.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.testid}>
                     {link.to ? (
                       <Link
                         to={link.to}
@@ -109,7 +110,7 @@ const Footer = () => {
                             ? "text-[#E9C176]"
                             : "text-[#F4F1EA]/60 hover:text-[#E9C176]"
                         }`}
-                        data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                        data-testid={`footer-link-${link.testid}`}
                       >
                         {link.label}
                       </Link>
@@ -117,7 +118,7 @@ const Footer = () => {
                       <button
                         onClick={() => go(link.action)}
                         className="text-sm text-[#F4F1EA]/60 hover:text-[#E9C176] transition-colors duration-300"
-                        data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                        data-testid={`footer-link-${link.testid}`}
                       >
                         {link.label}
                       </button>
@@ -125,7 +126,7 @@ const Footer = () => {
                       <a
                         href={link.href}
                         className="text-sm text-[#F4F1EA]/60 hover:text-[#E9C176] transition-colors duration-300"
-                        data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                        data-testid={`footer-link-${link.testid}`}
                       >
                         {link.label}
                       </a>
@@ -139,10 +140,10 @@ const Footer = () => {
 
         <div className="mt-14 pt-8 border-t border-[#F4F1EA]/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#F4F1EA]/40">
-            © 2026 Pavitra Swarojgar Kendra · Built for Bharat
+            {t("common.footer.copyright")}
           </p>
           <p className="font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#F4F1EA]/40">
-            Sankalp → Seva → Nirmaan → Swabhimaan
+            {t("common.footer.chain")}
           </p>
         </div>
       </div>

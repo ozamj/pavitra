@@ -1,25 +1,20 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
 const THOUGHT_IMG =
   "https://images.unsplash.com/photo-1617338727645-987dddeef332?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
 
-const LINES = [
-  "A path where purpose becomes a way of life.",
-  "A path where contribution becomes a shared responsibility.",
-  "A path where progress is not spoken, but seen.",
-  "A path where service is not occasional, but continuous.",
-  "A path where Bharat\u2019s upliftment becomes everyone\u2019s sankalp.",
-];
-
 const Thought = () => {
+  const t = useT();
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: imgRef,
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const LINES = t("os.thought.lines");
 
   return (
     <section
@@ -29,7 +24,7 @@ const Thought = () => {
     >
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-        <ChapterTag number="02" label="The Thought Behind the Mission" />
+        <ChapterTag number="02" label={t("os.thought.tag")} />
 
         <div className="mt-12 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7">
@@ -40,8 +35,8 @@ const Thought = () => {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
             >
-              A Pure Thought{" "}
-              <span className="italic">for Bharat</span>
+              {t("os.thought.title1")}{" "}
+              <span className="italic">{t("os.thought.title2")}</span>
             </motion.h2>
 
             <motion.p
@@ -52,8 +47,7 @@ const Thought = () => {
               className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-xl"
               data-testid="thought-lead"
             >
-              Pavitra was created with one belief — when intention is pure,
-              every action can become a force for Bharat&rsquo;s upliftment.
+              {t("os.thought.lead")}
             </motion.p>
 
             <div className="mt-12">
@@ -89,7 +83,7 @@ const Thought = () => {
               className="mt-10 font-display italic font-semibold text-2xl sm:text-3xl lg:text-4xl text-[#522B6A]"
               data-testid="thought-closing-line"
             >
-              Pavitra is that path.
+              {t("os.thought.closing")}
             </motion.p>
           </div>
 
@@ -110,7 +104,7 @@ const Thought = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/45 via-transparent to-transparent" />
               <p className="absolute bottom-5 left-5 font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                The path of pure intention
+                {t("os.thought.caption")}
               </p>
             </motion.div>
           </div>

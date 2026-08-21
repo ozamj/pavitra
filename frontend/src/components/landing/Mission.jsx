@@ -2,35 +2,16 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Compass, HeartHandshake, Building2, ShieldCheck } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const STEPS = [
-  {
-    name: "Sankalp",
-    devanagari: "संकल्प",
-    definition: "A pure commitment for Bharat",
-    icon: Compass,
-  },
-  {
-    name: "Seva",
-    devanagari: "सेवा",
-    definition: "Purpose-led action for society",
-    icon: HeartHandshake,
-  },
-  {
-    name: "Nirmaan",
-    devanagari: "निर्माण",
-    definition: "Visible development and progress",
-    icon: Building2,
-  },
-  {
-    name: "Swabhimaan",
-    devanagari: "स्वाभिमान",
-    definition: "Dignity, pride, and participation",
-    icon: ShieldCheck,
-  },
-];
+const ICONS = [Compass, HeartHandshake, Building2, ShieldCheck];
+const SLUGS = ["sankalp", "seva", "nirmaan", "swabhimaan"];
 
 const Mission = () => {
+  const t = useT();
+  const names = t("os.mission.names");
+  const scripts = t("os.mission.scripts");
+  const defs = t("os.mission.defs");
   const pathRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: pathRef,
@@ -56,7 +37,7 @@ const Mission = () => {
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-        <ChapterTag number="03" label="Our Mission" dark />
+        <ChapterTag number="03" label={t("os.mission.tag")} dark />
 
         <div className="mt-12">
           <motion.h2
@@ -66,8 +47,8 @@ const Mission = () => {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37] max-w-4xl"
           >
-            From Sankalp to Seva.{" "}
-            <span className="italic text-[#E9C176]">From Seva to Nirmaan.</span>
+            {t("os.mission.title1")}{" "}
+            <span className="italic text-[#E9C176]">{t("os.mission.title2")}</span>
           </motion.h2>
 
           <motion.p
@@ -78,8 +59,7 @@ const Mission = () => {
             className="mt-6 text-base sm:text-lg text-[#F4F1EA]/65 leading-relaxed max-w-2xl"
             data-testid="mission-lead"
           >
-            Pavitra&rsquo;s mission is to convert pure intention into
-            responsible action for Bharat — one phase leading to the next.
+            {t("os.mission.lead")}
           </motion.p>
         </div>
 
@@ -94,18 +74,18 @@ const Mission = () => {
             />
           </div>
 
-          {STEPS.map((step, i) => {
-            const Icon = step.icon;
+          {SLUGS.map((slug, i) => {
+            const Icon = ICONS[i];
             const rightSide = i % 2 === 1;
             return (
               <motion.div
-                key={step.name}
+                key={slug}
                 initial={{ opacity: 0, y: 44 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-90px" }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
                 className="relative pb-16 lg:pb-24 last:pb-0"
-                data-testid={`mission-step-${step.name.toLowerCase()}`}
+                data-testid={`mission-step-${slug}`}
               >
                 <motion.span
                   initial={{ scale: 0 }}
@@ -128,20 +108,20 @@ const Mission = () => {
                   }`}
                 >
                   <p className="font-mono-x text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]">
-                    Phase {String(i + 1).padStart(2, "0")} ·{" "}
+                    {t("os.mission.phase")} {String(i + 1).padStart(2, "0")} ·{" "}
                     <span className="font-display text-base normal-case tracking-normal text-[#E9C176]">
-                      {step.devanagari}
+                      {scripts[i]}
                     </span>
                   </p>
                   <h3 className="mt-2 font-display font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#F4F1EA] leading-none">
-                    {step.name}
+                    {names[i]}
                   </h3>
                   <p
                     className={`mt-3 text-sm sm:text-base text-[#F4F1EA]/60 leading-relaxed max-w-sm ${
                       rightSide ? "" : "lg:ml-auto"
                     }`}
                   >
-                    {step.definition}
+                    {defs[i]}
                   </p>
                 </div>
               </motion.div>
@@ -157,7 +137,7 @@ const Mission = () => {
           className="mt-16 text-center font-mono-x text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#D4AF37]/80"
           data-testid="mission-chain"
         >
-          Sankalp → Seva → Nirmaan → Swabhimaan
+          {t("os.mission.chain")}
         </motion.p>
       </div>
     </section>

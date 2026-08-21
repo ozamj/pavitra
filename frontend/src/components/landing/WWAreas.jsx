@@ -12,61 +12,15 @@ import {
   Store,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const AREAS = [
-  {
-    title: "National Service",
-    desc: "Supporting Bharat-focused causes connected with service, protection, and national pride.",
-    icon: Flag,
-  },
-  {
-    title: "Community Upliftment",
-    desc: "Creating initiatives that support people, places, and local needs with dignity.",
-    icon: Users,
-  },
-  {
-    title: "Village Development",
-    desc: "Future local development through Pavitra Gram Vikas and community-led progress.",
-    icon: Sprout,
-  },
-  {
-    title: "Dignified Opportunities",
-    desc: "Creating future earning and participation opportunities through Pavitra Pragati Mitras.",
-    icon: HandCoins,
-  },
-  {
-    title: "Women Empowerment",
-    desc: "Building future pathways for women to participate, earn, lead, and contribute.",
-    icon: Venus,
-  },
-  {
-    title: "Youth Participation",
-    desc: "Giving young people a meaningful role in Bharat\u2019s progress.",
-    icon: Rocket,
-  },
-  {
-    title: "Education & Children",
-    desc: "Supporting learning, stationery, school needs, and child-focused initiatives.",
-    icon: BookOpen,
-  },
-  {
-    title: "Health & Cleanliness",
-    desc: "Encouraging hygiene, cleanliness, and healthier community spaces.",
-    icon: Droplets,
-  },
-  {
-    title: "Local Self-Reliance",
-    desc: "Creating systems where communities can participate in their own development.",
-    icon: Handshake,
-  },
-  {
-    title: "Purpose-Led Retail",
-    desc: "Building stores and platforms that do not only sell, but also connect people with a larger mission.",
-    icon: Store,
-  },
-];
+const ICONS = [Flag, Users, Sprout, HandCoins, Venus, Rocket, BookOpen, Droplets, Handshake, Store];
 
-const WWAreas = () => (
+const WWAreas = () => {
+  const t = useT();
+  const AREAS = t("ww.areas.items");
+
+  return (
   <section
     id="areas"
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -74,7 +28,7 @@ const WWAreas = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="03" label="Areas of Work" />
+      <ChapterTag number="03" label={t("ww.areas.tag")} />
 
       <div className="mt-12">
         <motion.h2
@@ -84,7 +38,7 @@ const WWAreas = () => (
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
         >
-          Where <span className="italic">Pavitra Works</span>
+          {t("ww.areas.title1")} <span className="italic">{t("ww.areas.title2")}</span>
         </motion.h2>
 
         <motion.p
@@ -95,18 +49,16 @@ const WWAreas = () => (
           className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl"
           data-testid="ww-areas-lead"
         >
-          Pavitra is being built as a multi-dimensional movement for
-          Bharat&rsquo;s upliftment. Its work is not limited to one activity,
-          one location, or one section of society.
+          {t("ww.areas.lead")}
         </motion.p>
       </div>
 
       <div className="mt-14 grid lg:grid-cols-2 gap-x-16 border-b border-[#522B6A]/15">
         {AREAS.map((area, i) => {
-          const Icon = area.icon;
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={area.title}
+              key={i}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -116,7 +68,7 @@ const WWAreas = () => (
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="group flex items-start gap-5 py-7 border-t border-[#522B6A]/15"
-              data-testid={`area-row-${area.title.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+              data-testid={`area-row-${i + 1}`}
             >
               <span className="font-mono-x text-[10px] tracking-[0.25em] text-[#775A19] pt-2">
                 {String(i + 1).padStart(2, "0")}
@@ -129,10 +81,10 @@ const WWAreas = () => (
               </span>
               <div>
                 <h3 className="font-display font-semibold text-xl sm:text-2xl text-[#1C1917] leading-snug transition-transform duration-500 group-hover:translate-x-1.5">
-                  {area.title}
+                  {area.t}
                 </h3>
                 <p className="mt-1.5 text-sm sm:text-base text-[#57534E] leading-relaxed">
-                  {area.desc}
+                  {area.d}
                 </p>
               </div>
             </motion.div>
@@ -141,6 +93,7 @@ const WWAreas = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default WWAreas;

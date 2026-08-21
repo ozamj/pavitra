@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const PHILOSOPHY = [
-  "Trusted quality",
-  "Purpose-led creation",
-  "Indian values",
-  "Everyday usefulness",
-  "Responsibility towards society",
-];
+const SHWhy = () => {
+  const t = useT();
+  const PHILOSOPHY = t("sh.why.items");
 
-const SHWhy = () => (
+  return (
   <section
     id="why-products"
     className="relative bg-gradient-to-b from-[#ECE4F6] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -17,7 +14,7 @@ const SHWhy = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="02" label="Why Pavitra Products" />
+      <ChapterTag number="02" label={t("sh.why.tag")} />
 
       <div className="mt-12 grid lg:grid-cols-12 gap-14 lg:gap-16 items-start">
         <div className="lg:col-span-6">
@@ -28,8 +25,8 @@ const SHWhy = () => (
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
           >
-            Everyday Essentials.{" "}
-            <span className="italic">Larger Purpose.</span>
+            {t("sh.why.title1")}{" "}
+            <span className="italic">{t("sh.why.title2")}</span>
           </motion.h2>
 
           <motion.p
@@ -40,16 +37,14 @@ const SHWhy = () => (
             className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-xl"
             data-testid="shop-why-lead"
           >
-            Pavitra products are designed to become part of everyday life
-            while staying connected to a bigger mission. Our product
-            philosophy:
+            {t("sh.why.lead")}
           </motion.p>
         </div>
 
         <div className="lg:col-span-6">
           {PHILOSOPHY.map((item, i) => (
             <motion.div
-              key={item}
+              key={i}
               initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -73,6 +68,7 @@ const SHWhy = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default SHWhy;

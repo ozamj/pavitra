@@ -1,36 +1,15 @@
 import { motion } from "framer-motion";
 import { Users, Handshake, Heart, Sprout, Store, Flower2, ArrowUpRight } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const ROLES = [
-  {
-    name: "Pavitra Saathi",
-    desc: "For people who want to work with the mission.",
-    icon: Users,
-  },
-  {
-    name: "Purpose Partner",
-    desc: "For NGOs, trusts, institutions, companies, and organisations.",
-    icon: Handshake,
-  },
-  {
-    name: "Mission Supporter",
-    desc: "For citizens who want to support and follow the movement.",
-    icon: Heart,
-  },
-  {
-    name: "Future Pragati Mitra",
-    desc: "For people interested in future village/local participation.",
-    icon: Sprout,
-  },
-  {
-    name: "Pavitra Vikas Partner",
-    desc: "For those who want to open Pavitra stores, franchise centres, or help take the mission to more communities.",
-    icon: Store,
-  },
-];
+const ICONS = [Users, Handshake, Heart, Sprout, Store];
 
-const JNWho = () => (
+const JNWho = () => {
+  const t = useT();
+  const ROLES = t("jn.who.roles");
+
+  return (
   <section
     id="who"
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -38,7 +17,7 @@ const JNWho = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="03" label="Who Can Join" />
+      <ChapterTag number="03" label={t("jn.who.tag")} />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -47,8 +26,8 @@ const JNWho = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19] max-w-3xl"
       >
-        A Movement for Every Hand{" "}
-        <span className="italic">That Believes in Bharat</span>
+        {t("jn.who.title1")}{" "}
+        <span className="italic">{t("jn.who.title2")}</span>
       </motion.h2>
 
       <motion.p
@@ -59,16 +38,15 @@ const JNWho = () => (
         className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl"
         data-testid="join-who-lead"
       >
-        Pavitra is open to people, partners, institutions, and communities who
-        want to be part of a purpose-led mission. You can join as:
+        {t("jn.who.lead")}
       </motion.p>
 
       <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {ROLES.map((role, i) => {
-          const Icon = role.icon;
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={role.name}
+              key={i}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -79,7 +57,7 @@ const JNWho = () => (
               }}
               whileHover={{ y: -5 }}
               className="group relative overflow-hidden bg-white border border-[#522B6A]/10 hover:border-[#522B6A] rounded-2xl p-6 cursor-default transition-colors duration-500"
-              data-testid={`join-role-${role.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+              data-testid={`join-role-${i + 1}`}
             >
               <span
                 className="absolute inset-0 bg-[#522B6A] translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
@@ -96,7 +74,7 @@ const JNWho = () => (
                   {role.desc}
                 </p>
                 <p className="mt-4 flex items-center gap-2 font-mono-x text-[10px] tracking-[0.22em] uppercase text-[#D4AF37] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                  Join as
+                  {t("jn.who.joinAs")}
                   <ArrowUpRight size={12} />
                 </p>
               </div>
@@ -114,15 +92,16 @@ const JNWho = () => (
         >
           <Flower2 size={20} className="text-[#D4AF37]" />
           <p className="mt-4 font-display italic font-semibold text-xl text-[#F4F1EA] leading-snug">
-            Haath Badhayein, Bharat Banayein
+            {t("jn.who.taglineTitle")}
           </p>
           <p className="mt-2 font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#E9C176]">
-            Every hand counts
+            {t("jn.who.taglineSub")}
           </p>
         </motion.div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default JNWho;

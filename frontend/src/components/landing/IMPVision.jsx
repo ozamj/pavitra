@@ -8,20 +8,25 @@ import {
   Flag,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const CENTER = { line: "Bharat rises through collective action", icon: Flag };
-
-const NODES = [
-  { line: "Citizens participate", icon: Users, x: 50, y: 9 },
-  { line: "Communities benefit", icon: HandHeart, x: 10, y: 38 },
-  { line: "Youth earn with dignity", icon: HandCoins, x: 25, y: 84 },
-  { line: "Villages progress with pride", icon: Sprout, x: 75, y: 84 },
-  { line: "Cities contribute with responsibility", icon: Building2, x: 90, y: 38 },
+const NODE_ICONS = [Users, HandHeart, HandCoins, Sprout, Building2];
+const NODE_POS = [
+  { x: 50, y: 9 },
+  { x: 10, y: 38 },
+  { x: 25, y: 84 },
+  { x: 75, y: 84 },
+  { x: 90, y: 38 },
 ];
 
-const ALL = [...NODES.map(({ line, icon }) => ({ line, icon })), CENTER];
+const IMPVision = () => {
+  const t = useT();
+  const nodeLines = t("imp.vision.nodes");
+  const centerLine = t("imp.vision.center");
+  const NODES = nodeLines.map((line, i) => ({ line, icon: NODE_ICONS[i], ...NODE_POS[i] }));
+  const ALL = [...NODES.map(({ line, icon }) => ({ line, icon })), { line: centerLine, icon: Flag }];
 
-const IMPVision = () => (
+  return (
   <section
     id="vision"
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -29,7 +34,7 @@ const IMPVision = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="05" label="Future Impact Vision" />
+      <ChapterTag number="05" label={t("imp.vision.tag")} />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -38,8 +43,8 @@ const IMPVision = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19] max-w-3xl"
       >
-        From Local Action to{" "}
-        <span className="italic">Bharat-Level Upliftment</span>
+        {t("imp.vision.title1")}{" "}
+        <span className="italic">{t("imp.vision.title2")}</span>
       </motion.h2>
 
       <motion.p
@@ -50,8 +55,7 @@ const IMPVision = () => (
         className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl"
         data-testid="impact-vision-lead"
       >
-        Pavitra&rsquo;s long-term vision is to create a national network of
-        purpose-led participation. A network where:
+        {t("imp.vision.lead")}
       </motion.p>
 
       <div className="mt-16 hidden lg:block">
@@ -72,7 +76,7 @@ const IMPVision = () => (
             />
             {NODES.map((node, i) => (
               <motion.line
-                key={node.line}
+                key={i}
                 x1="50"
                 y1="50"
                 x2={node.x}
@@ -98,7 +102,7 @@ const IMPVision = () => (
             <div className="w-40 h-40 rounded-full bg-[#D4AF37] shadow-[0_0_60px_rgba(212,175,55,0.45)] flex flex-col items-center justify-center text-center px-4">
               <Flag size={20} className="text-[#180F2C]" />
               <p className="mt-2 font-display font-bold text-sm leading-snug text-[#180F2C]">
-                {CENTER.line}
+                {centerLine}
               </p>
             </div>
           </motion.div>
@@ -107,7 +111,7 @@ const IMPVision = () => (
             const Icon = node.icon;
             return (
               <div
-                key={node.line}
+                key={i}
                 className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
                 style={{ left: `${node.x}%`, top: `${node.y}%` }}
               >
@@ -148,7 +152,7 @@ const IMPVision = () => (
           const isLast = i === ALL.length - 1;
           return (
             <motion.div
-              key={item.line}
+              key={i}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -182,6 +186,7 @@ const IMPVision = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default IMPVision;

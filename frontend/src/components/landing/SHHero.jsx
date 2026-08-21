@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ShoppingBag } from "lucide-react";
+import { useT } from "@/i18n";
 
 const SH_IMG =
   "https://images.unsplash.com/photo-1519955266818-0231b63402bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
@@ -19,6 +20,7 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
 );
 
 const SHHero = () => {
+  const t = useT();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,15 +63,15 @@ const SHHero = () => {
             className="flex items-center gap-4 mb-8"
           >
             <span className="font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]">
-              Shop · Products with a Purpose
+              {t("sh.hero.kicker")}
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold tracking-tight leading-[1.04] text-5xl sm:text-6xl lg:text-7xl text-[#775A19]">
-            <MaskedLine delay={0.35}>Every product</MaskedLine>
-            <MaskedLine delay={0.47}>carries the spirit</MaskedLine>
+            <MaskedLine delay={0.35}>{t("sh.hero.l1")}</MaskedLine>
+            <MaskedLine delay={0.47}>{t("sh.hero.l2")}</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#B08D1E]">of Pavitra.</span>
+              <span className="italic text-[#B08D1E]">{t("sh.hero.l3")}</span>
             </MaskedLine>
           </h1>
 
@@ -80,9 +82,7 @@ const SHHero = () => {
             className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="shop-hero-lead"
           >
-            Pavitra products are created as part of a larger mission — rooted
-            in purity, trust, and responsibility towards Bharat. Pure
-            intention, responsible action, and purpose-led progress.
+            {t("sh.hero.lead")}
           </motion.p>
 
           <motion.div
@@ -101,7 +101,7 @@ const SHHero = () => {
               data-testid="shop-hero-cta-button"
             >
               <ShoppingBag size={15} />
-              Explore Products
+              {t("sh.hero.button")}
             </button>
           </motion.div>
         </motion.div>
@@ -125,7 +125,7 @@ const SHHero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                Purity · Trust · Purpose
+                {t("sh.hero.caption")}
               </p>
             </div>
           </motion.div>

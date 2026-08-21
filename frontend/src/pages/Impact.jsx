@@ -13,14 +13,7 @@ export default function Impact() {
       <IMPAreas />
       <IMPPhilosophy />
       <IMPVision />
-      <PageCTA
-        kicker="The Calling"
-        titleA="Impact Begins with"
-        titleB="Participation"
-        text="Every person who joins Pavitra becomes part of a larger thought — that Bharat's upliftment is a shared sankalp, carried forward through pure intention, responsible action, and visible progress."
-        buttonLabel="Be Part of the Impact"
-        testid="impact-cta-section"
-      />
+      <PageCTA dict="imp.cta" testid="impact-cta-section" />
     </>
   );
 }

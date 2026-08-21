@@ -8,41 +8,15 @@ import {
   PenLine,
 } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const STORIES = [
-  {
-    title: "People connected with Pavitra",
-    desc: "Faces and voices of the movement — citizens who turned belief into participation.",
-    icon: Users,
-  },
-  {
-    title: "Behind-the-scenes stories",
-    desc: "How initiatives are imagined, built, and carried forward with care.",
-    icon: Camera,
-  },
-  {
-    title: "Purpose-led initiatives",
-    desc: "The story behind every action that begins with pure intention.",
-    icon: Heart,
-  },
-  {
-    title: "Future community stories",
-    desc: "Chronicles of communities rising through dignity and shared effort.",
-    icon: Sprout,
-  },
-  {
-    title: "Pavitra Saathi stories",
-    desc: "Journeys of the Saathis who carry the mission forward every day.",
-    icon: User,
-  },
-  {
-    title: "Founder notes",
-    desc: "Reflections and thoughts from Shri Jay Ukani as the movement grows.",
-    icon: PenLine,
-  },
-];
+const ICONS = [Users, Camera, Heart, Sprout, User, PenLine];
 
-const NWStories = () => (
+const NWStories = () => {
+  const t = useT();
+  const STORIES = t("nw.stories.items");
+
+  return (
   <section
     id="stories"
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -50,7 +24,7 @@ const NWStories = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="03" label="Movement Stories" />
+      <ChapterTag number="03" label={t("nw.stories.tag")} />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -59,15 +33,15 @@ const NWStories = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19] max-w-3xl"
       >
-        Stories of <span className="italic">Sankalp</span>
+        {t("nw.stories.title1")} <span className="italic">{t("nw.stories.title2")}</span>
       </motion.h2>
 
       <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {STORIES.map((story, i) => {
-          const Icon = story.icon;
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={story.title}
+              key={i}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -84,10 +58,10 @@ const NWStories = () => (
                 <Icon size={18} className="text-[#775A19]" />
               </div>
               <h3 className="mt-4 font-display font-semibold text-lg text-[#1C1917] leading-snug">
-                {story.title}
+                {story.t}
               </h3>
               <p className="mt-2 text-sm text-[#57534E] leading-relaxed">
-                {story.desc}
+                {story.d}
               </p>
             </motion.div>
           );
@@ -95,6 +69,7 @@ const NWStories = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default NWStories;

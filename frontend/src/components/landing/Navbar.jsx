@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, ChevronDown, Check, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { LANGS, useLang, useT } from "@/i18n";
 
 const HOME_URL = "https://99vcjpt3hxku5gpy-73384231102.shopifypreview.com/";
 
@@ -13,12 +14,12 @@ const joinClass =
   "group relative font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#775A19] hover:text-[#180F2C] transition-colors duration-300";
 
 const MENU_LINKS = [
-  { label: "Our Sankalp", to: "/our-sankalp", testid: "our-sankalp" },
-  { label: "What We Do", to: "/what-we-do", testid: "what-we-do" },
-  { label: "Impact", to: "/impact", testid: "impact" },
-  { label: "Join The Movement", to: "/join-the-movement", testid: "join" },
-  { label: "Newsroom", to: "/newsroom", testid: "newsroom" },
-  { label: "Shop", to: "/shop", testid: "shop" },
+  { key: "ourSankalp", to: "/our-sankalp", testid: "our-sankalp" },
+  { key: "whatWeDo", to: "/what-we-do", testid: "what-we-do" },
+  { key: "impact", to: "/impact", testid: "impact" },
+  { key: "join", to: "/join-the-movement", testid: "join" },
+  { key: "newsroom", to: "/newsroom", testid: "newsroom" },
+  { key: "shop", to: "/shop", testid: "shop" },
 ];
 
 const ActiveMarks = () => (
@@ -32,11 +33,40 @@ const HoverMark = () => (
   <span className="absolute -bottom-1.5 left-0 w-0 h-px bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
 );
 
+const LanguageSwitcher = ({ testid = "nav-language-switcher" }) => {
+  const { lang, setLang } = useLang();
+  return (
+    <div
+      className="flex items-center gap-0.5 border border-[#261242]/25 rounded-full p-0.5"
+      role="group"
+      aria-label="Language"
+      data-testid={testid}
+    >
+      {LANGS.map((l) => (
+        <button
+          key={l.code}
+          onClick={() => setLang(l.code)}
+          aria-pressed={lang === l.code}
+          title={l.label}
+          className={`rounded-full px-2.5 py-1.5 font-mono-x text-[10px] sm:text-[11px] tracking-[0.08em] transition-colors duration-300 ${
+            lang === l.code
+              ? "bg-[#522B6A] text-[#E9C176]"
+              : "text-[#261242]/70 hover:text-[#180F2C]"
+          }`}
+          data-testid={`nav-lang-${l.code}`}
+        >
+          {l.short}
+        </button>
+      ))}
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -46,7 +76,6 @@ const Navbar = () => {
 
   useEffect(() => {
     setMenuOpen(false);
-    setLangOpen(false);
   }, [pathname]);
 
   const isActive = (to) => pathname === to;
@@ -86,7 +115,7 @@ const Navbar = () => {
                 }
                 data-testid={`nav-link-${link.testid}`}
               >
-                {link.label}
+                {t(`common.nav.${link.key}`)}
                 {active ? <ActiveMarks /> : <HoverMark />}
               </Link>
             );
@@ -96,60 +125,15 @@ const Navbar = () => {
             className={linkClass}
             data-testid="nav-link-login"
           >
-            Login
+            {t("common.nav.login")}
             <HoverMark />
           </a>
 
-          <div className="relative">
-            <button
-              onClick={() => setLangOpen((v) => !v)}
-              className="group flex items-center gap-1.5 font-mono-x text-xs sm:text-sm tracking-[0.15em] uppercase text-[#261242]/75 hover:text-[#180F2C] border border-[#261242]/25 hover:border-[#775A19]/60 rounded-full px-3.5 py-2 transition-colors duration-300"
-              data-testid="nav-language-button"
-              aria-expanded={langOpen}
-            >
-              <Globe size={12} />
-              EN
-              <ChevronDown
-                size={11}
-                className={`transition-transform duration-300 ${langOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {langOpen && (
-              <>
-                <div
-                  className="fixed inset-0 z-40"
-                  onClick={() => setLangOpen(false)}
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute right-0 top-9 z-50 w-44 bg-white border border-[#522B6A]/15 rounded-xl p-1.5 shadow-[0_20px_44px_-12px_rgba(24,15,44,0.25)]"
-                  data-testid="nav-language-menu"
-                >
-                  <button
-                    onClick={() => setLangOpen(false)}
-                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#775A19] rounded-lg hover:bg-[#F5ECD9] transition-colors duration-200"
-                    data-testid="nav-lang-en"
-                  >
-                    English
-                    <Check size={13} />
-                  </button>
-                  <button
-                    disabled
-                    className="flex w-full items-center justify-between px-3 py-2 text-sm text-[#1C1917]/35 cursor-not-allowed"
-                    data-testid="nav-lang-hi"
-                  >
-                    हिन्दी
-                    <span className="font-mono-x text-[9px] tracking-[0.2em] uppercase">
-                      Soon
-                    </span>
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
+          <LanguageSwitcher />
         </nav>
 
         <div className="flex lg:hidden items-center gap-3">
+          <LanguageSwitcher testid="nav-language-switcher-mobile-bar" />
           <Link
             to="/join-the-movement"
             className={`font-mono-x text-[11px] tracking-[0.18em] uppercase px-4 py-2.5 rounded-full transition-colors duration-300 ${
@@ -157,7 +141,7 @@ const Navbar = () => {
             }`}
             data-testid="nav-join-button"
           >
-            Join
+            {t("common.nav.joinShort")}
           </Link>
           <button
             onClick={() => setMenuOpen((v) => !v)}
@@ -199,7 +183,7 @@ const Navbar = () => {
                       }`}
                       data-testid={`mobile-link-${link.testid}`}
                     >
-                      {link.label}
+                      {t(`common.nav.${link.key}`)}
                       {active && (
                         <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" aria-hidden="true" />
                       )}
@@ -218,12 +202,8 @@ const Navbar = () => {
                   className="font-mono-x text-sm tracking-[0.15em] uppercase text-[#261242]/80"
                   data-testid="mobile-link-login"
                 >
-                  Login
+                  {t("common.nav.login")}
                 </a>
-                <span className="flex items-center gap-1.5 font-mono-x text-[10px] tracking-[0.2em] uppercase text-[#261242]/60 border border-[#261242]/20 rounded-full px-3 py-1.5">
-                  <Globe size={11} />
-                  EN
-                </span>
               </motion.div>
             </div>
           </motion.nav>

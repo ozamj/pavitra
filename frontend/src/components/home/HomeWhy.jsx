@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useT } from "@/i18n";
 
-const POINTS = [
-  ["To Support", "national causes"],
-  ["To Create", "dignity-led opportunities"],
-  ["To Build", "trust-based community initiatives"],
-  ["To Take", "development closer to people"],
-];
+const HomeWhy = () => {
+  const t = useT();
+  const POINTS = t("home.why.points");
 
-const HomeWhy = () => (
+  return (
   <section
     className="relative bg-gradient-to-b from-[#FAF7F2] to-[#F5ECD9] py-20 sm:py-28 overflow-hidden"
     data-testid="home-why-section"
@@ -24,7 +22,7 @@ const HomeWhy = () => (
           className="flex items-center gap-4 font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#775A19]"
         >
           <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-          Why Pavitra Exists
+          {t("home.why.eyebrow")}
         </motion.p>
 
         <motion.h2
@@ -34,8 +32,8 @@ const HomeWhy = () => (
           transition={{ duration: 0.9, delay: 0.1 }}
           className="mt-8 font-caslon font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#1C1917]"
         >
-          Because Bharat{" "}
-          <span className="italic text-[#775A19]">does not need saving.</span>
+          {t("home.why.title1")}{" "}
+          <span className="italic text-[#775A19]">{t("home.why.title2")}</span>
         </motion.h2>
 
         <motion.p
@@ -46,10 +44,7 @@ const HomeWhy = () => (
           className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-xl"
           data-testid="home-why-body"
         >
-          Pavitra exists because trust, once broken, is hard to rebuild — and
-          Bharat has seen enough promises. This is not charity, and it is not a
-          scheme. It is a pure, people-powered commitment to visible,
-          accountable progress.
+          {t("home.why.body")}
         </motion.p>
 
         <motion.div
@@ -64,16 +59,16 @@ const HomeWhy = () => (
             className="group inline-flex items-center gap-3 border border-[#522B6A]/40 hover:bg-[#522B6A] text-[#522B6A] hover:text-[#FAF7F2] font-mono-x text-[11px] sm:text-xs tracking-[0.18em] uppercase px-7 py-3.5 rounded-full transition-colors duration-400"
             data-testid="home-why-cta"
           >
-            Explore Full Our Sankalp Page
+            {t("home.why.cta")}
             <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </motion.div>
       </div>
 
       <div className="lg:col-span-6">
-        {POINTS.map(([label, text], i) => (
+        {POINTS.map((point, i) => (
           <motion.div
-            key={label}
+            key={i}
             initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -84,15 +79,16 @@ const HomeWhy = () => (
             <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 translate-y-[-2px]" aria-hidden="true" />
             <p className="font-caslon text-xl sm:text-2xl leading-snug">
               <span className="font-bold text-[#1C1917] transition-transform duration-500 inline-block group-hover:translate-x-1">
-                {label}
+                {point.label}
               </span>{" "}
-              <span className="italic text-[#775A19]">{text}</span>
+              <span className="italic text-[#775A19]">{point.text}</span>
             </p>
           </motion.div>
         ))}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default HomeWhy;

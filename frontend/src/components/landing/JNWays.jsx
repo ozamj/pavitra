@@ -3,74 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Users, Handshake, Sprout, Store, ArrowUpRight, Plus } from "lucide-react";
 import ChapterTag from "./ChapterTag";
 import JoinFormModal from "./JoinFormModal";
+import { useT } from "@/i18n";
 
-const WAYS = [
-  {
-    slug: "saathi",
-    name: "Become a Pavitra Saathi",
-    icon: Users,
-    desc: "A Pavitra Saathi is not just an employee. A Pavitra Saathi is someone who carries the mission forward with responsibility, dignity, and pride.",
-    points: [
-      "Store and experience centre",
-      "Digital and social media",
-      "Operations and coordination",
-      "Community initiatives",
-      "Customer care",
-      "Field development",
-      "Partnerships",
-    ],
-    cta: "Apply as Pavitra Saathi",
-  },
-  {
-    slug: "partner",
-    name: "Partner for Purpose",
-    icon: Handshake,
-    desc: "Pavitra welcomes partnerships with organisations that believe in meaningful social action.",
-    points: [
-      "NGOs",
-      "Trusts",
-      "Educational institutions",
-      "Community organisations",
-      "CSR teams",
-      "Local bodies",
-      "Social leaders",
-      "Purpose-led institutions",
-    ],
-    cta: "Partner with Us",
-  },
-  {
-    slug: "pragati-mitra",
-    name: "Become a Future Pavitra Pragati Mitra",
-    icon: Sprout,
-    desc: "Pavitra Pragati Mitras will be part of the future local and rural participation model. They will help carry Pavitra\u2019s mission closer to people, communities, and villages.",
-    points: [
-      "Local participation",
-      "Village development",
-      "Community trust-building",
-      "Dignified earning",
-      "Purpose-led distribution",
-      "Pavitra Kosh awareness",
-    ],
-    cta: "Register Interest",
-  },
-  {
-    slug: "vikas-partner",
-    name: "Become a Pavitra Vikas Partner",
-    icon: Store,
-    desc: "Pavitra Vikas Partners will help take the Pavitra movement to more cities, towns, and communities through future stores, franchise centres, and local presence. This role is for people who do not want to open just another store — but want to build a centre of purpose, trust, and participation.",
-    points: [
-      "Pavitra stores",
-      "Franchise opportunities",
-      "Local expansion",
-      "Community connection",
-      "Purpose-led retail",
-      "Bharat-building participation",
-    ],
-    cta: "Explore Vikas Partnership",
-  },
-];
+const SLUGS = ["saathi", "partner", "pragati-mitra", "vikas-partner"];
+const ICONS = [Users, Handshake, Sprout, Store];
 
 const JNWays = () => {
+  const t = useT();
+  const dictItems = t("jn.ways.items");
+  const WAYS = dictItems.map((item, i) => ({ ...item, slug: SLUGS[i], icon: ICONS[i] }));
   const [open, setOpen] = useState(0);
   const [selected, setSelected] = useState(null);
 
@@ -93,7 +34,7 @@ const JNWays = () => {
     />
 
     <div className="relative max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="04" label="Ways to Join" dark />
+      <ChapterTag number="04" label={t("jn.ways.tag")} dark />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -102,8 +43,8 @@ const JNWays = () => {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.1] text-3xl sm:text-4xl lg:text-5xl text-[#D4AF37] max-w-3xl"
       >
-        Ways to Join the{" "}
-        <span className="italic text-[#E9C176]">Pavitra Movement</span>
+        {t("jn.ways.title1")}{" "}
+        <span className="italic text-[#E9C176]">{t("jn.ways.title2")}</span>
       </motion.h2>
 
       <div className="mt-14">
@@ -180,9 +121,9 @@ const JNWays = () => {
                         {way.desc}
                       </p>
                       <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 content-start">
-                        {way.points.map((point) => (
+                        {way.points.map((point, pi) => (
                           <li
-                            key={point}
+                            key={pi}
                             className="flex items-baseline gap-3 text-sm text-[#F4F1EA]/70"
                           >
                             <span className="text-[#D4AF37]" aria-hidden="true">

@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const PILLARS = [
-  "Clarity",
-  "Responsibility",
-  "Visible progress",
-  "Community trust",
-  "Long-term dignity",
-];
+const IMPTrust = () => {
+  const t = useT();
+  const PILLARS = t("imp.trust.pillars");
 
-const IMPTrust = () => (
+  return (
   <section
     id="trust"
     className="relative bg-gradient-to-b from-[#ECE4F6] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -17,7 +14,7 @@ const IMPTrust = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="02" label="Trust Must Be Visible" />
+      <ChapterTag number="02" label={t("imp.trust.tag")} />
 
       <div className="mt-12 grid lg:grid-cols-12 gap-14 lg:gap-16 items-start">
         <div className="lg:col-span-6">
@@ -28,7 +25,7 @@ const IMPTrust = () => (
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19]"
           >
-            Trust Must Be <span className="italic">Visible</span>
+            {t("imp.trust.title1")} <span className="italic">{t("imp.trust.title2")}</span>
           </motion.h2>
 
           <motion.div
@@ -39,14 +36,8 @@ const IMPTrust = () => (
             className="mt-6 space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-xl"
             data-testid="impact-trust-lead"
           >
-            <p>
-              Pavitra is built on the belief that good intention must be
-              supported by visible action.
-            </p>
-            <p>
-              People should not only hear about impact. They should be able to
-              see it, feel it, and take pride in it.
-            </p>
+            <p>{t("imp.trust.p1")}</p>
+            <p>{t("imp.trust.p2")}</p>
           </motion.div>
 
           <motion.div
@@ -72,13 +63,13 @@ const IMPTrust = () => (
             className="font-mono-x text-xs tracking-[0.25em] uppercase text-[#775A19]"
             data-testid="impact-approach-label"
           >
-            Pavitra&rsquo;s impact approach is based on:
+            {t("imp.trust.label")}
           </motion.p>
 
           <div className="mt-6">
             {PILLARS.map((pillar, i) => (
               <motion.div
-                key={pillar}
+                key={i}
                 initial={{ opacity: 0, x: -28 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -103,6 +94,7 @@ const IMPTrust = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default IMPTrust;

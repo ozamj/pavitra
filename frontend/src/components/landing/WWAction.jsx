@@ -1,26 +1,15 @@
 import { motion } from "framer-motion";
 import { Sparkles, HandHeart, Eye } from "lucide-react";
 import ChapterTag from "./ChapterTag";
+import { useT } from "@/i18n";
 
-const APPROACH = [
-  {
-    title: "Think Pure",
-    definition: "Every initiative begins with honest intention.",
-    icon: Sparkles,
-  },
-  {
-    title: "Act Responsible",
-    definition: "Every action must serve a larger purpose.",
-    icon: HandHeart,
-  },
-  {
-    title: "Build Visible",
-    definition: "Every effort should create trust and visible progress.",
-    icon: Eye,
-  },
-];
+const ICONS = [Sparkles, HandHeart, Eye];
 
-const WWAction = () => (
+const WWAction = () => {
+  const t = useT();
+  const APPROACH = t("ww.action.steps");
+
+  return (
   <section
     id="action"
     className="relative bg-gradient-to-b from-[#ECE4F6] to-[#FAF7F2] py-20 sm:py-28 lg:py-36 overflow-hidden"
@@ -28,7 +17,7 @@ const WWAction = () => (
   >
 
     <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <ChapterTag number="02" label="Pavitra in Action" />
+      <ChapterTag number="02" label={t("ww.action.tag")} />
 
       <motion.h2
         initial={{ opacity: 0, y: 32 }}
@@ -37,8 +26,8 @@ const WWAction = () => (
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="mt-12 font-display font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl lg:text-5xl text-[#775A19] max-w-3xl"
       >
-        Think Pure. Act Responsible.{" "}
-        <span className="italic">Build Visible.</span>
+        {t("ww.action.title1")}{" "}
+        <span className="italic">{t("ww.action.title2")}</span>
       </motion.h2>
 
       <motion.p
@@ -49,15 +38,15 @@ const WWAction = () => (
         className="mt-6 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl"
         data-testid="ww-action-lead"
       >
-        Pavitra follows a simple but powerful approach:
+        {t("ww.action.lead")}
       </motion.p>
 
       <div className="mt-14 grid sm:grid-cols-3 gap-6 lg:gap-8">
         {APPROACH.map((step, i) => {
-          const Icon = step.icon;
+          const Icon = ICONS[i];
           return (
             <motion.div
-              key={step.title}
+              key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-70px" }}
@@ -82,7 +71,7 @@ const WWAction = () => (
                 {step.title}
               </h3>
               <p className="mt-3 text-sm sm:text-base text-[#57534E] leading-relaxed">
-                {step.definition}
+                {step.def}
               </p>
             </motion.div>
           );
@@ -90,6 +79,7 @@ const WWAction = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default WWAction;

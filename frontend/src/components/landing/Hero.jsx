@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useT } from "@/i18n";
 
 const HERO_IMG =
   "https://images.unsplash.com/photo-1519955266818-0231b63402bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
@@ -19,6 +20,7 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
 );
 
 const Hero = () => {
+  const t = useT();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,18 +63,18 @@ const Hero = () => {
             className="flex items-center gap-4 mb-8"
           >
             <span className="font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]">
-              Our Sankalp · The Pavitra Manifesto
+              {t("os.hero.kicker")}
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold tracking-tight leading-[1.02] text-5xl sm:text-6xl lg:text-7xl text-[#775A19]">
-            <MaskedLine delay={0.35}>This is not just</MaskedLine>
-            <MaskedLine delay={0.47}>an organisation.</MaskedLine>
+            <MaskedLine delay={0.35}>{t("os.hero.l1")}</MaskedLine>
+            <MaskedLine delay={0.47}>{t("os.hero.l2")}</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#B08D1E]">This is a sankalp</span>
+              <span className="italic text-[#B08D1E]">{t("os.hero.l3")}</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#B08D1E]">for Bharat.</span>
+              <span className="italic text-[#B08D1E]">{t("os.hero.l4")}</span>
             </MaskedLine>
           </h1>
 
@@ -83,9 +85,7 @@ const Hero = () => {
             className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="hero-lead-paragraph"
           >
-            Pavitra was born from a pure thought — that Bharat&rsquo;s progress
-            can be strengthened through intention, responsibility,
-            participation, and visible action.
+            {t("os.hero.lead")}
           </motion.p>
 
           <motion.div
@@ -106,7 +106,7 @@ const Hero = () => {
               <span className="w-10 h-10 rounded-full border border-[#522B6A]/25 flex items-center justify-center group-hover:border-[#775A19] transition-colors duration-300">
                 <ArrowDown size={15} className="animate-bounce" />
               </span>
-              Read the manifesto
+              {t("os.hero.scroll")}
             </button>
           </motion.div>
         </motion.div>
@@ -130,7 +130,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                Intention · Responsibility · Action
+                {t("os.hero.caption")}
               </p>
             </div>
           </motion.div>

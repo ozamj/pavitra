@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useT } from "@/i18n";
 
-const HomeFounder = () => (
+const HomeFounder = () => {
+  const t = useT();
+
+  return (
   <section
     className="relative bg-[#FAF7F2] py-20 sm:py-28 overflow-hidden"
     data-testid="home-founder-section"
@@ -16,7 +20,7 @@ const HomeFounder = () => (
       >
         <span className="w-16 h-px bg-[#D4AF37]" aria-hidden="true" />
         <span className="font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#775A19]">
-          The Founder&rsquo;s Sankalp
+          {t("home.founder.label")}
         </span>
         <span className="w-16 h-px bg-[#D4AF37]" aria-hidden="true" />
       </motion.div>
@@ -54,23 +58,19 @@ const HomeFounder = () => (
           <div className="lg:col-span-8">
             <p className="flex items-center gap-4 font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#E9C176]">
               <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-              A Message From the Founder
+              {t("home.founder.eyebrow")}
             </p>
             <Quote size={34} className="mt-6 text-[#D4AF37] fill-[#D4AF37]/15" />
             <blockquote
               className="mt-4 font-caslon text-lg sm:text-xl lg:text-2xl leading-relaxed text-[#FDFBF7]"
               data-testid="home-founder-quote"
             >
-              &ldquo;Pavitra was created with a pure thought — that
-              Bharat&rsquo;s progress can be strengthened through purpose,
-              trust, and people&rsquo;s participation. We begin with a sankalp,
-              but our destination is a movement where every citizen can feel
-              connected to the upliftment of Bharat.&rdquo;
+              {t("home.founder.quote")}
             </blockquote>
             <p className="mt-6 flex items-center gap-4">
               <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
               <span className="font-caslon italic text-xl text-[#E9C176]">
-                Shri Jay Ukani
+                {t("home.founder.name")}
               </span>
             </p>
           </div>
@@ -78,6 +78,7 @@ const HomeFounder = () => (
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default HomeFounder;

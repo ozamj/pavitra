@@ -1,13 +1,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-const TAGS = [
-  ["Not beneficiaries", "Participants"],
-  ["Not charity", "Responsibility"],
-  ["Not dependency", "Swabhimaan"],
-];
+import { useT } from "@/i18n";
 
 const HomeDignity = () => {
+  const t = useT();
+  const TAGS = t("home.dignity.tags");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -39,7 +36,7 @@ const HomeDignity = () => {
           className="flex items-center justify-center gap-4 font-mono-x text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#E9C176]"
         >
           <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
-          Dignity, not dependency
+          {t("home.dignity.eyebrow")}
           <span className="w-10 h-px bg-[#D4AF37]" aria-hidden="true" />
         </motion.p>
 
@@ -51,9 +48,7 @@ const HomeDignity = () => {
           className="mt-8 font-caslon font-bold tracking-tight leading-[1.18] text-xl sm:text-2xl lg:text-4xl text-[#FDFBF7]"
           data-testid="home-dignity-headline"
         >
-          Pavitra does not believe in creating dependency. The mission is to
-          build systems where people participate, earn, contribute, and rise
-          with self-respect.
+          {t("home.dignity.headline")}
         </motion.h2>
 
         <motion.div
@@ -63,15 +58,15 @@ const HomeDignity = () => {
           transition={{ duration: 0.9, delay: 0.28 }}
           className="mt-10 flex flex-wrap justify-center gap-3 sm:gap-4"
         >
-          {TAGS.map(([from, to], i) => (
+          {TAGS.map((tag, i) => (
             <span
-              key={to}
+              key={i}
               className="inline-flex items-center gap-2.5 bg-[#FDFBF7]/10 backdrop-blur-md border border-[#FDFBF7]/20 rounded-full px-5 py-2.5 text-sm"
               data-testid={`dignity-tag-${i + 1}`}
             >
-              <span className="line-through text-[#FDFBF7]/55">{from}</span>
+              <span className="line-through text-[#FDFBF7]/55">{tag.from}</span>
               <span className="text-[#D4AF37]" aria-hidden="true">→</span>
-              <span className="font-semibold text-[#E9C176]">{to}</span>
+              <span className="font-semibold text-[#E9C176]">{tag.to}</span>
             </span>
           ))}
         </motion.div>

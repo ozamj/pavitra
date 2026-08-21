@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useT } from "@/i18n";
 
 const IMP_IMG =
   "https://images.unsplash.com/photo-1519955266818-0231b63402bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxpbmRpYSUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwc3VubGlnaHQlMjB1cGxpZnRtZW50JTIwbW92ZW1lbnR8ZW58MHx8fHwxNzg3MTQ0ODkwfDA&ixlib=rb-4.1.0&q=85";
@@ -19,6 +20,7 @@ const MaskedLine = ({ children, delay = 0, className = "" }) => (
 );
 
 const IMPHero = () => {
+  const t = useT();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,18 +63,18 @@ const IMPHero = () => {
             className="flex items-center gap-4 mb-8"
           >
             <span className="font-mono-x text-xs sm:text-sm tracking-[0.25em] uppercase text-[#522B6A]">
-              Impact · Seen, Felt, Remembered
+              {t("imp.hero.kicker")}
             </span>
           </motion.div>
 
           <h1 className="font-display font-bold tracking-tight leading-[1.04] text-5xl sm:text-6xl lg:text-7xl text-[#775A19]">
-            <MaskedLine delay={0.35}>Trust must</MaskedLine>
-            <MaskedLine delay={0.47}>be visible.</MaskedLine>
+            <MaskedLine delay={0.35}>{t("imp.hero.l1")}</MaskedLine>
+            <MaskedLine delay={0.47}>{t("imp.hero.l2")}</MaskedLine>
             <MaskedLine delay={0.59} className="mt-2">
-              <span className="italic text-[#B08D1E]">Progress must belong</span>
+              <span className="italic text-[#B08D1E]">{t("imp.hero.l3")}</span>
             </MaskedLine>
             <MaskedLine delay={0.71}>
-              <span className="italic text-[#B08D1E]">to people.</span>
+              <span className="italic text-[#B08D1E]">{t("imp.hero.l4")}</span>
             </MaskedLine>
           </h1>
 
@@ -83,9 +85,7 @@ const IMPHero = () => {
             className="mt-8 max-w-xl text-base sm:text-lg text-[#57534E] leading-relaxed"
             data-testid="impact-hero-lead"
           >
-            Pavitra believes that real impact should be seen, felt, and
-            remembered. Every initiative must carry clarity, responsibility,
-            and visible progress.
+            {t("imp.hero.lead")}
           </motion.p>
 
           <motion.div
@@ -106,7 +106,7 @@ const IMPHero = () => {
               <span className="w-10 h-10 rounded-full border border-[#522B6A]/25 flex items-center justify-center group-hover:border-[#775A19] transition-colors duration-300">
                 <ArrowDown size={15} className="animate-bounce" />
               </span>
-              See how impact works
+              {t("imp.hero.scroll")}
             </button>
           </motion.div>
         </motion.div>
@@ -130,7 +130,7 @@ const IMPHero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#180F2C]/55 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <p className="font-mono-x text-[10px] tracking-[0.25em] uppercase text-[#F4F1EA]/85">
-                Seen · Felt · Remembered
+                {t("imp.hero.caption")}
               </p>
             </div>
           </motion.div>
